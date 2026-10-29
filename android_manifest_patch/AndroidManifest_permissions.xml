@@ -1,0 +1,29 @@
+<!--
+  1) NOM AFFICHÉ DE L'APP :
+  Dans android/app/src/main/AndroidManifest.xml, sur la balise <application ...>,
+  changez l'attribut android:label en :
+
+      android:label="Macrographique"
+
+  2) PERMISSIONS :
+  A ajouter juste au-dessus de la balise <application ...> :
+-->
+
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+<!--
+  Si vous ciblez Android 13+ (API 33), image_picker gère déjà le nouveau
+  système de permissions photo, mais gardez WRITE/READ_EXTERNAL_STORAGE
+  pour la compatibilité avec les versions antérieures (android:maxSdkVersion="32").
+-->
+<uses-permission
+    android:name="android.permission.READ_EXTERNAL_STORAGE"
+    android:maxSdkVersion="32" />
+<uses-permission
+    android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    android:maxSdkVersion="32" />
+
+<!-- Nécessaire si votre appareil n'a pas de caméra physique mais que l'app doit rester installable -->
+<uses-feature android:name="android.hardware.camera" android:required="false" />

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tahaarrr.github.io/macrographique/sitemap.xml
+
