@@ -471,7 +471,7 @@ class _PvConfigDialogState extends State<PvConfigDialog>
               Icons.image_outlined, _config.showLogo,
               (v) => setState(() => _config = _config.copyWith(showLogo: v))),
           _item('En-tête Entreprise & Unité',
-              'Nom de la société (EPE ANABIB SPA) et nom de l\'unité (UNITE ALTUMET)',
+              'Nom de la société et nom de l\'unité / laboratoire',
               Icons.business_rounded, _config.showCompanyHeader,
               (v) => setState(() => _config = _config.copyWith(showCompanyHeader: v))),
           _item('Coordonnées & Lieu du Laboratoire',

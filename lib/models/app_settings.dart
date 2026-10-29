@@ -28,17 +28,17 @@ class AppSettings {
   String? get cachetPath => cachet1Path;
 
   const AppSettings({
-    this.companyName = 'EPE ANABIB SPA',
-    this.uniteName = 'UNITE ALTUMET',
-    this.labName = "LABORATOIRE D'ESSAIS MECANIQUES D'ALTUMET",
-    this.labAddress = "zone industrielle de Réghaia, route national N°5 - ALGER",
-    this.labLieu = 'ALTUMET',
-    this.docRef = 'E10-P.LAB.02',
+    this.companyName = 'LABORATOIRE DE MÉTALLURGIE & CND',
+    this.uniteName = 'DÉPARTEMENT CONTRÔLE QUALITÉ',
+    this.labName = "LABORATOIRE D'ESSAIS MÉCANIQUES & MACROGRAPHIE",
+    this.labAddress = "Zone Industrielle - Laboratoire Central",
+    this.labLieu = 'Laboratoire Central',
+    this.docRef = 'PV-MACRO-01',
     this.docVersion = '01',
-    this.docDate = '03/04/2024',
-    this.docRefInterne = 'E10-P.LAB.02',
+    this.docDate = '01/01/2026',
+    this.docRefInterne = 'PV-MACRO-01',
     this.docVersionInterne = '01',
-    this.docDateInterne = '03/04/2024',
+    this.docDateInterne = '01/01/2026',
     this.footNote1 =
         '1- Le responsable du laboratoire +le client ou représentant (tierce partie)  pour les essais de la production.',
     this.footNote2 =

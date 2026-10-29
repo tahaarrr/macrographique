@@ -675,8 +675,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             icon: Icons.business_rounded,
             iconColor: const Color(0xFF4F46E5),
             children: [
-              _field(_companyCtrl, 'Nom de l\'Entreprise / Société', hint: 'ex: EPE ANABIB SPA', icon: Icons.apartment_rounded),
-              _field(_uniteCtrl, 'Unité / Division', hint: 'ex: UNITE ALTUMET', icon: Icons.store_mall_directory_outlined),
+              _field(_companyCtrl, 'Nom de l\'Entreprise / Société', hint: 'ex: Laboratoire Métallurgie & CND', icon: Icons.apartment_rounded),
+              _field(_uniteCtrl, 'Unité / Division', hint: 'ex: Département Contrôle Qualité', icon: Icons.store_mall_directory_outlined),
             ],
           ),
 

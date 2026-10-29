@@ -299,7 +299,7 @@ class _AppSidebarState extends State<AppSidebar> {
               padding: const EdgeInsets.only(bottom: 12),
               child: Center(
                 child: Tooltip(
-                  message: 'Ing. AYATI Tahar — Laboratoire ALTUMET',
+                  message: 'Ing. AYATI Tahar — Welding Inspection',
                   child: Container(
                     width: 34,
                     height: 34,
@@ -364,7 +364,7 @@ class _AppSidebarState extends State<AppSidebar> {
                         ),
                         SizedBox(height: 1),
                         Text(
-                          'Labo ALTUMET',
+                          'Macrographie Inspection',
                           style: TextStyle(
                             color: Color(0xFF94A3B8),
                             fontSize: 9,
