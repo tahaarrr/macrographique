@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page non trouvée — Macrographique</title>
+  <script>
+    // GitHub Pages SPA redirect: redirect all 404s to index.html with path
+    const path = window.location.pathname;
+    if (path !== '/' && path !== '/index.html') {
+      window.location.replace('/' + '?redirect=' + encodeURIComponent(path));
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #0F172A;
+      color: white;
+      text-align: center;
+    }
+    .container { padding: 40px; }
+    h1 { font-size: 4rem; margin-bottom: 10px; background: linear-gradient(135deg, #14B8A6, #2563EB); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    p { color: rgba(255,255,255,0.6); font-size: 1.1rem; margin-bottom: 30px; }
+    a { display: inline-block; padding: 14px 28px; background: #0D9488; color: white; border-radius: 10px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+    a:hover { background: #14B8A6; transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>404</h1>
+    <p>Cette page n'existe pas. Retournez à l'accueil de Macrographique.</p>
+    <a href="/">⬅ Retour à l'accueil</a>
+  </div>
+</body>
+</html>
+
