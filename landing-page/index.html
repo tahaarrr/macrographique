@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Macrographique: Rapports d’Essai Métallurgiques</title>
-  <meta name="description" content="Macrographique: Solution logicielle pour l’analyse dimensionnelle, la capture macrographique et l’édition de procès-verbaux d’essais de soudures.">
+  <meta name="description" content="Solution logicielle pour l’analyse dimensionnelle et l’édition de procès-verbaux de soudures.">
   <meta name="keywords" content="macrographie, rapport essai, soudure, metallurgie, controle non destructif, CND, API 5L, ISO 15614">
   <meta name="author" content="Ayati Tahar">
   <meta name="robots" content="index, follow">
@@ -65,10 +65,11 @@
       </a>
       <ul class="nav-links">
         <li><a href="#inspection">Inspection</a></li>
-        <li><a href="#modele-pv">Modèle PV</a></li>
+        <li><a href="#modele-pv">Spécimen PV</a></li>
+        <li><a href="#etapes">Étapes PV</a></li>
         <li><a href="#etabli">Poste mesure</a></li>
         <li><a href="#embleme">Emblème</a></li>
-                <li><a href="#telecharger">Téléchargements</a></li>
+        <li><a href="#telecharger">Téléchargements</a></li>
         <li><a href="#auteur">Auteur</a></li>
       </ul>
       <div class="nav-actions">
@@ -81,7 +82,7 @@
   </nav>
 
   <main>
-    <!-- Hero Section with Counter Posture & Real Macro Specimen -->
+    <!-- Hero Section -->
     <section class="hero" id="inspection">
       <div class="container hero-layout">
         <div class="hero-text-block">
@@ -100,15 +101,15 @@
           <div class="stat-counter-bar">
             <div class="stat-item">
               <div class="figure">100<span class="unit">%</span></div>
-              <div class="label">Données en local (SQLite)</div>
+              <div class="label">Données locales SQLite</div>
             </div>
             <div class="stat-item">
               <div class="figure">0.0<span class="unit">s</span></div>
-              <div class="label">Latence cloud requise</div>
+              <div class="label">Dépendance cloud</div>
             </div>
             <div class="stat-item">
-              <div class="figure">5<span class="unit">plateformes</span></div>
-              <div class="label">Android, PC, Web, Mac, Linux</div>
+              <div class="figure">5<span class="unit">OS</span></div>
+              <div class="label">Multi-plateforme</div>
             </div>
           </div>
         </div>
@@ -138,19 +139,19 @@
           <div class="macro-hud-bar">
             <div class="macro-hud-cell">
               <div class="macro-hud-val accent">55,89%</div>
-              <div class="macro-hud-lbl">Pénétration EXT (6,15 mm)</div>
+              <div class="macro-hud-lbl">Pénétration EXT</div>
             </div>
             <div class="macro-hud-cell">
               <div class="macro-hud-val accent">64,11%</div>
-              <div class="macro-hud-lbl">Pénétration INT (7,05 mm)</div>
+              <div class="macro-hud-lbl">Pénétration INT</div>
             </div>
             <div class="macro-hud-cell">
               <div class="macro-hud-val">1,66 mm</div>
-              <div class="macro-hud-lbl">Désaxage M1 et M2</div>
+              <div class="macro-hud-lbl">Désaxage M1/M2</div>
             </div>
             <div class="macro-hud-cell">
               <div class="macro-hud-val">1,90 mm</div>
-              <div class="macro-hud-lbl">Interpénétration passes</div>
+              <div class="macro-hud-lbl">Interpénétration</div>
             </div>
           </div>
         </div>
@@ -161,7 +162,7 @@
     <section class="pv-report-section" id="modele-pv">
       <div class="container">
         <div class="section-head-simple">
-          <h2>Modèle officiel de procès-verbal</h2>
+          <h2>Spécimen officiel homologué</h2>
           <p>Conforme ISO 15614-1 et API 5L.</p>
         </div>
 
@@ -170,7 +171,7 @@
           <div class="pv-doc-frame ticked-frame">
             <img src="assets/pv_model_preview.png" alt="Spécimen officiel du rapport d’essai macrographique">
             <div class="pv-doc-meta">
-              <span>Spécimen officiel A4 portrait</span>
+              <span>Spécimen A4 certifié</span>
               <span>1 page stricte</span>
             </div>
             <div style="margin-top: 16px;">
@@ -183,29 +184,146 @@
           <!-- Right: Report Anatomy Ledger -->
           <div class="pv-anatomy-list">
             <div class="pv-anatomy-item ticked-frame">
-              <h3>Traçabilité intégrale de l’essai</h3>
-              <p>Numéro de PV unique, dates, client et référence laboratoire.</p>
+              <h3>Rapport certifié A4</h3>
+              <p>Édition vectorielle intégrant macrographies calibrées, cotes et visas officiels.</p>
             </div>
 
             <div class="pv-anatomy-item ticked-frame">
-              <h3>Métal de base et géométrie</h3>
-              <p>Nuance normée (API 5L PSL2), coulée, bobine et épaisseur mesurée.</p>
+              <h3>Archivage SQLite</h3>
+              <p>Historique complet des procès-verbaux stocké localement sans dépendance réseau.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5-Step Certified Report Workflow -->
+    <section class="workflow-section" id="etapes">
+      <div class="container">
+        <div class="section-head-simple">
+          <h2>Protocole d’édition en 5 étapes</h2>
+          <p>Workflow normé de la matière première aux signatures certifiées.</p>
+        </div>
+
+        <div class="workflow-stepper-wrap ticked-frame">
+          <!-- Top Step Switcher Bar -->
+          <div class="step-switcher-bar" role="tablist" aria-label="Étapes du rapport">
+            <button type="button" class="step-tab-btn active" role="tab" aria-selected="true" data-step="1">
+              <span class="step-num">01</span>
+              <span class="step-name">Identification</span>
+            </button>
+            <button type="button" class="step-tab-btn" role="tab" aria-selected="false" data-step="2">
+              <span class="step-num">02</span>
+              <span class="step-name">Soudage</span>
+            </button>
+            <button type="button" class="step-tab-btn" role="tab" aria-selected="false" data-step="3">
+              <span class="step-num">03</span>
+              <span class="step-name">Échantillons</span>
+            </button>
+            <button type="button" class="step-tab-btn" role="tab" aria-selected="false" data-step="4">
+              <span class="step-num">04</span>
+              <span class="step-name">Constat</span>
+            </button>
+            <button type="button" class="step-tab-btn" role="tab" aria-selected="false" data-step="5">
+              <span class="step-num">05</span>
+              <span class="step-name">Signatures</span>
+            </button>
+          </div>
+
+          <!-- Step Display Stage -->
+          <div class="workflow-stage">
+            <div class="step-panel" id="stepPanel1">
+              <div class="step-image-wrap">
+                <img src="assets/steps/step1_identification.png" alt="Étape 1 : Identification du procès-verbal" loading="lazy">
+              </div>
+              <div class="step-info-card">
+                <div class="step-tag-pill">Étape 01 · Traçabilité</div>
+                <h3>Identification et Nuances</h3>
+                <p>Numéro unique, dates, client et nuances d’acier (API 5L, ISO 15614-1).</p>
+                <div class="step-meta-chips">
+                  <span>API 5L</span>
+                  <span>ISO 15614</span>
+                  <span>SQLite</span>
+                </div>
+              </div>
             </div>
 
-            <div class="pv-anatomy-item ticked-frame">
-              <h3>Paramètres de soudage SAWH</h3>
-              <p>WPS, PQR, ampérage, tension, vitesse d’avance et lot flux.</p>
+            <div class="step-panel hidden" id="stepPanel2">
+              <div class="step-image-wrap">
+                <img src="assets/steps/step2_soudage.png" alt="Étape 2 : Paramètres de soudage" loading="lazy">
+              </div>
+              <div class="step-info-card">
+                <div class="step-tag-pill">Étape 02 · Procédé</div>
+                <h3>Paramètres Opératoires</h3>
+                <p>Grandeurs opératoires : ampérage, tensions interne/externe, vitesses et cahiers WPS.</p>
+                <div class="step-meta-chips">
+                  <span>Contrôle U/I</span>
+                  <span>Fils & flux</span>
+                  <span>WPS</span>
+                </div>
+              </div>
             </div>
 
-            <div class="pv-anatomy-item ticked-frame">
-              <h3>Cliché macrographique calibré</h3>
-              <p>Insertion photo haute définition, cotations vectorielles et grossissement calculé.</p>
+            <div class="step-panel hidden" id="stepPanel3">
+              <div class="step-image-wrap">
+                <img src="assets/steps/step3_echantillons.png" alt="Étape 3 : Échantillons métallurgiques" loading="lazy">
+              </div>
+              <div class="step-info-card">
+                <div class="step-tag-pill">Étape 03 · Métrologie</div>
+                <h3>Échantillons et Cliché Macro</h3>
+                <p>Clichés nital, étalonnage micrométrique et traçage direct des pénétrations.</p>
+                <div class="step-meta-chips">
+                  <span>Grossissement</span>
+                  <span>Cotation</span>
+                  <span>Coulée</span>
+                </div>
+              </div>
             </div>
 
-            <div class="pv-anatomy-item ticked-frame">
-              <h3>Métrologie et 4 signatures</h3>
-              <p>Surépaisseurs, pénétrations, désaxage et registre d’approbations officielles.</p>
+            <div class="step-panel hidden" id="stepPanel4">
+              <div class="step-image-wrap">
+                <img src="assets/steps/step4_constat.png" alt="Étape 4 : Constat macrographique" loading="lazy">
+              </div>
+              <div class="step-info-card">
+                <div class="step-tag-pill">Étape 04 · Jugement</div>
+                <h3>Constat Métallurgique</h3>
+                <p>Formulations normées : intégrité ZTA, interpénétration et fusion complète.</p>
+                <div class="step-meta-chips">
+                  <span>Presets normés</span>
+                  <span>Contrôle</span>
+                  <span>Jugement</span>
+                </div>
+              </div>
             </div>
+
+            <div class="step-panel hidden" id="stepPanel5">
+              <div class="step-image-wrap">
+                <img src="assets/steps/step5_signatures.png" alt="Étape 5 : Signatures certifiées" loading="lazy">
+              </div>
+              <div class="step-info-card">
+                <div class="step-tag-pill">Étape 05 · Validation</div>
+                <h3>Signatures Certifiées</h3>
+                <p>Tableau à 4 colonnes : laboratoire, tiers partie, client et autorité.</p>
+                <div class="step-meta-chips">
+                  <span>4 Signataires</span>
+                  <span>Approbation</span>
+                  <span>Verrouillé</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stepper Bottom Controls -->
+          <div class="workflow-footer-nav">
+            <button type="button" class="btn-secondary" id="btnPrevStep" aria-label="Étape précédente">
+              Précédent
+            </button>
+            <div class="step-counter-text" id="stepCounterText">
+              Étape 1 sur 5
+            </div>
+            <button type="button" class="btn-secondary" id="btnNextStep" aria-label="Étape suivante">
+              Suivant
+            </button>
           </div>
         </div>
       </div>
@@ -225,23 +343,19 @@
 
         <div class="comparison-grid" style="margin-top: 32px;">
           <div class="comp-panel ticked-frame">
-            <h3>Étalonnage optique immédiat</h3>
-            <p>
-              Calcul automatique du ratio pixel par millimètre pour une justesse garantie au centième.
-            </p>
+            <h3>Étalonnage optique</h3>
+            <p>Calcul du ratio pixel/millimètre au centième.</p>
           </div>
 
           <div class="comp-panel ticked-frame active-state">
-            <h3>Transfert direct sur le PV</h3>
-            <p>
-              Les cotes et clichés vectorisés sont injectés directement dans le rapport officiel.
-            </p>
+            <h3>Transfert direct</h3>
+            <p>Injection immédiate des cotes sur le PV officiel.</p>
           </div>
         </div>
       </div>
     </section>
 
-<!-- Visual Identity & Emblem -->
+    <!-- Visual Identity & Emblem -->
     <section class="emblem-section" id="embleme">
       <div class="container">
         <div class="section-head-simple">
@@ -257,7 +371,7 @@
           <div class="emblem-specs-list">
             <div class="emblem-spec-card ticked-frame">
               <h3>Double cordon sous flux (SAW)</h3>
-              <p>Géométrie exacte de la passe supérieure externe en cyan et inférieure en ambre.</p>
+              <p>Géométrie exacte des passes externe en cyan et interne en ambre.</p>
             </div>
 
             <div class="emblem-spec-card ticked-frame">
@@ -274,7 +388,7 @@
       </div>
     </section>
 
-<!-- Downloads Section -->
+    <!-- Downloads Section -->
     <section class="downloads-section" id="telecharger">
       <div class="container">
         <div class="section-head-simple">
@@ -287,11 +401,11 @@
           <div class="platform-card ticked-frame">
             <div>
               <h3>Android</h3>
-              <p>Paquet APK optimisé pour tablettes d’inspection et smartphones de contrôle.</p>
+              <p>Paquet APK pour tablettes d’inspection et smartphones de contrôle.</p>
             </div>
             <div>
               <a href="downloads/Macrographique.apk" download class="btn-primary" style="width: 100%; justify-content: center;">
-                Télécharger l’APK
+                Télécharger APK
               </a>
               <div class="foot-meta">Macrographique.apk (28 Mo)</div>
             </div>
@@ -301,13 +415,13 @@
           <div class="platform-card ticked-frame">
             <div>
               <h3>Windows 64 bits</h3>
-              <p>Installeur autonome pour postes de laboratoire sous Windows 10 et 11.</p>
+              <p>Installeur autonome pour postes sous Windows 10 et 11.</p>
             </div>
             <div>
               <a href="downloads/Macrographique-Setup.exe" download class="btn-primary" style="width: 100%; justify-content: center;">
-                Télécharger Setup.exe
+                Télécharger Setup
               </a>
-              <div class="foot-meta">Macrographique-Setup.exe (17 Mo)</div>
+              <div class="foot-meta">Setup.exe (17 Mo)</div>
             </div>
           </div>
 
@@ -315,7 +429,7 @@
           <div class="platform-card ticked-frame">
             <div>
               <h3>Accès Web Direct</h3>
-              <p>Utilisable en plein écran sur n’importe quel navigateur Chrome, Edge ou Firefox.</p>
+              <p>Utilisable en plein écran sur Chrome, Edge ou Firefox.</p>
             </div>
             <div>
               <a href="app/index.html" target="_blank" class="btn-secondary" style="width: 100%; justify-content: center;">
@@ -324,7 +438,7 @@
               <div class="foot-meta">Zéro installation requise</div>
             </div>
           </div>
-</div>
+        </div>
       </div>
     </section>
 
@@ -346,10 +460,10 @@
         <div class="ticked-frame author-details-box">
           <div class="section-label">Domaine d’expertise</div>
           <ul>
-            <li>Analyse de structures macrographiques et CND</li>
-            <li>Homologation de modes opératoires de soudage</li>
-            <li>Métallurgie des aciers à haute limite élastique</li>
-            <li>Développement d’instruments logiciels d’ingénierie</li>
+            <li>Analyse macrographique et CND</li>
+            <li>Homologation modes opératoires (WPS)</li>
+            <li>Métallurgie des aciers soudés</li>
+            <li>Instrumentation logicielle</li>
           </ul>
         </div>
       </div>
@@ -368,7 +482,7 @@
     </div>
   </footer>
 
-  <!-- Scripts: Theme Toggle & Macro Viewer Switcher -->
+  <!-- Scripts: Theme Toggle, Macro Viewer Switcher & 5-Step Workflow -->
   <script>
     (function () {
       // Theme Toggle (dataset.mode)
@@ -415,6 +529,63 @@
           btnTrace.classList.remove('active');
           imgRaw.classList.remove('hidden');
           imgTrace.classList.add('hidden');
+        });
+      }
+
+      // Workflow 5 Steps Switcher
+      var stepTabs = document.querySelectorAll('.step-tab-btn');
+      var stepPanels = document.querySelectorAll('.step-panel');
+      var btnPrevStep = document.getElementById('btnPrevStep');
+      var btnNextStep = document.getElementById('btnNextStep');
+      var stepCounterText = document.getElementById('stepCounterText');
+      var currentStep = 1;
+      var totalSteps = 5;
+
+      function goToStep(step) {
+        if (step < 1) step = totalSteps;
+        if (step > totalSteps) step = 1;
+        currentStep = step;
+
+        stepTabs.forEach(function (tab) {
+          var s = parseInt(tab.getAttribute('data-step'), 10);
+          if (s === currentStep) {
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+          } else {
+            tab.classList.remove('active');
+            tab.setAttribute('aria-selected', 'false');
+          }
+        });
+
+        stepPanels.forEach(function (panel, idx) {
+          if (idx + 1 === currentStep) {
+            panel.classList.remove('hidden');
+          } else {
+            panel.classList.add('hidden');
+          }
+        });
+
+        if (stepCounterText) {
+          stepCounterText.textContent = 'Étape ' + currentStep + ' sur ' + totalSteps;
+        }
+      }
+
+      stepTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var step = parseInt(tab.getAttribute('data-step'), 10);
+          goToStep(step);
+        });
+      });
+
+      if (btnPrevStep) {
+        btnPrevStep.addEventListener('click', function () {
+          goToStep(currentStep - 1);
+        });
+      }
+
+      if (btnNextStep) {
+        btnNextStep.addEventListener('click', function () {
+          goToStep(currentStep + 1);
         });
       }
     })();
