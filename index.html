@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Macrographique — Solution Numérique d'Essais Macrographiques | Ayati Tahar</title>
-  <meta name="description" content="Macrographique : Solution logicielle d'ingénierie (Mobile, Bureau, Web) pour la gestion, l'analyse et l'édition de procès-verbaux d'essais macrographiques en laboratoire métallurgique. Conçu par Ayati Tahar, Ingénieur & Chercheur en Génie des Matériaux.">
-  <meta name="keywords" content="macrographique, rapport d'essai, examen macrographique, métallurgie, contrôle non destructif, CND, soudage, génie des matériaux, Ayati Tahar, laboratoire métallurgie, tube acier, conformité ISO, API 5L">
+  <title>Macrographique: Rapports d’Essai Métallurgiques</title>
+  <meta name="description" content="Macrographique: Solution logicielle pour l’analyse dimensionnelle, la capture micrographique et l’édition de procès-verbaux d’essais de soudures.">
+  <meta name="keywords" content="macrographie, rapport essai, soudure, metallurgie, controle non destructif, CND, API 5L, ISO 15614">
   <meta name="author" content="Ayati Tahar">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tahaarrr.github.io/macrographique/">
@@ -13,11 +13,10 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tahaarrr.github.io/macrographique/">
-  <meta property="og:title" content="Macrographique — Rapports d'Essai Macrographiques Métallurgiques">
-  <meta property="og:description" content="Solution professionnelle conçue pour les ingénieurs métallurgistes et inspecteurs qualité. Disponible en APK Android, Exécutable Windows et Web App interactive.">
-  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Macrographique: Inspection Métallurgique">
+  <meta property="og:description" content="Outil technique pour laboratoires d’essais mécaniques et inspecteurs industriels.">
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -25,1004 +24,354 @@
     "name": "Macrographique",
     "operatingSystem": "Android, Windows, Web Browser, macOS, Linux",
     "applicationCategory": "EngineeringApplication",
-    "description": "Application scientifique et industrielle pour le suivi, la prise de cote et l'édition de rapports d'essais macrographiques de soudures selon les normes industrielles.",
+    "description": "Application pour le contrôle, la prise de mesures et l’édition de rapports d’essais macrographiques.",
     "softwareVersion": "1.2.2",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
     "author": {
       "@type": "Person",
       "name": "Ayati Tahar",
-      "jobTitle": "Ingénieur & Chercheur en Génie des Matériaux",
-      "sameAs": [
-        "https://www.linkedin.com/in/ayati-tahar",
-        "https://github.com/ayati-tahar"
-      ]
+      "jobTitle": "Ingénieur & Chercheur en Génie des Matériaux"
     }
   }
   </script>
 
-  <!-- Polices Google -->
+  <!-- Typography: Geologica (Google Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@200;300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg-dark: #090D16;
-      --bg-card-dark: #111726;
-      --navy: #0F172A;
-      --navy-light: #1E293B;
-      --teal: #0D9488;
-      --teal-light: #14B8A6;
-      --teal-glow: rgba(13, 148, 136, 0.25);
-      --blue: #2563EB;
-      --blue-glow: rgba(37, 99, 235, 0.2);
-      --slate-50: #F8FAFC;
-      --slate-100: #F1F5F9;
-      --slate-200: #E2E8F0;
-      --slate-400: #94A3B8;
-      --slate-600: #475569;
-      --slate-900: #0F172A;
-      --radius: 12px;
-      --radius-lg: 20px;
-      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    body {
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      color: var(--slate-900);
-      background-color: var(--slate-50);
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: 'Space Grotesk', sans-serif;
-      letter-spacing: -0.025em;
-      line-height: 1.2;
-    }
-
-    a { text-decoration: none; color: inherit; }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* ── BARRE DE NAVIGATION ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      padding: 18px 0;
-      transition: var(--transition);
-      background: rgba(9, 13, 22, 0.85);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    nav .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      font-size: 1.15rem;
-      color: #FFF;
-    }
-    .brand-icon {
-      width: 36px; height: 36px;
-      background: linear-gradient(135deg, var(--teal), var(--blue));
-      border-radius: 9px;
-      display: grid;
-      place-items: center;
-      color: white;
-      font-weight: 800;
-    }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      color: var(--slate-400);
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: var(--transition);
-    }
-    .nav-links a:hover {
-      color: #FFF;
-    }
-    .nav-btn {
-      padding: 9px 18px;
-      border-radius: 8px;
-      background: var(--teal);
-      color: #FFF;
-      font-weight: 600;
-      font-size: 0.88rem;
-      transition: var(--transition);
-    }
-    .nav-btn:hover {
-      background: var(--teal-light);
-      box-shadow: 0 0 20px var(--teal-glow);
-    }
-
-    /* ── HERO SECTION AVEC ANIMATION CANVAS & MOCKUP ── */
-    .hero {
-      position: relative;
-      background: var(--bg-dark);
-      color: #FFF;
-      padding: 160px 0 100px 0;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -20%; right: -10%;
-      width: 650px; height: 650px;
-      background: radial-gradient(circle, var(--teal-glow) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -15%; left: -10%;
-      width: 550px; height: 550px;
-      background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 48px;
-      align-items: center;
-      position: relative;
-      z-index: 2;
-    }
-    .badge-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      background: rgba(13, 148, 136, 0.15);
-      border: 1px solid rgba(13, 148, 136, 0.35);
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--teal-light);
-      margin-bottom: 24px;
-    }
-    .badge-pill .pulse-dot {
-      width: 7px; height: 7px;
-      background: var(--teal-light);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--teal-light);
-    }
-    .hero h1 {
-      font-size: clamp(2.3rem, 4.5vw, 3.6rem);
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-    .hero h1 span.gradient-text {
-      background: linear-gradient(135deg, #FFF 30%, var(--teal-light) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero p.lead {
-      font-size: 1.1rem;
-      color: var(--slate-400);
-      line-height: 1.7;
-      margin-bottom: 36px;
-      max-width: 540px;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 48px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 13px 26px;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: var(--transition);
-      cursor: pointer;
-    }
-    .btn-primary {
-      background: var(--teal);
-      color: #FFF;
-    }
-    .btn-primary:hover {
-      background: var(--teal-light);
-      box-shadow: 0 8px 24px var(--teal-glow);
-      transform: translateY(-2px);
-    }
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.08);
-      color: #FFF;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: translateY(-2px);
-    }
-    .hero-stats {
-      display: flex;
-      gap: 36px;
-      padding-top: 28px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .hero-stat strong {
-      display: block;
-      font-size: 1.5rem;
-      font-family: 'Space Grotesk', sans-serif;
-      color: #FFF;
-    }
-    .hero-stat span {
-      font-size: 0.82rem;
-      color: var(--slate-400);
-    }
-
-    /* ── CADRE INTERACTIF DIRECT WEB APP (MOCKUP LIVE) ── */
-    .app-preview-card {
-      position: relative;
-      background: var(--bg-card-dark);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 40px var(--teal-glow);
-      overflow: hidden;
-    }
-    .app-preview-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 18px;
-      background: #0B101C;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-    .app-preview-dots {
-      display: flex;
-      gap: 6px;
-    }
-    .app-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .dot-red { background: #EF4444; }
-    .dot-yellow { background: #F59E0B; }
-    .dot-green { background: #10B981; }
-    .app-preview-title {
-      font-size: 0.78rem;
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--slate-400);
-    }
-    .app-iframe-wrap {
-      width: 100%;
-      height: 440px;
-      position: relative;
-      background: #FFF;
-    }
-    .app-iframe-wrap iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    .live-tag {
-      position: absolute;
-      top: 12px; right: 12px;
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #FFF;
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      z-index: 10;
-    }
-    .live-tag .dot {
-      width: 6px; height: 6px;
-      background: #10B981;
-      border-radius: 50%;
-      animation: pulse 1.8s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
-    }
-
-    /* ── SECTION FONCTIONNALITÉS ── */
-    .section {
-      padding: 90px 0;
-    }
-    .section-title {
-      text-align: center;
-      max-width: 680px;
-      margin: 0 auto 56px auto;
-    }
-    .section-title span.sub {
-      color: var(--teal);
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      display: inline-block;
-      margin-bottom: 8px;
-    }
-    .section-title h2 {
-      font-size: 2.2rem;
-      margin-bottom: 14px;
-      color: var(--slate-900);
-    }
-    .section-title p {
-      color: var(--slate-600);
-      font-size: 1.02rem;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .feature-box {
-      background: #FFF;
-      border-radius: var(--radius);
-      padding: 32px 28px;
-      border: 1px solid var(--slate-200);
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
-      transition: var(--transition);
-      position: relative;
-    }
-    .feature-box:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
-      border-color: var(--teal-light);
-    }
-    .feat-icon-wrap {
-      width: 48px; height: 48px;
-      border-radius: 12px;
-      background: rgba(13, 148, 136, 0.1);
-      color: var(--teal);
-      display: grid;
-      place-items: center;
-      margin-bottom: 20px;
-    }
-    .feature-box h3 {
-      font-size: 1.15rem;
-      margin-bottom: 10px;
-      color: var(--slate-900);
-    }
-    .feature-box p {
-      font-size: 0.9rem;
-      color: var(--slate-600);
-      line-height: 1.6;
-    }
-
-    /* ── ZONE TÉLÉCHARGEMENT DIRECT ── */
-    .dl-section {
-      background: var(--bg-dark);
-      color: #FFF;
-      border-radius: 28px;
-      padding: 64px 48px;
-      margin: 40px auto;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      position: relative;
-      overflow: hidden;
-    }
-    .dl-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 40px;
-    }
-    .dl-item {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 32px 24px;
-      text-align: center;
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .dl-item:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--teal);
-      transform: translateY(-4px);
-    }
-    .dl-icon {
-      width: 60px; height: 60px;
-      margin: 0 auto 18px auto;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      font-size: 1.8rem;
-    }
-    .dl-item h3 {
-      font-size: 1.2rem;
-      margin-bottom: 6px;
-    }
-    .dl-item p.desc {
-      font-size: 0.85rem;
-      color: var(--slate-400);
-      margin-bottom: 20px;
-      min-height: 40px;
-    }
-    .dl-item .btn {
-      width: 100%;
-      justify-content: center;
-    }
-    .file-meta {
-      font-size: 0.75rem;
-      color: var(--slate-400);
-      margin-top: 10px;
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* ── SECTION DÉMO VIDÉO & TUTORIEL ── */
-    .video-showcase {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-      background: #FFF;
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-lg);
-      padding: 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-    }
-    .video-player-container {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      background: #000;
-      aspect-ratio: 16/9;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    }
-    .video-player-container video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .video-desc h3 {
-      font-size: 1.6rem;
-      margin-bottom: 14px;
-    }
-    .video-desc p {
-      color: var(--slate-600);
-      font-size: 0.95rem;
-      margin-bottom: 20px;
-      line-height: 1.7;
-    }
-    .video-steps {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .video-steps li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.9rem;
-      color: var(--slate-600);
-    }
-    .step-badge {
-      width: 22px; height: 22px;
-      background: rgba(13, 148, 136, 0.15);
-      color: var(--teal);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 0.75rem;
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    /* ── PROFIL CHERCHEUR / AYATI TAHAR ── */
-    .author-section {
-      background: var(--bg-dark);
-      color: #FFF;
-      border-radius: 28px;
-      padding: 60px;
-      margin-bottom: 60px;
-      position: relative;
-    }
-    .author-grid {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-    .author-photo {
-      width: 180px; height: 180px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, var(--teal), var(--blue));
-      display: grid;
-      place-items: center;
-      font-size: 3.5rem;
-      font-weight: 800;
-      font-family: 'Space Grotesk', sans-serif;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
-      border: 2px solid rgba(255, 255, 255, 0.15);
-    }
-    .author-details h3 {
-      font-size: 2rem;
-      margin-bottom: 6px;
-    }
-    .author-details .title-sub {
-      color: var(--teal-light);
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-    .author-details p {
-      color: var(--slate-400);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      margin-bottom: 24px;
-      max-width: 680px;
-    }
-    .tags-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 24px;
-    }
-    .tag-item {
-      padding: 5px 14px;
-      border-radius: 50px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 0.78rem;
-      color: var(--slate-200);
-    }
-    .author-links {
-      display: flex;
-      gap: 14px;
-    }
-    .link-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 18px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 8px;
-      font-size: 0.85rem;
-      color: #FFF;
-      transition: var(--transition);
-    }
-    .link-pill:hover {
-      background: var(--teal);
-      border-color: var(--teal);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #060910;
-      color: var(--slate-400);
-      padding: 40px 0 24px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      font-size: 0.85rem;
-    }
-    footer .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    @media (max-width: 960px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .app-iframe-wrap { height: 380px; }
-      .features-grid { grid-template-columns: 1fr; }
-      .dl-grid { grid-template-columns: 1fr; }
-      .video-showcase { grid-template-columns: 1fr; }
-      .author-grid { grid-template-columns: 1fr; text-align: center; }
-      .author-photo { margin: 0 auto; }
-      .tags-cloud, .author-links { justify-content: center; }
-      .nav-links { display: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="tokens.css">
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <div class="container">
+  <!-- Masthead Navigation -->
+  <nav class="masthead">
+    <div class="container masthead-inner">
       <a href="#" class="brand">
-        <div class="brand-icon">M</div>
+        <div class="brand-glyph"></div>
         <span>Macrographique</span>
       </a>
       <ul class="nav-links">
-        <li><a href="#demo">Démo en direct</a></li>
-        <li><a href="#fonctionnalites">Fonctionnalités</a></li>
-        <li><a href="#telecharger">Téléchargements</a></li>
-        <li><a href="#tutoriel">Tutoriel</a></li>
-        <li><a href="#auteur">Auteur & Recherche</a></li>
+        <li><a href="#apercu">Inspection</a></li>
+        <li><a href="#fonctionnalites">Mesures</a></li>
+        <li><a href="#simulateur">Console web</a></li>
+        <li><a href="#telecharger">Exécutables</a></li>
+        <li><a href="#auteur">Auteur</a></li>
       </ul>
-      <a href="#telecharger" class="nav-btn">Télécharger</a>
+      <a href="#telecharger" class="btn-primary">Télécharger v1.2.2</a>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div class="hero-content">
-          <div class="badge-pill">
-            <span class="pulse-dot"></span>
-            Version 1.2.2 Disponible — Libre & Hors-ligne
-          </div>
-          <h1>
-            L'excellence du rapport macrographique, <br>
-            <span class="gradient-text">sans compromis.</span>
+  <main>
+    <!-- Hero Section with Counter Posture -->
+    <section class="hero">
+      <div class="container hero-layout">
+        <div class="hero-text-block">
+          <h1 class="hero-headline">
+            La rigueur du procès-verbal macrographique.
           </h1>
-          <p class="lead">
-            Conçu pour les laboratoires d'essais mécaniques et les ingénieurs métallurgistes.
-            Générez des procès-verbaux de macrographie 100% conformes, avec mesures d'éprouvettes et traçabilité immédiate.
+          <p class="hero-sentence">
+            Traçabilité des soudures et calculs dimensionnels immédiats pour laboratoires d’essais mécaniques.
           </p>
           <div class="hero-actions">
-            <a href="#telecharger" class="btn btn-primary">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Télécharger l'Application
-            </a>
-            <a href="#demo" class="btn btn-secondary">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              Essayer en ligne (Web)
-            </a>
+            <a href="#telecharger" class="btn-primary">Télécharger l’outil</a>
+            <a href="#simulateur" class="btn-secondary">Tester en ligne</a>
           </div>
-          <div class="hero-stats">
-            <div class="hero-stat">
-              <strong>Multi-Support</strong>
-              <span>Android &bull; Windows &bull; Web</span>
+
+          <!-- Counter posture statistics -->
+          <div class="stat-counter-bar">
+            <div class="stat-item">
+              <div class="figure">100<span class="unit">%</span></div>
+              <div class="label">Données en local (SQLite)</div>
             </div>
-            <div class="hero-stat">
-              <strong>Zéro Cloud</strong>
-              <span>100% Données Locales SQLite</span>
+            <div class="stat-item">
+              <div class="figure">0.0<span class="unit">s</span></div>
+              <div class="label">Latence cloud requise</div>
             </div>
-            <div class="hero-stat">
-              <strong>PDF Conforme</strong>
-              <span>Édition instantanée</span>
+            <div class="stat-item">
+              <div class="figure">5<span class="unit">plateformes</span></div>
+              <div class="label">Android, PC, Web, Mac, Linux</div>
             </div>
           </div>
         </div>
 
-        <!-- APPLICATION LIVE IFRAME DIRECTEMENT DANS LE MOCKUP -->
-        <div class="hero-visual" id="demo">
-          <div class="app-preview-card">
-            <div class="app-preview-header">
-              <div class="app-preview-dots">
-                <span class="app-dot dot-red"></span>
-                <span class="app-dot dot-yellow"></span>
-                <span class="app-dot dot-green"></span>
-              </div>
-              <div class="app-preview-title">macrographique.web.app — Essai interactif</div>
+        <!-- Right Side: Live Point-Cloud & Reticle Viewport -->
+        <div class="cloud-viewport ticked-frame" id="apercu">
+          <div class="telemetry-tag">
+            Réticule d’inspection: <span class="live">actif</span><br>
+            Normes: ISO 15614, API 5L
+          </div>
+          <canvas id="vantageCanvas" width="560" height="420" aria-label="Visualisation instrumentale de coupe métallurgique"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Before & After Comparison (Section Cut) -->
+    <section class="section-cut">
+      <div class="container">
+        <div class="section-head-simple">
+          <h2>Rupture avec les processus papier et tableurs</h2>
+          <p>Un flux de travail direct éliminant les risques de ressaisie en laboratoire.</p>
+        </div>
+
+        <div class="comparison-grid">
+          <div class="comp-panel ticked-frame">
+            <h3>Saisie manuelle sur feuilles volantes</h3>
+            <p>
+              Prise de notes manuelles sur chantier, transfert différé sur tableur, assemblage artisanal des photos et risque de divergence entre éprouvettes et procès-verbaux.
+            </p>
+          </div>
+
+          <div class="comp-panel ticked-frame active-state">
+            <h3>Génération normée dès la fin d’attaque</h3>
+            <p>
+              Cliché photographique lié à l’éprouvette, calculs des surépaisseurs et largeurs de cordons intégrés, et signature de conformité immédiate sans quitter l’interface.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features as Named Moments (Ledger Layout) -->
+    <section class="features-section" id="fonctionnalites">
+      <div class="container">
+        <div class="section-head-simple">
+          <h2>Précision instrumentale et traçabilité</h2>
+          <p>Chaque paramètre répond aux obligations d’audit qualité et d’inspection tierce partie.</p>
+        </div>
+
+        <div class="features-ledger">
+          <div class="ledger-row">
+            <h3>Paramètres de soudage</h3>
+            <p>Gestion précise du WPS et PQR, intensité d’arc, tension, vitesse d’avance et combinaison fil avec flux pour chaque passe.</p>
+            <div class="spec">Normes API 5L, ISO</div>
+          </div>
+
+          <div class="ledger-row">
+            <h3>Analyse dimensionnelle</h3>
+            <p>Prise de cotes de pénétration interne et externe, largeur de cordon, désaxage et interpénétration au dixième de millimètre.</p>
+            <div class="spec">Précision 0,01 mm</div>
+          </div>
+
+          <div class="ledger-row">
+            <h3>Archivage local SQLite</h3>
+            <p>Isolation totale des données de vos clients et projets. Aucune connexion externe requise ni stockage tiers imposé.</p>
+            <div class="spec">Sécurité garantie</div>
+          </div>
+
+          <div class="ledger-row">
+            <h3>Procès-verbal PDF certifié</h3>
+            <p>Édition instantanée du document officiel avec en-tête personnalisable, grille de clichés microscopiques et registre de signatures.</p>
+            <div class="spec">Export vectoriel</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Direct Web Console (Live Embedded App) -->
+    <section class="live-sandbox-section" id="simulateur">
+      <div class="container">
+        <div class="section-head-simple">
+          <h2>Console interactive directe</h2>
+          <p>L’application Flutter Web tourne directement dans ce cadre pour tester le flux sans installation préalable.</p>
+        </div>
+
+        <div class="sandbox-frame ticked-frame">
+          <iframe src="app/index.html" title="Console interactive Macrographique"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Downloads Section (Platform Cards) -->
+    <section class="downloads-section" id="telecharger">
+      <div class="container">
+        <div class="section-head-simple">
+          <h2>Distributions officielles disponibles</h2>
+          <p>Fichiers exécutables complets et autonomes, sans dépendances externes.</p>
+        </div>
+
+        <div class="platforms-grid">
+          <!-- Android -->
+          <div class="platform-card ticked-frame">
+            <div>
+              <h3>Android</h3>
+              <p>Paquet APK optimisé pour les tablettes d’inspection et smartphones de contrôle.</p>
             </div>
-            <div class="app-iframe-wrap">
-              <div class="live-tag"><span class="dot"></span> Session Web Interactive</div>
-              <iframe src="app/index.html" title="Démonstration directe Macrographique Flutter Web"></iframe>
+            <div>
+              <a href="downloads/Macrographique.apk" download class="btn-primary" style="width: 100%; justify-content: center;">
+                Télécharger l’APK
+              </a>
+              <div class="foot-meta">Macrographique.apk (28 Mo)</div>
+            </div>
+          </div>
+
+          <!-- Windows -->
+          <div class="platform-card ticked-frame">
+            <div>
+              <h3>Windows 64 bits</h3>
+              <p>Installeur autonome pour postes de laboratoire sous Windows 10 et 11.</p>
+            </div>
+            <div>
+              <a href="downloads/Macrographique-Setup.exe" download class="btn-primary" style="width: 100%; justify-content: center;">
+                Télécharger Setup.exe
+              </a>
+              <div class="foot-meta">Macrographique-Setup.exe (17 Mo)</div>
+            </div>
+          </div>
+
+          <!-- Web Standalone -->
+          <div class="platform-card ticked-frame">
+            <div>
+              <h3>Accès Web Direct</h3>
+              <p>Utilisable en plein écran sur n’importe quel navigateur Chrome, Edge ou Firefox.</p>
+            </div>
+            <div>
+              <a href="app/index.html" target="_blank" class="btn-secondary" style="width: 100%; justify-content: center;">
+                Ouvrir plein écran
+              </a>
+              <div class="foot-meta">Zéro installation requise</div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <!-- FONCTIONNALITÉS CLÉS -->
-  <section class="section" id="fonctionnalites">
-    <div class="container">
-      <div class="section-title">
-        <span class="sub">Précision & Métallurgie</span>
-        <h2>Une suite complète taillée pour les exigences terrain</h2>
-        <p>Remplacer les classeurs papier et feuilles de calcul par un flux numérique sans friction.</p>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-box">
-          <div class="feat-icon-wrap">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          </div>
-          <h3>Formulaire PV Spécifique</h3>
-          <p>Gestion rigoureuse des données : nuance d'acier, diamètre/épaisseur, WPS/PQR, paramètres d'arc (U, I, vitesse) et flux.</p>
-        </div>
-
-        <div class="feature-box">
-          <div class="feat-icon-wrap">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          </div>
-          <h3>Prise de Clichés Macro</h3>
-          <p>Prise directe par microscope ou appareil photo. Cadrage et association automatique de chaque coupe à son numéro de lot.</p>
-        </div>
-
-        <div class="feature-box">
-          <div class="feat-icon-wrap">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>
-          </div>
-          <h3>PDF de Laboratoire Strict</h3>
-          <p>Production d'un PV PDF normé incluant en-tête d'organisme, tableau dimensionnel, photos haute résolution et signatures d'approbation.</p>
-        </div>
-
-        <div class="feature-box">
-          <div class="feat-icon-wrap">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-          </div>
-          <h3>Confidentialité & SQLite</h3>
-          <p>Toutes les données restent strictement en local sur le poste ou la tablette. Aucune fuite d'informations client ou projet.</p>
-        </div>
-
-        <div class="feature-box">
-          <div class="feat-icon-wrap">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
-          </div>
-          <h3>En-tête Personnalisable</h3>
-          <p>Intégrez le logo de votre entreprise, vos mentions légales, vos références de procédures sans avoir besoin de modifier le code.</p>
-        </div>
-
-        <div class="feature-box">
-          <div class="feat-icon-wrap">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-          </div>
-          <h3>Sauvegarde & Échange</h3>
-          <p>Exportation/Importation de sauvegardes pour archiver vos campagnes de contrôle ou synchroniser entre plusieurs postes.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ZONE DE TÉLÉCHARGEMENT DIRECT REEL -->
-  <section class="container" id="telecharger">
-    <div class="dl-section">
-      <div class="section-title" style="margin-bottom: 20px;">
-        <span class="sub" style="color: var(--teal-light);">Téléchargement Direct</span>
-        <h2 style="color: #FFF;">Téléchargez les versions officielles</h2>
-        <p style="color: var(--slate-400);">Logiciel gratuit et open-source pour le secteur de l'ingénierie métallurgique.</p>
-      </div>
-
-      <div class="dl-grid">
-        <!-- APK -->
-        <div class="dl-item">
-          <div>
-            <div class="dl-icon" style="background: rgba(61,220,132,0.1); color: #3DDC84;">📱</div>
-            <h3>Android APK</h3>
-            <p class="desc">Pour smartphones et tablettes de laboratoire (Android 5.0 et supérieur).</p>
-          </div>
-          <div>
-            <a href="downloads/Macrographique.apk" download class="btn btn-primary">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Télécharger l'APK
-            </a>
-            <div class="file-meta">Fichier : Macrographique.apk (~28 Mo)</div>
-          </div>
-        </div>
-
-        <!-- WINDOWS SETUP -->
-        <div class="dl-item">
-          <div>
-            <div class="dl-icon" style="background: rgba(0,120,215,0.1); color: #0078D7;">💻</div>
-            <h3>Windows Setup (.exe)</h3>
-            <p class="desc">Installeur autonome pour postes de travail Windows 10 & 11 (64 bits).</p>
-          </div>
-          <div>
-            <a href="downloads/Macrographique-Setup.exe" download class="btn btn-primary">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Télécharger Setup.exe
-            </a>
-            <div class="file-meta">Fichier : Macrographique-Setup.exe (~16 Mo)</div>
-          </div>
-        </div>
-
-        <!-- WEB APP -->
-        <div class="dl-item">
-          <div>
-            <div class="dl-icon" style="background: rgba(37,99,235,0.1); color: #2563EB;">🌐</div>
-            <h3>Version Web Instantanée</h3>
-            <p class="desc">Accédez à l'application sans installation depuis Google Chrome, Edge ou Firefox.</p>
-          </div>
-          <div>
-            <a href="app/index.html" target="_blank" class="btn btn-secondary">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z"/></svg>
-              Ouvrir en plein écran
-            </a>
-            <div class="file-meta">Aucun téléchargement requis</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DÉMO VIDÉO & TUTORIEL -->
-  <section class="section" id="tutoriel">
-    <div class="container">
-      <div class="video-showcase">
-        <div class="video-player-container">
-          <!-- Animation Canvas Interactive simulant l'examen macrographique et l'édition -->
-          <canvas id="macroCanvas" width="640" height="360" style="width:100%; height:100%;"></canvas>
-        </div>
-        <div class="video-desc">
-          <span class="badge-pill" style="margin-bottom: 12px;">Simulation & Démonstration</span>
-          <h3>Procédure opératoire en 4 temps</h3>
-          <p>
-            Macrographique rationalise le temps de traitement de l'ingénieur de contrôle. Visualisez le protocole d'inspection et de saisie.
+    <!-- Author & Research Identity -->
+    <section class="author-section" id="auteur">
+      <div class="container author-grid">
+        <div>
+          <h2 class="author-name">Ayati Tahar</h2>
+          <div class="author-discipline">Ingénieur et Chercheur en Génie des Matériaux</div>
+          <p class="author-text">
+            Spécialisé en métallurgie physique, intégrité des soudures industrielles et méthodes d’essais macrographiques. Ce projet est une contribution directe à l’autonomie et à la précision des équipes de contrôle métallurgique sur site et en laboratoire.
           </p>
-          <ul class="video-steps">
-            <li>
-              <span class="step-badge">1</span>
-              <span><strong>Création du dossier :</strong> Renseignement de l'ordre d'essai et spécifications client.</span>
-            </li>
-            <li>
-              <span class="step-badge">2</span>
-              <span><strong>Contrôle dimensionnel :</strong> Saisie de la pénétration, surépaisseur et désaxage des passes de soudure.</span>
-            </li>
-            <li>
-              <span class="step-badge">3</span>
-              <span><strong>Intégration macro :</strong> Capture ou sélection du cliché de l'éprouvette attaquée à l'acide (Nital).</span>
-            </li>
-            <li>
-              <span class="step-badge">4</span>
-              <span><strong>Approbation & PDF :</strong> Génération du document final avec conclusion d'examen.</span>
-            </li>
+          <div class="author-links">
+            <a href="https://github.com/tahaarrr/macrographique" target="_blank">Dépôt GitHub du Projet</a>
+            <a href="https://github.com/tahaarrr" target="_blank">Profil Chercheur</a>
+          </div>
+        </div>
+
+        <div class="ticked-frame author-details-box">
+          <div class="section-label">Domaine d’expertise</div>
+          <ul>
+            <li>Analyse de structures macrographiques et CND</li>
+            <li>Homologation de modes opératoires de soudage</li>
+            <li>Métallurgie des aciers à haute limite élastique</li>
+            <li>Développement d’instruments logiciels d’ingénierie</li>
           </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- PROFIL CHERCHEUR / AYATI TAHAR -->
-  <section class="container" id="auteur">
-    <div class="author-section">
-      <div class="author-grid">
-        <div class="author-photo">AT</div>
-        <div class="author-details">
-          <h3>Ayati Tahar</h3>
-          <div class="title-sub">Ingénieur & Chercheur en Génie des Matériaux</div>
-          <p>
-            Spécialiste de la métallurgie, du soudage industriel et du contrôle des matériaux.
-            Ce projet est né de la volonté de doter les ingénieurs et techniciens de laboratoire d'outils numériques fiables, 
-            évitant les erreurs de ressaisie et renforçant la rigueur des contrôles métallurgiques en usine et sur chantier.
-          </p>
-          <div class="tags-cloud">
-            <span class="tag-item">Génie des Matériaux</span>
-            <span class="tag-item">Métallurgie des Soudures</span>
-            <span class="tag-item">Contrôle Qualité & CND</span>
-            <span class="tag-item">Traçabilité Industrielle</span>
-            <span class="tag-item">Développement Logiciel Flutter / Dart</span>
-          </div>
-          <div class="author-links">
-            <a href="https://github.com/tahaarrr" target="_blank" class="link-pill">
-              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              Profil GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/ayati-tahar" target="_blank" class="link-pill">
-              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-              LinkedIn Professionnel
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
+  <!-- Mast Footer -->
+  <footer class="mast-footer">
+    <div class="container mast-footer-inner">
       <div>
-        <strong>Macrographique</strong> &mdash; Développé pour la recherche et l'industrie métallurgique par Ayati Tahar.
+        Macrographique: Développé pour la recherche et l’industrie métallurgique.
       </div>
       <div>
-        &copy; 2026 Ayati Tahar &bull; Tous droits réservés &bull; Code source sous licence libre.
+        Ayati Tahar, 2026. Logiciel libre d’ingénierie.
       </div>
     </div>
   </footer>
 
-  <!-- SCRIPT ANIMATION CANVAS (SIMULATION MACROGRAPHIQUE FLUIDE) -->
+  <!-- Vantage Point-Cloud Simulation Script -->
   <script>
-    const canvas = document.getElementById('macroCanvas');
-    const ctx = canvas.getContext('2d');
+    (function () {
+      const canvas = document.getElementById('vantageCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let frame = 0;
 
-    let time = 0;
+      // Génération d'un nuage de points de joint soudé (V-Groove section)
+      const points = [];
+      const numPoints = 1200;
 
-    function renderSimulation() {
-      ctx.fillStyle = '#0F172A';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < numPoints; i++) {
+        const u = Math.random();
+        const v = Math.random();
+        
+        let x = (u - 0.5) * 360;
+        let y = 0;
+        let z = (v - 0.5) * 80;
 
-      // Grille d'ingénierie
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
-      ctx.lineWidth = 1;
-      for (let x = 0; x < canvas.width; x += 30) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, canvas.height);
-        ctx.stroke();
+        // Forme du cordon et de la pénétration centrale
+        if (Math.abs(x) < 55) {
+          y = -Math.cos(x / 55 * Math.PI * 0.5) * 35 + (Math.random() - 0.5) * 8;
+        } else {
+          y = (Math.random() - 0.5) * 6;
+        }
+
+        points.push({ x, y, z, origY: y });
       }
-      for (let y = 0; y < canvas.height; y += 30) {
+
+      function draw() {
+        ctx.fillStyle = 'oklch(17% 0.014 235)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        const cx = canvas.width / 2;
+        const cy = canvas.height / 2 + 10;
+        const sweepProgress = (frame % 320) / 320;
+        const sweepX = (sweepProgress - 0.5) * 440;
+
+        // Réticule d'inspection
+        ctx.strokeStyle = 'oklch(27% 0.014 235)';
+        ctx.lineWidth = 1;
         ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(canvas.width, y);
+        ctx.moveTo(cx, 30);
+        ctx.lineTo(cx, canvas.height - 30);
+        ctx.moveTo(40, cy);
+        ctx.lineTo(canvas.width - 40, cy);
         ctx.stroke();
+
+        // Ligne de balayage analytique
+        ctx.strokeStyle = 'oklch(89% 0.19 126 / 0.4)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(cx + sweepX, 50);
+        ctx.lineTo(cx + sweepX, canvas.height - 50);
+        ctx.stroke();
+
+        // Points
+        for (let i = 0; i < points.length; i++) {
+          const pt = points[i];
+          const px = cx + pt.x;
+          const py = cy + pt.y + (pt.z * 0.2);
+
+          const distToSweep = Math.abs(pt.x - sweepX);
+          let pointColor = 'oklch(42% 0.04 245)';
+
+          if (distToSweep < 16) {
+            pointColor = 'oklch(89% 0.19 126)';
+          } else if (Math.abs(pt.x) < 55) {
+            pointColor = 'oklch(70% 0.04 232)';
+          }
+
+          ctx.fillStyle = pointColor;
+          ctx.fillRect(px, py, 2, 2);
+        }
+
+        // Leader de mesure sur le cordon
+        ctx.strokeStyle = 'oklch(89% 0.19 126)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(cx, cy - 35, 3, 0, Math.PI * 2);
+        ctx.moveTo(cx, cy - 35);
+        ctx.lineTo(cx + 80, cy - 75);
+        ctx.lineTo(cx + 170, cy - 75);
+        ctx.stroke();
+
+        ctx.font = '12px "Geist Mono", monospace';
+        ctx.fillStyle = 'oklch(95% 0.006 230)';
+        ctx.fillText('Surépaisseur: 1.66 mm', cx + 85, cy - 82);
+
+        frame++;
+        requestAnimationFrame(draw);
       }
 
-      // Dessin de l'éprouvette métallurgique (Joint de soudure en V)
-      const midY = canvas.height / 2;
-      const midX = canvas.width / 2;
-
-      // Tôles de base
-      ctx.fillStyle = '#1E293B';
-      ctx.fillRect(80, midY - 40, 200, 80);
-      ctx.fillRect(360, midY - 40, 200, 80);
-
-      // Cordon de soudure / Pénétration
-      ctx.fillStyle = '#334155';
-      ctx.beginPath();
-      ctx.moveTo(280, midY - 40);
-      ctx.lineTo(360, midY - 40);
-      ctx.lineTo(340, midY + 40);
-      ctx.lineTo(300, midY + 40);
-      ctx.closePath();
-      ctx.fill();
-
-      // Passes de soudure animées
-      const wave = Math.sin(time * 0.04) * 8;
-      ctx.fillStyle = 'rgba(13, 148, 136, 0.4)';
-      ctx.beginPath();
-      ctx.arc(midX, midY + 10, 35 + wave, 0, Math.PI * 2);
-      ctx.fill();
-
-      ctx.fillStyle = 'rgba(20, 184, 166, 0.7)';
-      ctx.beginPath();
-      ctx.arc(midX, midY - 15, 25 - wave * 0.5, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Lignes de mesure réticule (Inspection)
-      ctx.strokeStyle = '#14B8A6';
-      ctx.lineWidth = 1.5;
-      ctx.setLineDash([4, 4]);
-
-      // Hauteur de surépaisseur
-      ctx.beginPath();
-      ctx.moveTo(midX - 70, midY - 40);
-      ctx.lineTo(midX + 70, midY - 40);
-      ctx.stroke();
-
-      // Laser de balayage analytique
-      const scanX = midX + Math.sin(time * 0.03) * 110;
-      ctx.strokeStyle = '#38BDF8';
-      ctx.setLineDash([]);
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(scanX, midY - 60);
-      ctx.lineTo(scanX, midY + 60);
-      ctx.stroke();
-
-      // Données de mesure en incrustation
-      ctx.fillStyle = '#38BDF8';
-      ctx.font = '12px "JetBrains Mono", monospace';
-      ctx.fillText('SURÉPAISSEUR : 1.85 mm', 90, 60);
-      ctx.fillText('LARGEUR CORDON : 14.2 mm', 90, 80);
-      ctx.fillStyle = '#10B981';
-      ctx.fillText('CONFORMITÉ : VALIDE (API 5L)', 90, 100);
-
-      time += 1;
-      requestAnimationFrame(renderSimulation);
-    }
-
-    renderSimulation();
+      draw();
+    })();
   </script>
 </body>
 </html>
