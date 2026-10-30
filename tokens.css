@@ -699,6 +699,7 @@ button:disabled {
   object-fit: cover;
   display: block;
   transition: opacity 0.25s ease-out;
+  filter: contrast(1.04) brightness(1.02);
 }
 
 .macro-stage img.hidden {
@@ -753,14 +754,13 @@ button:disabled {
 .pv-doc-frame {
   background: var(--color-paper-2);
   padding: 16px;
-  border: var(--rule-hair) solid var(--color-rule);
+  border: var(--rule-hair) solid var(--color-rule-2);
 }
 
 .pv-doc-frame img {
   width: 100%;
   height: auto;
   display: block;
-  box-shadow: 0 4px 20px oklch(0% 0 0 / 0.08);
   border: var(--rule-hair) solid var(--color-rule);
 }
 
@@ -810,8 +810,8 @@ button:disabled {
 .workbench-frame {
   margin-top: 32px;
   background: var(--color-paper-2);
-  border: var(--rule-hair) solid var(--color-rule);
-  padding: 12px;
+  border: var(--rule-hair) solid var(--color-rule-2);
+  padding: 8px;
   overflow: hidden;
 }
 
