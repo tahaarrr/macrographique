@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Macrographique: Rapports d’Essai Métallurgiques</title>
-  <meta name="description" content="Macrographique: Solution logicielle pour l’analyse dimensionnelle, la capture micrographique et l’édition de procès-verbaux d’essais de soudures.">
+  <meta name="description" content="Macrographique: Solution logicielle pour l’analyse dimensionnelle, la capture macrographique et l’édition de procès-verbaux d’essais de soudures.">
   <meta name="keywords" content="macrographie, rapport essai, soudure, metallurgie, controle non destructif, CND, API 5L, ISO 15614">
   <meta name="author" content="Ayati Tahar">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tahaarrr.github.io/macrographique/">
 
-  <!-- Script inline anti-flash Hallmark (Lit le thème avant le premier paint) -->
+  <!-- Script inline anti-flash Hallmark -->
   <script>
     (function () {
       try {
@@ -60,14 +60,16 @@
   <nav class="masthead">
     <div class="container masthead-inner">
       <a href="#" class="brand">
-        <div class="brand-glyph"></div>
+        <img src="assets/logo.png" alt="Logo Macrographique" class="brand-logo-img">
         <span>Macrographique</span>
       </a>
       <ul class="nav-links">
-        <li><a href="#apercu">Inspection</a></li>
-        <li><a href="#fonctionnalites">Mesures</a></li>
-        <li><a href="#simulateur">Console web</a></li>
-        <li><a href="#telecharger">Exécutables</a></li>
+        <li><a href="#inspection">Inspection</a></li>
+        <li><a href="#modele-pv">Modèle PV</a></li>
+        <li><a href="#etabli">Poste mesure</a></li>
+        <li><a href="#embleme">Emblème</a></li>
+        <li><a href="#console">Console</a></li>
+        <li><a href="#telecharger">Téléchargements</a></li>
         <li><a href="#auteur">Auteur</a></li>
       </ul>
       <div class="nav-actions">
@@ -80,8 +82,8 @@
   </nav>
 
   <main>
-    <!-- Hero Section with Counter Posture -->
-    <section class="hero">
+    <!-- Hero Section with Counter Posture & Real Macro Specimen -->
+    <section class="hero" id="inspection">
       <div class="container hero-layout">
         <div class="hero-text-block">
           <h1 class="hero-headline">
@@ -92,7 +94,7 @@
           </p>
           <div class="hero-actions">
             <a href="#telecharger" class="btn-primary">Télécharger l’outil</a>
-            <a href="#simulateur" class="btn-secondary">Tester en ligne</a>
+            <a href="#console" class="btn-secondary">Tester la console</a>
           </div>
 
           <!-- Counter posture statistics -->
@@ -112,85 +114,193 @@
           </div>
         </div>
 
-        <!-- Right Side: Live Point-Cloud & Reticle Viewport -->
-        <div class="cloud-viewport ticked-frame" id="apercu">
-          <div class="telemetry-tag">
-            Réticule d’inspection: <span class="live">actif</span><br>
-            Normes: ISO 15614, API 5L
+        <!-- Right Side: Real Specimen Macro Inspection Viewer -->
+        <div class="macro-viewer ticked-frame">
+          <div class="macro-viewer-header">
+            <div class="macro-viewer-title">
+              <span class="dot-live"></span>
+              Coupe réelle SAW (API 5L)
+            </div>
+            <div class="macro-switcher">
+              <button type="button" class="macro-switch-btn active" id="btnTrace">
+                Traçage vectoriel
+              </button>
+              <button type="button" class="macro-switch-btn" id="btnRaw">
+                Éprouvette brute
+              </button>
+            </div>
           </div>
-          <canvas id="vantageCanvas" width="560" height="420" aria-label="Visualisation instrumentale de coupe métallurgique"></canvas>
+
+          <div class="macro-stage">
+            <img id="imgTrace" src="assets/macro_trace_real.png" alt="Coupe macrographique avec tracé vectoriel des cordons de soudure">
+            <img id="imgRaw" src="assets/macro_raw_real.png" alt="Coupe macrographique brute après attaque nital" class="hidden">
+          </div>
+
+          <div class="macro-hud-bar">
+            <div class="macro-hud-cell">
+              <div class="macro-hud-val accent">55,89%</div>
+              <div class="macro-hud-lbl">Pénétration EXT (6,15 mm)</div>
+            </div>
+            <div class="macro-hud-cell">
+              <div class="macro-hud-val accent">64,11%</div>
+              <div class="macro-hud-lbl">Pénétration INT (7,05 mm)</div>
+            </div>
+            <div class="macro-hud-cell">
+              <div class="macro-hud-val">1,66 mm</div>
+              <div class="macro-hud-lbl">Désaxage M1 et M2</div>
+            </div>
+            <div class="macro-hud-cell">
+              <div class="macro-hud-val">1,90 mm</div>
+              <div class="macro-hud-lbl">Interpénétration passes</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Before & After Comparison (Section Cut) -->
-    <section class="section-cut">
+    <!-- Official Report Model Section -->
+    <section class="pv-report-section" id="modele-pv">
       <div class="container">
         <div class="section-head-simple">
-          <h2>Rupture avec les processus papier et tableurs</h2>
-          <p>Un flux de travail direct éliminant les risques de ressaisie en laboratoire.</p>
+          <h2>Modèle officiel de procès-verbal</h2>
+          <p>Conforme ISO 15614-1 et API 5L.</p>
         </div>
 
-        <div class="comparison-grid">
+        <div class="pv-report-grid">
+          <!-- Left: Real Official Report Preview -->
+          <div class="pv-doc-frame ticked-frame">
+            <img src="assets/pv_model_preview.png" alt="Spécimen officiel du rapport d’essai macrographique">
+            <div class="pv-doc-meta">
+              <span>Spécimen officiel A4 portrait</span>
+              <span>1 page stricte</span>
+            </div>
+            <div style="margin-top: 16px;">
+              <a href="assets/Model_pv_macro_official.pdf" download class="btn-secondary" style="width: 100%; justify-content: center;">
+                Télécharger le spécimen PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Report Anatomy Ledger -->
+          <div class="pv-anatomy-list">
+            <div class="pv-anatomy-item ticked-frame">
+              <h3>Traçabilité intégrale de l’essai</h3>
+              <p>Numéro de PV unique, dates, client et référence laboratoire.</p>
+            </div>
+
+            <div class="pv-anatomy-item ticked-frame">
+              <h3>Métal de base et géométrie</h3>
+              <p>Nuance normée (API 5L PSL2), coulée, bobine et épaisseur mesurée.</p>
+            </div>
+
+            <div class="pv-anatomy-item ticked-frame">
+              <h3>Paramètres de soudage SAWH</h3>
+              <p>WPS, PQR, ampérage, tension, vitesse d’avance et lot flux.</p>
+            </div>
+
+            <div class="pv-anatomy-item ticked-frame">
+              <h3>Cliché macrographique calibré</h3>
+              <p>Insertion photo haute définition, cotations vectorielles et grossissement calculé.</p>
+            </div>
+
+            <div class="pv-anatomy-item ticked-frame">
+              <h3>Métrologie et 4 signatures</h3>
+              <p>Surépaisseurs, pénétrations, désaxage et registre d’approbations officielles.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real Workbench Software Interface -->
+    <section class="workbench-section" id="etabli">
+      <div class="container">
+        <div class="section-head-simple">
+          <h2>Poste de mesure instrumentale</h2>
+          <p>Tracé vectoriel interactif et cotation dimensionnelle assistée par étalonnage.</p>
+        </div>
+
+        <div class="workbench-frame ticked-frame">
+          <img src="assets/macro_measurement_tool.jpg" alt="Outil de mesure et traçage macrographique avec étalonnage optique">
+        </div>
+
+        <div class="comparison-grid" style="margin-top: 32px;">
           <div class="comp-panel ticked-frame">
-            <h3>Saisie manuelle sur feuilles volantes</h3>
+            <h3>Étalonnage optique immédiat</h3>
             <p>
-              Prise de notes manuelles sur chantier, transfert différé sur tableur, assemblage artisanal des photos et risque de divergence entre éprouvettes et procès-verbaux.
+              Calcul automatique du ratio pixel par millimètre pour une justesse garantie au centième.
             </p>
           </div>
 
           <div class="comp-panel ticked-frame active-state">
-            <h3>Génération normée dès la fin d’attaque</h3>
+            <h3>Transfert direct sur le PV</h3>
             <p>
-              Cliché photographique lié à l’éprouvette, calculs des surépaisseurs et largeurs de cordons intégrés, et signature de conformité immédiate sans quitter l’interface.
+              Les cotes et clichés vectorisés sont injectés directement dans le rapport officiel.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Features as Named Moments (Ledger Layout) -->
-    <section class="features-section" id="fonctionnalites">
+    <!-- Educational Metallography Section -->
+    <section class="workbench-section" id="metallographie">
       <div class="container">
         <div class="section-head-simple">
-          <h2>Précision instrumentale et traçabilité</h2>
-          <p>Chaque paramètre répond aux obligations d’audit qualité et d’inspection tierce partie.</p>
+          <h2>Anatomie d&#x2019;un joint bout à bout</h2>
+          <p>Zones métallurgiques sur coupe réelle après attaque chimique.</p>
         </div>
 
-        <div class="features-ledger">
-          <div class="ledger-row">
-            <h3>Paramètres de soudage</h3>
-            <p>Gestion précise du WPS et PQR, intensité d’arc, tension, vitesse d’avance et combinaison fil avec flux pour chaque passe.</p>
-            <div class="spec">Normes API 5L, ISO</div>
+        <div class="comparison-grid">
+          <div class="workbench-frame ticked-frame" style="margin-top: 0;">
+            <img src="assets/macro_annotated_zones.jpg" alt="Coupe macrographique annotée avec zones HAZ, métal fondu et pénétration">
           </div>
 
-          <div class="ledger-row">
-            <h3>Analyse dimensionnelle</h3>
-            <p>Prise de cotes de pénétration interne et externe, largeur de cordon, désaxage et interpénétration au dixième de millimètre.</p>
-            <div class="spec">Précision 0,01 mm</div>
-          </div>
-
-          <div class="ledger-row">
-            <h3>Archivage local SQLite</h3>
-            <p>Isolation totale des données de vos clients et projets. Aucune connexion externe requise ni stockage tiers imposé.</p>
-            <div class="spec">Sécurité garantie</div>
-          </div>
-
-          <div class="ledger-row">
-            <h3>Procès-verbal PDF certifié</h3>
-            <p>Édition instantanée du document officiel avec en-tête personnalisable, grille de clichés microscopiques et registre de signatures.</p>
-            <div class="spec">Export vectoriel</div>
+          <div class="workbench-frame ticked-frame" style="margin-top: 0;">
+            <img src="assets/macro_buttweld_clean.jpg" alt="Coupe nette d'un joint bout à bout après polissage et attaque nital">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Direct Web Console (Live Embedded App) -->
-    <section class="live-sandbox-section" id="simulateur">
+    <!-- Visual Identity & Emblem -->
+    <section class="emblem-section" id="embleme">
+      <div class="container">
+        <div class="section-head-simple">
+          <h2>Emblème technique du joint</h2>
+          <p>Une identité forgée autour de la physique du joint soudé.</p>
+        </div>
+
+        <div class="emblem-grid">
+          <div class="emblem-display ticked-frame">
+            <img src="assets/logo.png" alt="Emblème officiel Macrographique">
+          </div>
+
+          <div class="emblem-specs-list">
+            <div class="emblem-spec-card ticked-frame">
+              <h3>Double cordon sous flux (SAW)</h3>
+              <p>Géométrie exacte de la passe supérieure externe en cyan et inférieure en ambre.</p>
+            </div>
+
+            <div class="emblem-spec-card ticked-frame">
+              <h3>Réticule optique gradué</h3>
+              <p>Anneau métrologique avec repères micrométriques de microscope optique.</p>
+            </div>
+
+            <div class="emblem-spec-card ticked-frame">
+              <h3>Axes de désaxage M1 et M2</h3>
+              <p>Cote centrale mesurant l’alignement des passes et l’interpénétration critique.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Direct Web Console -->
+    <section class="live-sandbox-section" id="console">
       <div class="container">
         <div class="section-head-simple">
           <h2>Console interactive directe</h2>
-          <p>L’application Flutter Web tourne directement dans ce cadre pour tester le flux sans installation préalable.</p>
+          <p>L’application tourne directement dans ce cadre pour tester le flux sans installation.</p>
         </div>
 
         <div class="sandbox-frame ticked-frame">
@@ -199,7 +309,7 @@
       </div>
     </section>
 
-    <!-- Downloads Section (Platform Cards) -->
+    <!-- Downloads Section -->
     <section class="downloads-section" id="telecharger">
       <div class="container">
         <div class="section-head-simple">
@@ -212,7 +322,7 @@
           <div class="platform-card ticked-frame">
             <div>
               <h3>Android</h3>
-              <p>Paquet APK optimisé pour les tablettes d’inspection et smartphones de contrôle.</p>
+              <p>Paquet APK optimisé pour tablettes d’inspection et smartphones de contrôle.</p>
             </div>
             <div>
               <a href="downloads/Macrographique.apk" download class="btn-primary" style="width: 100%; justify-content: center;">
@@ -260,7 +370,7 @@
           <h2 class="author-name">Ayati Tahar</h2>
           <div class="author-discipline">Ingénieur et Chercheur en Génie des Matériaux</div>
           <p class="author-text">
-            Spécialisé en métallurgie physique, intégrité des soudures industrielles et méthodes d’essais macrographiques. Ce projet est une contribution directe à l’autonomie et à la précision des équipes de contrôle métallurgique sur site et en laboratoire.
+            Métallurgie physique et intégrité des soudures industrielles.
           </p>
           <div class="author-links">
             <a href="https://github.com/tahaarrr/macrographique" target="_blank">Dépôt GitHub du Projet</a>
@@ -293,10 +403,10 @@
     </div>
   </footer>
 
-  <!-- Theme Toggle & Canvas Simulation -->
+  <!-- Scripts: Theme Toggle & Macro Viewer Switcher -->
   <script>
     (function () {
-      // Toggle Mode Hallmark (Parity, persisté avec dataset.mode)
+      // Theme Toggle (dataset.mode)
       var modeBtn = document.getElementById('modeBtn');
       var modeIcon = document.getElementById('modeIcon');
 
@@ -308,119 +418,40 @@
 
       updateLabel();
 
-      modeBtn.addEventListener('click', function () {
-        var isCurrentlyDark = document.documentElement.dataset.mode === 'dark' ||
-          (!document.documentElement.dataset.mode && window.matchMedia('(prefers-color-scheme: dark)').matches);
-        var next = isCurrentlyDark ? 'light' : 'dark';
-        document.documentElement.dataset.mode = next;
-        try {
-          localStorage.setItem('mode', next);
-        } catch (e) {}
-        updateLabel();
-      });
-
-      // Canvas Point-Cloud adaptatif aux deux modes
-      const canvas = document.getElementById('vantageCanvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      let frame = 0;
-
-      const points = [];
-      const numPoints = 1200;
-
-      for (let i = 0; i < numPoints; i++) {
-        const u = Math.random();
-        const v = Math.random();
-        let x = (u - 0.5) * 360;
-        let y = 0;
-        let z = (v - 0.5) * 80;
-
-        if (Math.abs(x) < 55) {
-          y = -Math.cos(x / 55 * Math.PI * 0.5) * 35 + (Math.random() - 0.5) * 8;
-        } else {
-          y = (Math.random() - 0.5) * 6;
-        }
-
-        points.push({ x, y, z, origY: y });
+      if (modeBtn) {
+        modeBtn.addEventListener('click', function () {
+          var isCurrentlyDark = document.documentElement.dataset.mode === 'dark' ||
+            (!document.documentElement.dataset.mode && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          var next = isCurrentlyDark ? 'light' : 'dark';
+          document.documentElement.dataset.mode = next;
+          try {
+            localStorage.setItem('mode', next);
+          } catch (e) {}
+          updateLabel();
+        });
       }
 
-      function draw() {
-        var isDark = document.documentElement.dataset.mode === 'dark' ||
-          (!document.documentElement.dataset.mode && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      // Macro Specimen Switcher (Traçage vectoriel vs Éprouvette brute)
+      var btnTrace = document.getElementById('btnTrace');
+      var btnRaw = document.getElementById('btnRaw');
+      var imgTrace = document.getElementById('imgTrace');
+      var imgRaw = document.getElementById('imgRaw');
 
-        // Couleurs calculées selon le mode actif
-        var bg = isDark ? 'oklch(17% 0.014 235)' : 'oklch(93.5% 0.010 235)';
-        var reticleColor = isDark ? 'oklch(27% 0.014 235)' : 'oklch(80% 0.010 235)';
-        var sweepColor = isDark ? 'oklch(89% 0.19 126 / 0.4)' : 'oklch(52% 0.16 142 / 0.35)';
-        var detectedColor = isDark ? 'oklch(89% 0.19 126)' : 'oklch(52% 0.16 142)';
-        var weldColor = isDark ? 'oklch(70% 0.04 232)' : 'oklch(40% 0.06 235)';
-        var normalPointColor = isDark ? 'oklch(42% 0.04 245)' : 'oklch(68% 0.04 235)';
-        var textColor = isDark ? 'oklch(95% 0.006 230)' : 'oklch(18% 0.015 235)';
+      if (btnTrace && btnRaw && imgTrace && imgRaw) {
+        btnTrace.addEventListener('click', function () {
+          btnTrace.classList.add('active');
+          btnRaw.classList.remove('active');
+          imgTrace.classList.remove('hidden');
+          imgRaw.classList.add('hidden');
+        });
 
-        ctx.fillStyle = bg;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        const cx = canvas.width / 2;
-        const cy = canvas.height / 2 + 10;
-        const sweepProgress = (frame % 320) / 320;
-        const sweepX = (sweepProgress - 0.5) * 440;
-
-        // Réticule
-        ctx.strokeStyle = reticleColor;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(cx, 30);
-        ctx.lineTo(cx, canvas.height - 30);
-        ctx.moveTo(40, cy);
-        ctx.lineTo(canvas.width - 40, cy);
-        ctx.stroke();
-
-        // Balayage
-        ctx.strokeStyle = sweepColor;
-        ctx.lineWidth = 1.5;
-        ctx.beginPath();
-        ctx.moveTo(cx + sweepX, 50);
-        ctx.lineTo(cx + sweepX, canvas.height - 50);
-        ctx.stroke();
-
-        // Points
-        for (let i = 0; i < points.length; i++) {
-          const pt = points[i];
-          const px = cx + pt.x;
-          const py = cy + pt.y + (pt.z * 0.2);
-
-          const distToSweep = Math.abs(pt.x - sweepX);
-          let pointColor = normalPointColor;
-
-          if (distToSweep < 16) {
-            pointColor = detectedColor;
-          } else if (Math.abs(pt.x) < 55) {
-            pointColor = weldColor;
-          }
-
-          ctx.fillStyle = pointColor;
-          ctx.fillRect(px, py, 2, 2);
-        }
-
-        // Leader de cote
-        ctx.strokeStyle = detectedColor;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.arc(cx, cy - 35, 3, 0, Math.PI * 2);
-        ctx.moveTo(cx, cy - 35);
-        ctx.lineTo(cx + 80, cy - 75);
-        ctx.lineTo(cx + 170, cy - 75);
-        ctx.stroke();
-
-        ctx.font = '12px "Geist Mono", monospace';
-        ctx.fillStyle = textColor;
-        ctx.fillText('Surépaisseur: 1.66 mm', cx + 85, cy - 82);
-
-        frame++;
-        requestAnimationFrame(draw);
+        btnRaw.addEventListener('click', function () {
+          btnRaw.classList.add('active');
+          btnTrace.classList.remove('active');
+          imgRaw.classList.remove('hidden');
+          imgTrace.classList.add('hidden');
+        });
       }
-
-      draw();
     })();
   </script>
 </body>
