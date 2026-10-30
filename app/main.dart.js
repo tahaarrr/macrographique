@@ -32188,7 +32188,7 @@ if(r.length!==0&&r!=="{}"){s=B.cC.of(r,a3)
 r=t.f
 if(r.b(s)){if(r.b(J.j(s,"_labels")))r.a(J.j(s,"_labels")).aI(0,new A.an6(b2))
 J.kv(s,new A.an7(b3))}}}catch(q){}p=new A.an3(b5,b3,b2,b0)
-if(b5.y)b0.$2$bold(a6.$2("Nom Client / Demandeur (ex: SONALGEZ)","Nom Client")+" : "+b4.r,!0)
+if(b5.y)b0.$2$bold(a6.$2("Nom Client / Demandeur","Nom Client")+" : "+b4.r,!0)
 if(b5.Q){o=a6.$2("Dimensions (mm)","Dimensions")
 n=B.p.X(b4.x)
 if(n.length===0)m=""
@@ -32501,7 +32501,7 @@ J.kv(s,new A.amR(b4))}}}catch(q){}p=new A.amN(b6,b4,b3,b1)
 if(b6.c&&b5.c.length!==0)b1.$2$bold(A.fZ(b5,"Date R\xe9ception","Date de R\xe9ception d'\xe9chantillon")+" : "+b5.c,!0)
 if(b6.d&&b5.e.length!==0)b1.$2$bold(A.fZ(b5,a3,a3)+" : "+b5.e,!0)
 if(b6.b&&b5.d.length!==0)b1.$2$bold(A.fZ(b5,a4,"Date d'\xe9mission du Rapport")+" : "+b5.d,!0)
-if(b6.y)b1.$2$bold(A.fZ(b5,"Nom Client / Demandeur (ex: SONALGEZ)","Client / Demandeur")+" : "+b5.r,!0)
+if(b6.y)b1.$2$bold(A.fZ(b5,"Nom Client / Demandeur","Client / Demandeur")+" : "+b5.r,!0)
 if(b6.Q){o=B.p.X(b5.x)
 if(o.length===0)n=""
 else n=B.p.B2(o.toLowerCase(),"mm")?o:o+" mm"
@@ -117993,7 +117993,7 @@ r===$&&A.b()
 r=j.cX(r,"Laboratoire (ex: EM / EEM)")
 q=j.dy
 q===$&&A.b()
-q=j.cX(q,"Signataire Laboratoire (ex: SALMOUN RACHID)")
+q=j.cX(q,"Signataire Laboratoire (ex: Responsable Laboratoire)")
 p=A.Q(10)
 o=A.bN(B.bi,1)
 n=j.fr
@@ -121277,7 +121277,7 @@ r=s||n.a0||n.b0
 q=n.rx||n.ry||n.aE||n.to||n.x1||n.x2||n.xr||n.y1||n.y2
 p=n.aF||n.aR||n.aM||n.q||n.K||n.W||n.an
 n=t.p
-return A.jf(A.a([o.lR(A.a([o.bX("Banni\xe8re \xab EXAMEN MACROGRAPHIQUE \xbb","Bandeau gris s\xe9parateur au-dessus des photos d'\xe9chantillons",B.a3K,s,new A.aIR(o)),o.bX("Type / Lot de Fabrication","Mention du lot de fabrication affich\xe9 sous la photo (ex: LOT 27)",B.zD,o.d.a0,new A.aIS(o)),o.bX("Grossissement Optique (G)","Facteur d'agrandissement de la macrographie affich\xe9 sous la photo (ex: 1,8 FOIS)",B.rN,o.d.b0,new A.aIT(o))],n),B.a2y,r,new A.aJ3(o),"1. Titre & Grossissement Photo"),o.lR(A.a([o.bX("Tableau M\xe9tal de Base","Active le tableau des caract\xe9ristiques m\xe9tallurgiques du tube",B.rB,o.d.rx,new A.aJ5(o)),o.bX("Nuance M\xe9tal de Base","Grade d'acier propre \xe0 l'\xe9prouvette (ex: X 60)",B.zG,o.d.ry,new A.aJ6(o)),o.bX("Fournisseur / Fabricant T\xf4le","Nom de l'aci\xe9rie productrice (ex: TOSYALI)",B.a2F,o.d.aE,new A.aJ7(o)),o.bX("N\xb0 Coul\xe9e Aci\xe9rie","Num\xe9ro de coul\xe9e de l'acier (ex: 26302120)",B.fZ,o.d.to,new A.aJ8(o)),o.bX("N\xb0 Bobine / Coil","Num\xe9ro d'identification de la bobine lamin\xe9e (ex: 2630415233)",B.rK,o.d.x1,new A.aJ9(o)),o.bX("\xd8 Tube (mm)","Diam\xe8tre ext\xe9rieur en millim\xe8tres (ex: 406)",B.zV,o.d.x2,new A.aJa(o)),o.bX("\xc9paisseur Nominale (mm)","\xc9paisseur th\xe9orique de commande (ex: 11,10)",B.fa,o.d.xr,new A.aJb(o)),o.bX("\xc9paisseur R\xe9elle (mm)","\xc9paisseur physique mesur\xe9e sur la pi\xe8ce (ex: 11)",B.A3,o.d.y1,new A.aIU(o)),o.bX("\xc9paisseur sur Photo (mm)","Mesure optique sur tirage pour le calcul de grossissement",B.a2z,o.d.y2,new A.aIV(o))],n),B.A5,q,new A.aIW(o),"2. M\xe9tal de Base (par \xe9chantillon)"),o.lR(A.a([o.bX("Tableau Soudure & Cotes","Active le tableau des dimensions g\xe9om\xe9triques des cordons",B.rB,o.d.aF,new A.aIX(o)),o.bX("N\xb0 Tube Tra\xe7abilit\xe9","Num\xe9ro de s\xe9rie individuel du tube (ex: 1345 G)",B.a3b,o.d.aR,new A.aIY(o)),o.bX("Sur\xe9paisseur de Cordon (EXT & INT)","Hauteur des d\xf4mes de soudure ext\xe9rieur et int\xe9rieur (mm)",B.a3O,o.d.aM,new A.aIZ(o)),o.bX("Largeur des Cordons (EXT & INT)","Largeur transversale des cordons \xe0 la surface du tube (mm)",B.Ac,o.d.q,new A.aJ_(o)),o.bX("P\xe9n\xe9tration de Fusion (EXT & INT %)","Profondeur de p\xe9n\xe9tration en pourcentage de l'\xe9paisseur",B.zQ,o.d.K,new A.aJ0(o)),o.bX("D\xe9saxage / Misalignment (mm)","D\xe9calage d'axe transversal entre passes selon API 5L Fig. 4",B.a31,o.d.W,new A.aJ1(o)),o.bX("Interp\xe9n\xe9tration / Recouvrement (mm)","Zone de chevauchement centrale des deux cordons de soudure",B.a3o,o.d.an,new A.aJ2(o))],n),B.a2N,p,new A.aJ4(o),"3. Soudure & Mesures Tube (par \xe9chantillon)")],n),B.cm,B.fB,null,B.aG,!1)},
+return A.jf(A.a([o.lR(A.a([o.bX("Banni\xe8re \xab EXAMEN MACROGRAPHIQUE \xbb","Bandeau gris s\xe9parateur au-dessus des photos d'\xe9chantillons",B.a3K,s,new A.aIR(o)),o.bX("Type / Lot de Fabrication","Mention du lot de fabrication affich\xe9 sous la photo (ex: LOT 27)",B.zD,o.d.a0,new A.aIS(o)),o.bX("Grossissement Optique (G)","Facteur d'agrandissement de la macrographie affich\xe9 sous la photo (ex: 1,8 FOIS)",B.rN,o.d.b0,new A.aIT(o))],n),B.a2y,r,new A.aJ3(o),"1. Titre & Grossissement Photo"),o.lR(A.a([o.bX("Tableau M\xe9tal de Base","Active le tableau des caract\xe9ristiques m\xe9tallurgiques du tube",B.rB,o.d.rx,new A.aJ5(o)),o.bX("Nuance M\xe9tal de Base","Grade d'acier propre \xe0 l'\xe9prouvette (ex: X 60)",B.zG,o.d.ry,new A.aJ6(o)),o.bX("Fournisseur / Fabricant T\xf4le","Nom de l'aci\xe9rie productrice",B.a2F,o.d.aE,new A.aJ7(o)),o.bX("N\xb0 Coul\xe9e Aci\xe9rie","Num\xe9ro de coul\xe9e de l'acier (ex: 26302120)",B.fZ,o.d.to,new A.aJ8(o)),o.bX("N\xb0 Bobine / Coil","Num\xe9ro d'identification de la bobine lamin\xe9e (ex: 2630415233)",B.rK,o.d.x1,new A.aJ9(o)),o.bX("\xd8 Tube (mm)","Diam\xe8tre ext\xe9rieur en millim\xe8tres (ex: 406)",B.zV,o.d.x2,new A.aJa(o)),o.bX("\xc9paisseur Nominale (mm)","\xc9paisseur th\xe9orique de commande (ex: 11,10)",B.fa,o.d.xr,new A.aJb(o)),o.bX("\xc9paisseur R\xe9elle (mm)","\xc9paisseur physique mesur\xe9e sur la pi\xe8ce (ex: 11)",B.A3,o.d.y1,new A.aIU(o)),o.bX("\xc9paisseur sur Photo (mm)","Mesure optique sur tirage pour le calcul de grossissement",B.a2z,o.d.y2,new A.aIV(o))],n),B.A5,q,new A.aIW(o),"2. M\xe9tal de Base (par \xe9chantillon)"),o.lR(A.a([o.bX("Tableau Soudure & Cotes","Active le tableau des dimensions g\xe9om\xe9triques des cordons",B.rB,o.d.aF,new A.aIX(o)),o.bX("N\xb0 Tube Tra\xe7abilit\xe9","Num\xe9ro de s\xe9rie individuel du tube (ex: 1345 G)",B.a3b,o.d.aR,new A.aIY(o)),o.bX("Sur\xe9paisseur de Cordon (EXT & INT)","Hauteur des d\xf4mes de soudure ext\xe9rieur et int\xe9rieur (mm)",B.a3O,o.d.aM,new A.aIZ(o)),o.bX("Largeur des Cordons (EXT & INT)","Largeur transversale des cordons \xe0 la surface du tube (mm)",B.Ac,o.d.q,new A.aJ_(o)),o.bX("P\xe9n\xe9tration de Fusion (EXT & INT %)","Profondeur de p\xe9n\xe9tration en pourcentage de l'\xe9paisseur",B.zQ,o.d.K,new A.aJ0(o)),o.bX("D\xe9saxage / Misalignment (mm)","D\xe9calage d'axe transversal entre passes selon API 5L Fig. 4",B.a31,o.d.W,new A.aJ1(o)),o.bX("Interp\xe9n\xe9tration / Recouvrement (mm)","Zone de chevauchement centrale des deux cordons de soudure",B.a3o,o.d.an,new A.aJ2(o))],n),B.a2N,p,new A.aJ4(o),"3. Soudure & Mesures Tube (par \xe9chantillon)")],n),B.cm,B.fB,null,B.aG,!1)},
 aj4(a){var s,r,q=this,p=q.d
 p===$&&A.b()
 s=p.H
