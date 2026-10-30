@@ -153,10 +153,12 @@ class BackupService {
         finalFilePath = fallbackFile.path;
 
         try {
-          await Share.shareXFiles(
-            [XFile(fallbackFile.path)],
-            text: '💾 Sauvegarde complète Macrographique ($timestamp)',
-            subject: 'Sauvegarde Macrographique $timestamp',
+          await SharePlus.instance.share(
+            ShareParams(
+              files: [XFile(fallbackFile.path)],
+              text: 'Sauvegarde complète Macrographique ($timestamp)',
+              subject: 'Sauvegarde Macrographique $timestamp',
+            ),
           );
         } catch (_) {}
       }

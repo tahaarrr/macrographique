@@ -129,10 +129,12 @@ class _RapportDetailScreenState extends State<RapportDetailScreen> {
       final file = File('${tempDir.path}/$safeName');
       await file.writeAsBytes(bytes);
 
-      await Share.shareXFiles(
-        [XFile(file.path, name: safeName, mimeType: 'application/pdf')],
-        text: 'Rapport d\'essai PV N° ${_rapport!.pvNumero} (Modèle ${version == 2 ? "Moderne V2" : "Officiel V1"})',
-        subject: 'PV N° ${_rapport!.pvNumero} - ${_rapport!.nomClient}',
+      await SharePlus.instance.share(
+        ShareParams(
+          files: [XFile(file.path, name: safeName, mimeType: 'application/pdf')],
+          text: 'Rapport d\'essai PV N° ${_rapport!.pvNumero} (Modèle ${version == 2 ? "Moderne V2" : "Officiel V1"})',
+          subject: 'PV N° ${_rapport!.pvNumero} - ${_rapport!.nomClient}',
+        ),
       );
     } catch (e) {
       if (mounted) {
@@ -1834,10 +1836,12 @@ class _PdfPreviewPageState extends State<_PdfPreviewPage> {
       final file = File('${tempDir.path}/$safeName');
       await file.writeAsBytes(bytes);
 
-      await Share.shareXFiles(
-        [XFile(file.path, name: safeName, mimeType: 'application/pdf')],
-        text: 'PV N° ${widget.rapport.pvNumero} (${_selectedVersion == 2 ? "Modèle V2 Moderne" : "Modèle V1 Officiel"})',
-        subject: 'PV N° ${widget.rapport.pvNumero}',
+      await SharePlus.instance.share(
+        ShareParams(
+          files: [XFile(file.path, name: safeName, mimeType: 'application/pdf')],
+          text: 'PV N° ${widget.rapport.pvNumero} (${_selectedVersion == 2 ? "Modèle V2 Moderne" : "Modèle V1 Officiel"})',
+          subject: 'PV N° ${widget.rapport.pvNumero}',
+        ),
       );
     } catch (e) {
       if (context.mounted) {
