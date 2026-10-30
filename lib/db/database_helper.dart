@@ -29,15 +29,16 @@ class DatabaseHelper {
       databaseFactory = databaseFactoryFfi;
     }
 
-    // Utiliser AppData pour un chemin stable (persiste après flutter clean)
     String dbPath;
-    if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+    if (kIsWeb) {
+      dbPath = '';
+    } else if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
       final appSupportDir = await getApplicationSupportDirectory();
       dbPath = appSupportDir.path;
     } else {
       dbPath = await getDatabasesPath();
     }
-    final path = join(dbPath, 'rapport_essai.db');
+    final path = kIsWeb ? 'rapport_essai.db' : join(dbPath, 'rapport_essai.db');
 
     return await openDatabase(
       path,
