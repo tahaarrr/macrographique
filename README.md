@@ -1,9 +1,8 @@
 # Macrographique — App Flutter (SQLite + PDF)
 
-Application Android (Flutter) permettant de **créer, sauvegarder et générer en PDF**
-des Rapports d'Essai (type ALTUMET / EPE ANABIB SPA), avec photos macro-graphiques
-par échantillon, stockage local SQLite, et export PDF fidèle à la mise en page
-du modèle papier.
+Application multiplateforme (Flutter) permettant de **créer, sauvegarder et générer en PDF**
+des Rapports d'Essai Macrographiques, avec photos par échantillon, stockage local SQLite, et export PDF fidèle à la mise en page
+du modèle officiel.
 
 ## Fonctionnalités
 
@@ -124,7 +123,7 @@ Depuis l'écran d'accueil "Macrographique", appuyez sur l'icône ⚙️ (Paramè
 pour configurer, **sans toucher au code** :
 
 - le **logo** (photo prise sur place ou choisie dans la galerie)
-- le nom de la société et de l'unité (ex: EPE ANABIB SPA / UNITE ALTUMET)
+- le nom de la société et de l'unité (ex: Laboratoire Métallurgie & CND)
 - le nom et l'adresse du laboratoire, le lieu d'exécution des essais
 - la référence, la version et la date du document (ex: E10-P.LAB.02)
 - le texte de constat pré-rempli pour les nouveaux rapports

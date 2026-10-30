@@ -1,4 +1,4 @@
-package com.altumet.macrographique
+package com.macrographique.inspection
 
 import io.flutter.embedding.android.FlutterActivity
 

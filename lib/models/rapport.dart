@@ -47,7 +47,7 @@ class Rapport {
   // ──────────────────────────────────────────────────────────────
 
   // Identification CMD INTERNE
-  final String demandeur;          // ex: ANABIB / U.P. SIG
+  final String demandeur;          // ex: Client / Service Demandeur
   final String nCommandeInterne;   // ex: 23/164/SIG
   final String designationSoudure; // ex: Angle bout à bout
   final String dateSoudage;        // ex: 12/03/2024

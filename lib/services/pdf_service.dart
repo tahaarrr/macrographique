@@ -457,7 +457,7 @@ class PdfService {
     }
 
     if (config.showNomClient) {
-      final l = getL('Nom Client / Demandeur (ex: SONALGEZ)', 'Nom Client');
+      final l = getL('Nom Client / Demandeur', 'Nom Client');
       addCell('$l : ${r.nomClient}', bold: true);
     }
     if (config.showDimensions) {

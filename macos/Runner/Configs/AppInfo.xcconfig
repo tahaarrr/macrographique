@@ -8,7 +8,7 @@
 PRODUCT_NAME = macrographique
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.altumet.macrographique
+PRODUCT_BUNDLE_IDENTIFIER = com.macrographique.inspection
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2026 com.altumet. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2026 com.macrographique. All rights reserved.

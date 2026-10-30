@@ -89,11 +89,11 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.altumet" "\0"
+            VALUE "CompanyName", "com.macrographique" "\0"
             VALUE "FileDescription", "macrographique" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "macrographique" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2026 com.altumet. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2026 com.macrographique. All rights reserved." "\0"
             VALUE "OriginalFilename", "macrographique.exe" "\0"
             VALUE "ProductName", "macrographique" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"

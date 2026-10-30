@@ -1783,7 +1783,7 @@ class _RapportFormScreenState extends State<RapportFormScreen> {
             children: [
               _dateField('Date de signature', _dateSignatureCtrl),
               _textField(_laboratoireCtrl, 'Laboratoire (ex: EM / EEM)'),
-              _textField(_sigCol1ValueCtrl, 'Signataire Laboratoire (ex: SALMOUN RACHID)'),
+              _textField(_sigCol1ValueCtrl, 'Signataire Laboratoire (ex: Responsable Laboratoire)'),
               const Divider(height: 20),
               const Text('Colonnes de Signatures Modifiables',
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13)),

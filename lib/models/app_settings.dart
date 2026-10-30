@@ -1,9 +1,9 @@
 class AppSettings {
-  final String companyName; // ex: EPE ANABIB SPA
-  final String uniteName; // ex: UNITE ALTUMET
-  final String labName; // ex: LABORATOIRE D'ESSAIS MECANIQUES D'ALTUMET
-  final String labAddress; // ex: zone industrielle de Réghaia, route national N°5 - ALGER
-  final String labLieu; // ex: ALTUMET (lieu d'exécution des essais)
+  final String companyName; // ex: Laboratoire Métallurgie & CND
+  final String uniteName; // ex: Département Contrôle Qualité
+  final String labName; // ex: LABORATOIRE D'ESSAIS MÉCANIQUES & MACROGRAPHIE
+  final String labAddress; // ex: Zone Industrielle - Laboratoire Central
+  final String labLieu; // ex: Laboratoire Central (lieu d'exécution des essais)
   // Prestation doc version
   final String docRef; // ex: E10-P.LAB.02
   final String docVersion; // ex: 01

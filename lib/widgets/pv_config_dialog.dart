@@ -746,7 +746,7 @@ class _PvConfigDialogState extends State<PvConfigDialog>
               Icons.category_outlined, _config.showMetalNuance,
               (v) => setState(() => _config = _config.copyWith(showMetalNuance: v))),
           _item('Fournisseur / Fabricant Tôle',
-              'Nom de l\'aciérie productrice (ex: TOSYALI)',
+              'Nom de l\'aciérie productrice',
               Icons.storefront_outlined, _config.showFournisseur,
               (v) => setState(() => _config = _config.copyWith(showFournisseur: v))),
           _item('N° Coulée Aciérie',

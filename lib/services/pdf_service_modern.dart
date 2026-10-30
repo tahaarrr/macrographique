@@ -478,7 +478,7 @@ class PdfServiceModern {
 
     // ── 2. Client & Informations Générales
     if (config.showNomClient) {
-      addCell('${_lbl(r, 'Nom Client / Demandeur (ex: SONALGEZ)', 'Client / Demandeur')} : ${r.nomClient}', bold: true);
+      addCell('${_lbl(r, 'Nom Client / Demandeur', 'Client / Demandeur')} : ${r.nomClient}', bold: true);
     }
     if (config.showDimensions) {
       final dimStr = r.dimensions.trim();

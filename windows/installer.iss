@@ -1,9 +1,9 @@
-; Script Inno Setup pour Macrographique (Laboratoire Altumet)
+; Script Inno Setup pour Macrographique (Welding Inspection)
 ; Compatible Windows 7 / 8 / 10 / 11 (32-bit & 64-bit)
 
 #define MyAppName "Macrographique"
 #define MyAppVersion "1.2.2"
-#define MyAppPublisher "Laboratoire Altumet"
+#define MyAppPublisher "Macrographie Welding Inspection"
 #define MyAppExeName "macrographique.exe"
 #define MySourceDir "..\build\windows\x64\runner\Release"
 

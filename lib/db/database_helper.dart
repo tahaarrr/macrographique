@@ -133,7 +133,7 @@ class DatabaseHelper {
             diametre_tube TEXT DEFAULT '406',
             ep_nominale TEXT DEFAULT '11,10',
             ep_reel TEXT DEFAULT '11',
-            fournisseur TEXT DEFAULT 'TOSYALI',
+            fournisseur TEXT DEFAULT '',
             n_tube TEXT DEFAULT '1345 G',
             surep_ext TEXT DEFAULT '1,66',
             surep_int TEXT DEFAULT '1,66',
@@ -212,7 +212,7 @@ class DatabaseHelper {
           await safeAdd("ALTER TABLE echantillons ADD COLUMN diametre_tube TEXT DEFAULT '406'");
           await safeAdd("ALTER TABLE echantillons ADD COLUMN ep_nominale TEXT DEFAULT '11,10'");
           await safeAdd("ALTER TABLE echantillons ADD COLUMN ep_reel TEXT DEFAULT '11'");
-          await safeAdd("ALTER TABLE echantillons ADD COLUMN fournisseur TEXT DEFAULT 'TOSYALI'");
+          await safeAdd("ALTER TABLE echantillons ADD COLUMN fournisseur TEXT DEFAULT ''");
           await safeAdd("ALTER TABLE echantillons ADD COLUMN n_tube TEXT DEFAULT '1345 G'");
           await safeAdd("ALTER TABLE echantillons ADD COLUMN surep_ext TEXT DEFAULT '1,66'");
           await safeAdd("ALTER TABLE echantillons ADD COLUMN surep_int TEXT DEFAULT '1,66'");
@@ -547,17 +547,17 @@ class DatabaseHelper {
       'date_emission': today,
       'date_essai': today,
       'type_rapport': 'commande_interne',
-      'nom_client': 'Sonelgaz',
-      'coordonnees_client': 'Zone Industrielle Réghaia',
+      'nom_client': 'Client Industriel',
+      'coordonnees_client': 'Zone Industrielle',
       'dimensions': '406 x 11,10 mm',
       'nuance': 'X 60',
-      'n_wps': 'WPS-SIG-01',
-      'n_pqr': 'PQR-SIG-01',
+      'n_wps': 'WPS-01',
+      'n_pqr': 'PQR-01',
       'methode_essai': 'Examen Macrographique',
       'nb_echantillons': 1,
       'methode_echantillonnage': 'ISO15614-1',
       'specification_essai': 'ISO15614-1',
-      'projet': 'Projet SIG / Réghaia',
+      'projet': 'Projet Démonstration',
       'observation': "L'examen macrographique a relevé une fusion complète et une bonne interpénétration des passes de soudure.",
       'date_signature': today,
       'laboratoire': 'L.N.C',
@@ -600,7 +600,7 @@ class DatabaseHelper {
       'diametre_tube': '406',
       'ep_nominale': '11,10',
       'ep_reel': '11',
-      'fournisseur': 'TOSYALI',
+      'fournisseur': 'Aciérie A',
       'n_tube': '1345 G',
       'surep_ext': '1,66',
       'surep_int': '1,66',
@@ -664,7 +664,7 @@ class DatabaseHelper {
       'diametre_tube': '406',
       'ep_nominale': '11,10',
       'ep_reel': '11',
-      'fournisseur': 'TOSYALI',
+      'fournisseur': 'Aciérie A',
       'n_tube': '1345 G',
       'surep_ext': '1,66',
       'surep_int': '1,66',
