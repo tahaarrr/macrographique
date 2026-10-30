@@ -901,6 +901,150 @@ button:disabled {
   gap: 16px;
 }
 
+/* Workflow 5 Steps Section */
+.workflow-section {
+  padding-block: 72px 64px;
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+}
+
+.workflow-stepper-wrap {
+  background: var(--color-paper);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  margin-top: 32px;
+}
+
+.step-switcher-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-bottom: 20px;
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+}
+
+.step-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--color-paper-2);
+  color: var(--color-muted);
+  border: var(--rule-hair) solid var(--color-rule-2);
+  cursor: pointer;
+  font-size: 13px;
+  transition: color 0.15s ease-out, background-color 0.15s ease-out, border-color 0.15s ease-out;
+}
+
+.step-tab-btn:hover {
+  color: var(--color-ink);
+  border-color: var(--color-ink-2);
+}
+
+.step-tab-btn.active {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  border-color: var(--color-accent);
+  font-weight: 500;
+}
+
+.step-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+.step-name {
+  font-family: var(--font-body);
+}
+
+.workflow-stage {
+  margin-top: 24px;
+}
+
+.step-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.95fr);
+  gap: 32px;
+  align-items: center;
+}
+
+.step-panel.hidden {
+  display: none;
+}
+
+.step-image-wrap {
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--color-paper-2);
+}
+
+.step-image-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.step-info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.step-tag-pill {
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--color-accent);
+}
+
+.step-info-card h3 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--color-ink);
+}
+
+.step-info-card p {
+  font-size: 14px;
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+.step-meta-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.step-meta-chips span {
+  font-size: 12px;
+  font-family: var(--font-mono);
+  padding: 4px 12px;
+  background: var(--color-paper-2);
+  border: var(--rule-hair) solid var(--color-rule-2);
+  border-radius: var(--radius-card);
+  color: var(--color-ink-2);
+}
+
+.workflow-footer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  margin-top: 24px;
+  border-top: var(--rule-hair) solid var(--color-rule);
+}
+
+.step-counter-text {
+  font-size: 13px;
+  font-family: var(--font-mono);
+  color: var(--color-muted);
+}
+
 /* Motion reduction */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -922,7 +1066,8 @@ button:disabled {
   .platforms-grid,
   .author-grid,
   .pv-report-grid,
-  .emblem-grid {
+  .emblem-grid,
+  .step-panel {
     grid-template-columns: minmax(0, 1fr);
   }
   .ledger-row {
