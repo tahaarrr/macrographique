@@ -10,6 +10,18 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tahaarrr.github.io/macrographique/">
 
+  <!-- Script inline anti-flash Hallmark (Lit le thème avant le premier paint) -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('mode');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.dataset.mode = saved;
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tahaarrr.github.io/macrographique/">
@@ -58,7 +70,12 @@
         <li><a href="#telecharger">Exécutables</a></li>
         <li><a href="#auteur">Auteur</a></li>
       </ul>
-      <a href="#telecharger" class="btn-primary">Télécharger v1.2.2</a>
+      <div class="nav-actions">
+        <button type="button" class="theme-toggle" id="modeBtn" aria-label="Basculer entre le mode clair et sombre">
+          <span id="modeIcon">Mode</span>
+        </button>
+        <a href="#telecharger" class="btn-primary">Télécharger v1.2.2</a>
+      </div>
     </div>
   </nav>
 
@@ -276,27 +293,48 @@
     </div>
   </footer>
 
-  <!-- Vantage Point-Cloud Simulation Script -->
+  <!-- Theme Toggle & Canvas Simulation -->
   <script>
     (function () {
+      // Toggle Mode Hallmark (Parity, persisté avec dataset.mode)
+      var modeBtn = document.getElementById('modeBtn');
+      var modeIcon = document.getElementById('modeIcon');
+
+      function updateLabel() {
+        var isDark = document.documentElement.dataset.mode === 'dark' ||
+          (!document.documentElement.dataset.mode && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        modeIcon.textContent = isDark ? 'Clair' : 'Sombre';
+      }
+
+      updateLabel();
+
+      modeBtn.addEventListener('click', function () {
+        var isCurrentlyDark = document.documentElement.dataset.mode === 'dark' ||
+          (!document.documentElement.dataset.mode && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        var next = isCurrentlyDark ? 'light' : 'dark';
+        document.documentElement.dataset.mode = next;
+        try {
+          localStorage.setItem('mode', next);
+        } catch (e) {}
+        updateLabel();
+      });
+
+      // Canvas Point-Cloud adaptatif aux deux modes
       const canvas = document.getElementById('vantageCanvas');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
       let frame = 0;
 
-      // Génération d'un nuage de points de joint soudé (V-Groove section)
       const points = [];
       const numPoints = 1200;
 
       for (let i = 0; i < numPoints; i++) {
         const u = Math.random();
         const v = Math.random();
-        
         let x = (u - 0.5) * 360;
         let y = 0;
         let z = (v - 0.5) * 80;
 
-        // Forme du cordon et de la pénétration centrale
         if (Math.abs(x) < 55) {
           y = -Math.cos(x / 55 * Math.PI * 0.5) * 35 + (Math.random() - 0.5) * 8;
         } else {
@@ -307,7 +345,19 @@
       }
 
       function draw() {
-        ctx.fillStyle = 'oklch(17% 0.014 235)';
+        var isDark = document.documentElement.dataset.mode === 'dark' ||
+          (!document.documentElement.dataset.mode && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+        // Couleurs calculées selon le mode actif
+        var bg = isDark ? 'oklch(17% 0.014 235)' : 'oklch(93.5% 0.010 235)';
+        var reticleColor = isDark ? 'oklch(27% 0.014 235)' : 'oklch(80% 0.010 235)';
+        var sweepColor = isDark ? 'oklch(89% 0.19 126 / 0.4)' : 'oklch(52% 0.16 142 / 0.35)';
+        var detectedColor = isDark ? 'oklch(89% 0.19 126)' : 'oklch(52% 0.16 142)';
+        var weldColor = isDark ? 'oklch(70% 0.04 232)' : 'oklch(40% 0.06 235)';
+        var normalPointColor = isDark ? 'oklch(42% 0.04 245)' : 'oklch(68% 0.04 235)';
+        var textColor = isDark ? 'oklch(95% 0.006 230)' : 'oklch(18% 0.015 235)';
+
+        ctx.fillStyle = bg;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         const cx = canvas.width / 2;
@@ -315,8 +365,8 @@
         const sweepProgress = (frame % 320) / 320;
         const sweepX = (sweepProgress - 0.5) * 440;
 
-        // Réticule d'inspection
-        ctx.strokeStyle = 'oklch(27% 0.014 235)';
+        // Réticule
+        ctx.strokeStyle = reticleColor;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(cx, 30);
@@ -325,8 +375,8 @@
         ctx.lineTo(canvas.width - 40, cy);
         ctx.stroke();
 
-        // Ligne de balayage analytique
-        ctx.strokeStyle = 'oklch(89% 0.19 126 / 0.4)';
+        // Balayage
+        ctx.strokeStyle = sweepColor;
         ctx.lineWidth = 1.5;
         ctx.beginPath();
         ctx.moveTo(cx + sweepX, 50);
@@ -340,20 +390,20 @@
           const py = cy + pt.y + (pt.z * 0.2);
 
           const distToSweep = Math.abs(pt.x - sweepX);
-          let pointColor = 'oklch(42% 0.04 245)';
+          let pointColor = normalPointColor;
 
           if (distToSweep < 16) {
-            pointColor = 'oklch(89% 0.19 126)';
+            pointColor = detectedColor;
           } else if (Math.abs(pt.x) < 55) {
-            pointColor = 'oklch(70% 0.04 232)';
+            pointColor = weldColor;
           }
 
           ctx.fillStyle = pointColor;
           ctx.fillRect(px, py, 2, 2);
         }
 
-        // Leader de mesure sur le cordon
-        ctx.strokeStyle = 'oklch(89% 0.19 126)';
+        // Leader de cote
+        ctx.strokeStyle = detectedColor;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.arc(cx, cy - 35, 3, 0, Math.PI * 2);
@@ -363,7 +413,7 @@
         ctx.stroke();
 
         ctx.font = '12px "Geist Mono", monospace';
-        ctx.fillStyle = 'oklch(95% 0.006 230)';
+        ctx.fillStyle = textColor;
         ctx.fillText('Surépaisseur: 1.66 mm', cx + 85, cy - 82);
 
         frame++;

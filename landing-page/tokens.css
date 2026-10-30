@@ -2,10 +2,45 @@
    theme: vantage (vantage: object/steel)
    shape: Stat-Led · hero: Counter · nav: masthead · footer: mast
    draw: 21559e
-   critique: technical instrument UI, precise hairline ticks, laser point cloud cut, zero AI slop
+   modes: light+dark
+   critique: technical instrument UI, precise hairline ticks, laser point cloud cut, dual-mode parity
 */
 
 :root {
+  color-scheme: light dark;
+
+  /* Mode Light par défaut (Papier technique clair, encre foncée) */
+  --color-paper: oklch(96.5% 0.008 235);
+  --color-paper-2: oklch(93.5% 0.010 235);
+  --color-paper-3: oklch(90.5% 0.012 235);
+  --color-ink: oklch(18% 0.015 235);
+  --color-ink-2: oklch(34% 0.015 235);
+  --color-muted: oklch(52% 0.015 235);
+  --color-rule: oklch(84% 0.010 235);
+  --color-rule-2: oklch(74% 0.012 235);
+  --color-accent: oklch(52% 0.16 142);
+  --color-accent-hi: oklch(46% 0.16 142);
+  --color-accent-ink: oklch(98% 0.005 235);
+  --color-focus: oklch(52% 0.16 142);
+  --point-lo: oklch(72% 0.04 235);
+  --point-mid: oklch(48% 0.06 235);
+  --point-hi: oklch(20% 0.02 235);
+
+  --font-display: "Geologica", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Geologica", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-card: 4px;
+  --radius-pill: 999px;
+  --rule-hair: 1px;
+  --tick: 10px;
+  --tracking-display: -0.035em;
+  --display-weight: 350;
+  --body-weight: 350;
+}
+
+/* Mode Dark dérivé par recette Hallmark (Parity, not inversion) */
+[data-mode="dark"] {
   --color-paper: oklch(13.5% 0.012 235);
   --color-paper-2: oklch(17% 0.014 235);
   --color-paper-3: oklch(21% 0.016 235);
@@ -21,17 +56,30 @@
   --point-lo: oklch(42% 0.04 245);
   --point-mid: oklch(70% 0.04 232);
   --point-hi: oklch(96% 0.02 215);
-
-  --font-display: "Geologica", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "Geologica", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
-
-  --radius-card: 4px;
-  --radius-pill: 999px;
-  --rule-hair: 1px;
-  --tick: 10px;
-  --tracking-display: -0.035em;
   --display-weight: 300;
+  --body-weight: 300;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode]) {
+    --color-paper: oklch(13.5% 0.012 235);
+    --color-paper-2: oklch(17% 0.014 235);
+    --color-paper-3: oklch(21% 0.016 235);
+    --color-ink: oklch(95% 0.006 230);
+    --color-ink-2: oklch(82% 0.012 230);
+    --color-muted: oklch(66% 0.016 230);
+    --color-rule: oklch(27% 0.014 235);
+    --color-rule-2: oklch(34% 0.016 235);
+    --color-accent: oklch(89% 0.19 126);
+    --color-accent-hi: oklch(93% 0.17 126);
+    --color-accent-ink: oklch(19% 0.04 126);
+    --color-focus: oklch(89% 0.19 126);
+    --point-lo: oklch(42% 0.04 245);
+    --point-mid: oklch(70% 0.04 232);
+    --point-hi: oklch(96% 0.02 215);
+    --display-weight: 300;
+    --body-weight: 300;
+  }
 }
 
 *, *::before, *::after {
@@ -45,7 +93,7 @@ html, body {
   background-color: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-body);
-  font-weight: 300;
+  font-weight: var(--body-weight);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   scrollbar-color: var(--color-rule-2) var(--color-paper);
@@ -62,7 +110,7 @@ a {
   text-decoration: none;
 }
 
-button, a.btn, .btn-primary, .btn-secondary {
+button, a.btn, .btn-primary, .btn-secondary, .theme-toggle {
   font-family: var(--font-body);
   font-size: 15px;
   font-weight: 400;
@@ -139,6 +187,40 @@ button, a.btn, .btn-primary, .btn-secondary {
 
 .nav-links a:hover {
   color: var(--color-ink);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.theme-toggle {
+  background: transparent;
+  color: var(--color-muted);
+  border: var(--rule-hair) solid var(--color-rule-2);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  transition: color 0.15s ease-out, border-color 0.15s ease-out;
+}
+
+.theme-toggle:hover {
+  color: var(--color-ink);
+  border-color: var(--color-ink-2);
+}
+
+.theme-toggle:disabled,
+.btn-primary:disabled,
+.btn-secondary:disabled,
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 /* Corner ticks utility */

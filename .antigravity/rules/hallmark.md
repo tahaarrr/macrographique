@@ -27,3 +27,4 @@ Produire des interfaces web et applicatives qui ont l'air **conçues par un desi
 4. **Conformité & Intégrité du Domaine :**
    - Toujours respecter la rigueur technique du domaine de l'ingénierie des matériaux, du soudage et du contrôle métallurgique.
    - Ne jamais inclure de données confidentielles d'anciens clients dans les exemples ou designs.
+
