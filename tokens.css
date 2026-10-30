@@ -489,8 +489,10 @@ button:disabled {
 
 .platforms-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 32px;
+  max-width: 860px;
+  margin-inline: auto;
 }
 
 .platform-card {
@@ -809,6 +811,8 @@ button:disabled {
 
 .workbench-frame {
   margin-top: 32px;
+  max-width: 860px;
+  margin-inline: auto;
   background: var(--color-paper-2);
   border: var(--rule-hair) solid var(--color-rule-2);
   padding: 8px;
