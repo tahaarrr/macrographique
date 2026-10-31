@@ -221,10 +221,12 @@ textarea:disabled {
 }
 
 .brand-logo-img {
-  width: 28px;
-  height: 28px;
-  border-radius: var(--radius-pill);
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-round);
   display: block;
+  flex-shrink: 0;
+  object-fit: contain;
 }
 
 .brand-name {
@@ -1071,6 +1073,12 @@ textarea:disabled {
 /* Fluid modern interactions */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .platform-card,
@@ -1129,6 +1137,17 @@ html {
 }
 
 /* Responsive adjustments */
+@media (max-width: 1080px) {
+  .nav-links,
+  .desktop-cta {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+}
+
 @media (max-width: 960px) {
   .hero-layout,
   .step-panel,
@@ -1139,21 +1158,120 @@ html {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .nav-links,
-  .desktop-cta {
-    display: none;
-  }
-
-  .mobile-toggle {
-    display: flex;
-  }
-
   .macro-hud-bar {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
   .pv-preview-media {
     border-right: none;
     border-bottom: var(--rule-hair) solid var(--color-rule);
   }
+}
 
+@media (max-width: 640px) {
+  .container {
+    padding-inline: 16px;
+  }
+
+  .masthead-inner {
+    height: 56px;
+  }
+
+  .hero-headline {
+    font-size: 30px;
+    line-height: 1.15;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .stat-counter-bar {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    padding-top: 16px;
+    margin-top: 24px;
+  }
+
+  .stat-item .figure {
+    font-size: 20px;
+  }
+
+  .stat-item .label {
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  .macro-viewer-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .macro-switcher {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
+  .macro-switch-btn {
+    text-align: center;
+    justify-content: center;
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .macro-hud-cell {
+    padding: 8px 12px;
+  }
+
+  .macro-hud-val {
+    font-size: 16px;
+  }
+
+  .macro-hud-lbl {
+    font-size: 10px;
+  }
+
+  .step-switcher-bar {
+    gap: 8px;
+    padding-bottom: 12px;
+  }
+
+  .step-tab-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .step-info-card,
+  .pv-preview-info,
+  .feedback-card,
+  .platform-card,
+  .author-details-box {
+    padding: 20px;
+  }
+
+  .pv-preview-actions,
+  .feedback-actions {
+    flex-direction: column;
+  }
+
+  .pv-preview-actions a,
+  .feedback-actions a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .mast-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 }
