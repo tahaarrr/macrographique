@@ -959,6 +959,179 @@ textarea:disabled {
   gap: 16px;
 }
 
+
+/* PV Preview Section */
+.pv-preview-section {
+  padding-block: var(--space-4xl);
+  border-top: var(--rule-hair) solid var(--color-rule);
+}
+
+.pv-preview-card {
+  background: var(--color-paper-2);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-xl);
+  color: var(--color-ink);
+}
+
+.pv-preview-media {
+  background: var(--color-paper-3);
+  padding: var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: var(--rule-hair) solid var(--color-rule);
+}
+
+.pv-preview-media img {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  border-radius: var(--radius-card);
+  border: var(--rule-hair) solid var(--color-rule);
+}
+
+.pv-preview-info {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  color: var(--color-ink);
+}
+
+.pv-preview-info h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--color-ink);
+  letter-spacing: var(--tracking-display);
+}
+
+.pv-preview-info p {
+  font-size: 15px;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.pv-preview-actions {
+  margin-top: var(--space-sm);
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* FAQ Section */
+.faq-section {
+  padding-block: var(--space-4xl);
+  border-top: var(--rule-hair) solid var(--color-rule);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg);
+}
+
+.faq-card {
+  background: var(--color-paper-2);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-card);
+  padding: var(--space-lg);
+  color: var(--color-ink);
+  transition: border-color var(--dur-short) var(--ease-out);
+}
+
+.faq-card[open] {
+  border-color: var(--color-rule-2);
+}
+
+.faq-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-ink);
+  list-style: none;
+  gap: var(--space-sm);
+}
+
+.faq-summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-summary:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 4px;
+  border-radius: var(--radius-pill);
+}
+
+.faq-icon {
+  font-family: var(--font-outlier);
+  font-size: 18px;
+  color: var(--color-cool);
+  transition: transform var(--dur-short) var(--ease-out);
+}
+
+.faq-card[open] .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-body {
+  margin-top: var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: var(--rule-hair) solid var(--color-rule);
+  color: var(--color-ink-2);
+}
+
+.faq-body p {
+  font-size: 14px;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-round);
+  background: var(--color-paper-elevated);
+  border: var(--rule-hair) solid var(--color-rule-2);
+  color: var(--color-ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 90;
+  transition: opacity var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out);
+}
+
+.back-to-top:hover {
+  background: var(--color-paper-2);
+  transform: translateY(-2px);
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.back-to-top:disabled,
+.back-to-top[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* Motion reduction */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -974,6 +1147,8 @@ textarea:disabled {
   .step-panel,
   .comparison-grid,
   .platforms-grid,
+  .pv-preview-card,
+  .faq-grid,
   .author-grid {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -990,4 +1165,9 @@ textarea:disabled {
   .macro-hud-bar {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .pv-preview-media {
+    border-right: none;
+    border-bottom: var(--rule-hair) solid var(--color-rule);
+  }
+
 }

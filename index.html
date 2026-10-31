@@ -19,6 +19,52 @@
           document.documentElement.dataset.mode = saved;
         }
       } catch (e) {}
+
+      // 5. Stat Counters Animation
+      var statBar = document.querySelector(".stat-counter-bar");
+      if (statBar && "IntersectionObserver" in window) {
+        var animated = false;
+        var observer = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting && !animated) {
+            animated = true;
+            document.querySelectorAll(".stat-item .figure").forEach(function (fig) {
+              var target = parseFloat(fig.getAttribute("data-target"));
+              var unit = fig.getAttribute("data-unit") || "";
+              var decimals = parseInt(fig.getAttribute("data-decimals") || "0", 10);
+              var duration = 1200;
+              var start = performance.now();
+              function frame(now) {
+                var progress = Math.min((now - start) / duration, 1);
+                var eased = 1 - Math.pow(1 - progress, 3);
+                var current = (target * eased).toFixed(decimals);
+                fig.innerHTML = current + "<span class=\"unit\">" + unit + "</span>";
+                if (progress < 1) {
+                  requestAnimationFrame(frame);
+                }
+              }
+              requestAnimationFrame(frame);
+            });
+            observer.disconnect();
+          }
+        }, { threshold: 0.3 });
+        observer.observe(statBar);
+      }
+
+      // 6. Back to Top Button
+      var backBtn = document.getElementById("backToTopBtn");
+      if (backBtn) {
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 400) {
+            backBtn.hidden = false;
+          } else {
+            backBtn.hidden = true;
+          }
+        }, { passive: true });
+
+        backBtn.addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
     })();
   </script>
 
@@ -79,6 +125,51 @@
         "url": "https://tahaarrr.github.io/macrographique/",
         "name": "Macrographique : Travaux d’Ayati Tahar",
         "author": { "@id": "https://tahaarrr.github.io/macrographique/#ayati-tahar" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Le logiciel Macrographique est-il gratuit ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui. Macrographique est un logiciel libre d'ingénierie, distribué gratuitement en téléchargement direct (Web, Windows, Android)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelles normes sont prises en charge ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "API Spec 5L (tubes soudés SAWH) et ISO 15614-1 (qualification de modes opératoires de soudage)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Les données restent-elles sur mon appareil ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui, 100% des données sont stockées localement en SQLite. Aucune donnée n'est envoyée vers un serveur externe."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il une connexion internet ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Non. L'application fonctionne entièrement hors-ligne après installation (Windows et Android). La version Web nécessite un navigateur."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qui est l'auteur de Macrographique ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ayati Tahar (Tahar Ayati), ingénieur et chercheur en génie des matériaux, spécialisé en métallurgie des soudures industrielles."
+            }
+          }
+        ]
       }
     ]
   }
@@ -89,6 +180,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;600&family=Host+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
   <link rel="stylesheet" href="tokens.css">
 </head>
 <body>
@@ -106,7 +199,9 @@
         <a href="#inspection">Inspection</a>
         <a href="#etapes">Étapes PV</a>
         <a href="#etabli">Poste mesure</a>
+        <a href="#modele">Modèle</a>
         <a href="#telecharger">Téléchargements</a>
+        <a href="#faq">FAQ</a>
         <a href="#auteur">Auteur</a>
       </nav>
 
@@ -128,7 +223,9 @@
         <a href="#inspection" class="mobile-nav-link">Inspection</a>
         <a href="#etapes" class="mobile-nav-link">Étapes PV</a>
         <a href="#etabli" class="mobile-nav-link">Poste de Mesure</a>
+        <a href="#modele" class="mobile-nav-link">Modèle</a>
         <a href="#telecharger" class="mobile-nav-link">Téléchargements</a>
+        <a href="#faq" class="mobile-nav-link">FAQ</a>
         <a href="#auteur" class="mobile-nav-link">Auteur</a>
       </nav>
       <div class="mobile-drawer-cta">
@@ -157,15 +254,15 @@
 
           <div class="stat-counter-bar">
             <div class="stat-item">
-              <div class="figure">100<span class="unit">%</span></div>
+              <div class="figure" data-target="100" data-unit="%">100<span class="unit">%</span></div>
               <div class="label">Données locales SQLite</div>
             </div>
             <div class="stat-item">
-              <div class="figure">0.01<span class="unit">mm</span></div>
+              <div class="figure" data-target="0.01" data-decimals="2" data-unit="mm">0.01<span class="unit">mm</span></div>
               <div class="label">Précision micrométrique</div>
             </div>
             <div class="stat-item">
-              <div class="figure">5<span class="unit">Étapes</span></div>
+              <div class="figure" data-target="5" data-unit="Étapes">5<span class="unit">Étapes</span></div>
               <div class="label">Flux certifié</div>
             </div>
           </div>
@@ -373,6 +470,32 @@
       </div>
     </section>
 
+    <!-- Modèle de Procès-Verbal Officiel -->
+    <section class="pv-preview-section" id="modele">
+      <div class="container">
+        <div class="section-head-simple">
+          <h2>Modèle de procès-verbal certifié</h2>
+          <p>Édition conforme API 5L et ISO 15614-1.</p>
+        </div>
+
+        <div class="pv-preview-card">
+          <div class="pv-preview-media">
+            <img src="assets/pv_model_preview.png" alt="Procès-verbal macrographique officiel généré par Macrographique" loading="lazy">
+          </div>
+          <div class="pv-preview-info">
+            <h3>Structure du document officiel</h3>
+            <p>Traçabilité, paramètres opératoires, relevé micrométrique et signatures.</p>
+            <div class="pv-preview-actions">
+              <a href="assets/Model_pv_macro_official.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                Consulter le modèle PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
     <!-- Distributions et Téléchargements -->
     <section class="downloads-section" id="telecharger">
       <div class="container">
@@ -427,6 +550,59 @@
       </div>
     </section>
 
+    <!-- Foire Aux Questions (FAQ) -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="section-head-simple">
+          <h2>Foire aux questions</h2>
+          <p>Précisions techniques sur le déploiement et la conformité.</p>
+        </div>
+
+        <div class="faq-grid">
+          <details class="faq-card">
+            <summary class="faq-summary">
+              <span>Le logiciel Macrographique est-il gratuit ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-body">
+              <p>Oui. Logiciel libre distribué gratuitement pour Windows, Android et Web.</p>
+            </div>
+          </details>
+
+          <details class="faq-card">
+            <summary class="faq-summary">
+              <span>Quelles normes sont couvertes ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-body">
+              <p>Normes API Spec 5L et ISO 15614-1.</p>
+            </div>
+          </details>
+
+          <details class="faq-card">
+            <summary class="faq-summary">
+              <span>Où résident les données ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-body">
+              <p>En local via SQLite. Aucun transfert externe.</p>
+            </div>
+          </details>
+
+          <details class="faq-card">
+            <summary class="faq-summary">
+              <span>Fonctionne-t-il hors ligne ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-body">
+              <p>Windows et Android fonctionnent en autonomie complète hors ligne.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+
     <!-- SECTION AUTEUR & RECHERCHE : AYATI TAHAR (ÉLÉGANTE ET RESTAURÉE) -->
     <section class="author-section" id="auteur">
       <div class="container author-grid">
@@ -453,6 +629,13 @@
         </div>
       </div>
     </section>
+  
+  <!-- Bouton Retour en haut -->
+  <button type="button" class="back-to-top" id="backToTopBtn" aria-label="Retour en haut de page" hidden>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
   </main>
 
   <!-- Pied de page officiel -->
