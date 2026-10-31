@@ -19,72 +19,6 @@
           document.documentElement.dataset.mode = saved;
         }
       } catch (e) {}
-
-      // 5. Stat Counters Animation
-      var statBar = document.querySelector(".stat-counter-bar");
-      if (statBar && "IntersectionObserver" in window) {
-        var animated = false;
-        var observer = new IntersectionObserver(function (entries) {
-          if (entries[0].isIntersecting && !animated) {
-            animated = true;
-            document.querySelectorAll(".stat-item .figure").forEach(function (fig) {
-              var target = parseFloat(fig.getAttribute("data-target"));
-              var unit = fig.getAttribute("data-unit") || "";
-              var decimals = parseInt(fig.getAttribute("data-decimals") || "0", 10);
-              var duration = 1200;
-              var start = performance.now();
-              function frame(now) {
-                var progress = Math.min((now - start) / duration, 1);
-                var eased = 1 - Math.pow(1 - progress, 3);
-                var current = (target * eased).toFixed(decimals);
-                fig.innerHTML = current + "<span class=\"unit\">" + unit + "</span>";
-                if (progress < 1) {
-                  requestAnimationFrame(frame);
-                }
-              }
-              requestAnimationFrame(frame);
-            });
-            observer.disconnect();
-          }
-        }, { threshold: 0.3 });
-        observer.observe(statBar);
-      }
-
-      // 6. Back to Top Button
-      var backBtn = document.getElementById("backToTopBtn");
-      if (backBtn) {
-        window.addEventListener("scroll", function () {
-          if (window.scrollY > 400) {
-            backBtn.hidden = false;
-          } else {
-            backBtn.hidden = true;
-          }
-        }, { passive: true });
-
-        backBtn.addEventListener("click", function () {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-      }
-
-      // 7. Copy Email Clipboard Action
-      var copyBtn = document.getElementById("btnCopyEmail");
-      var copyText = document.getElementById("copyEmailText");
-      if (copyBtn && copyText) {
-        copyBtn.addEventListener("click", function () {
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText("ayati.tahar@gmail.com").then(function () {
-              copyText.textContent = "✓ Adresse copiée !";
-              setTimeout(function () {
-                copyText.textContent = "Copier l’adresse";
-              }, 2000);
-            }).catch(function () {
-              copyText.textContent = "ayati.tahar@gmail.com";
-            });
-          } else {
-            copyText.textContent = "ayati.tahar@gmail.com";
-          }
-        });
-      }
     })();
   </script>
 
@@ -167,7 +101,7 @@
   <!-- Barre de navigation flottante en verre dépoli -->
   <header class="masthead">
     <div class="container masthead-inner">
-      <a href="#" class="brand" aria-label="Macrographique Accueil">
+      <a href="#inspection" class="brand" aria-label="Macrographique Accueil">
         <img src="assets/logo.png" alt="Logo Macrographique" class="brand-logo-img">
         <span class="brand-name">Macrographique</span>
       </a>
@@ -217,7 +151,7 @@
       <div class="container hero-layout">
         <div class="hero-text-block">
           <h1 class="hero-headline">
-            La rigueur du procès-verbal macrographique.
+            La rigueur du <span style="white-space: nowrap;">procès-verbal</span> <span style="white-space: nowrap;">macrographique.</span>
           </h1>
 
           <p class="hero-sentence">
@@ -636,7 +570,8 @@
     </div>
   </footer>
 
-  <!-- Scripts: Theme Toggle, Mobile Menu, Macro Viewer Switcher & 5-Step Workflow -->
+  
+  <!-- Scripts: Theme, Mobile Drawer, Macro Switcher, Workflow, Counters, Back to Top, Copy Email -->
   <script>
     (function () {
       // 1. Theme Toggle
@@ -666,30 +601,30 @@
       var drawer = document.getElementById('mobileDrawer');
 
       if (mobileBtn && drawer) {
-        mobileBtn.addEventListener('click', function () {
+        mobileBtn.addEventListener('click', function (e) {
+          e.preventDefault();
           var open = mobileBtn.getAttribute('aria-expanded') === 'true';
           mobileBtn.setAttribute('aria-expanded', !open);
           drawer.hidden = open;
-          document.body.style.overflow = open ? '' : 'hidden';
         });
 
         drawer.querySelectorAll('a').forEach(function (a) {
           a.addEventListener('click', function () {
             mobileBtn.setAttribute('aria-expanded', 'false');
             drawer.hidden = true;
-            document.body.style.overflow = '';
           });
         });
       }
 
-      // 3. Macro Viewer Switcher (Hero)
+      // 3. Macro Viewer Switcher (Zero-jump fixed stage)
       var btnTrace = document.getElementById('btnTrace');
       var btnRaw = document.getElementById('btnRaw');
       var imgTrace = document.getElementById('imgTrace');
       var imgRaw = document.getElementById('imgRaw');
 
       if (btnTrace && btnRaw && imgTrace && imgRaw) {
-        btnTrace.addEventListener('click', function () {
+        btnTrace.addEventListener('click', function (e) {
+          e.preventDefault();
           btnTrace.classList.add('active');
           btnTrace.setAttribute('aria-selected', 'true');
           btnRaw.classList.remove('active');
@@ -698,7 +633,8 @@
           imgRaw.classList.add('hidden');
         });
 
-        btnRaw.addEventListener('click', function () {
+        btnRaw.addEventListener('click', function (e) {
+          e.preventDefault();
           btnRaw.classList.add('active');
           btnRaw.setAttribute('aria-selected', 'true');
           btnTrace.classList.remove('active');
@@ -747,21 +683,92 @@
       }
 
       stepTabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
+        tab.addEventListener('click', function (e) {
+          e.preventDefault();
           var step = parseInt(tab.getAttribute('data-step'), 10);
           goToStep(step);
         });
       });
 
       if (btnPrevStep) {
-        btnPrevStep.addEventListener('click', function () {
+        btnPrevStep.addEventListener('click', function (e) {
+          e.preventDefault();
           goToStep(currentStep - 1);
         });
       }
 
       if (btnNextStep) {
-        btnNextStep.addEventListener('click', function () {
+        btnNextStep.addEventListener('click', function (e) {
+          e.preventDefault();
           goToStep(currentStep + 1);
+        });
+      }
+
+      // 5. Stat Counters Animation
+      var statBar = document.querySelector(".stat-counter-bar");
+      if (statBar && "IntersectionObserver" in window) {
+        var animated = false;
+        var observer = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting && !animated) {
+            animated = true;
+            document.querySelectorAll(".stat-item .figure").forEach(function (fig) {
+              var target = parseFloat(fig.getAttribute("data-target"));
+              var unit = fig.getAttribute("data-unit") || "";
+              var decimals = parseInt(fig.getAttribute("data-decimals") || "0", 10);
+              var duration = 1200;
+              var start = performance.now();
+              function frame(now) {
+                var progress = Math.min((now - start) / duration, 1);
+                var eased = 1 - Math.pow(1 - progress, 3);
+                var current = (target * eased).toFixed(decimals);
+                fig.innerHTML = current + "<span class=\"unit\">" + unit + "</span>";
+                if (progress < 1) {
+                  requestAnimationFrame(frame);
+                }
+              }
+              requestAnimationFrame(frame);
+            });
+            observer.disconnect();
+          }
+        }, { threshold: 0.3 });
+        observer.observe(statBar);
+      }
+
+      // 6. Back to Top Button
+      var backBtn = document.getElementById("backToTopBtn");
+      if (backBtn) {
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 400) {
+            backBtn.hidden = false;
+          } else {
+            backBtn.hidden = true;
+          }
+        }, { passive: true });
+
+        backBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+
+      // 7. Copy Email Clipboard Action
+      var copyBtn = document.getElementById("btnCopyEmail");
+      var copyText = document.getElementById("copyEmailText");
+      if (copyBtn && copyText) {
+        copyBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText("ayati.tahar@gmail.com").then(function () {
+              copyText.textContent = "✓ Adresse copiée !";
+              setTimeout(function () {
+                copyText.textContent = "Copier l’adresse";
+              }, 2000);
+            }).catch(function () {
+              copyText.textContent = "ayati.tahar@gmail.com";
+            });
+          } else {
+            copyText.textContent = "ayati.tahar@gmail.com";
+          }
         });
       }
     })();
