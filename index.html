@@ -94,7 +94,7 @@
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="stylesheet" href="tokens.css?v=2.2">
+  <link rel="stylesheet" href="tokens.css?v=2.3">
 </head>
 <body>
 
@@ -179,14 +179,18 @@
           </div>
         </div>
 
-        <!-- Visionneuse Macro Haute Définition -->
-        <div class="macro-viewer">
-          <div class="macro-viewer-header">
-            <div class="macro-viewer-title">
-              <span class="dot-live"></span>
-              Coupe réelle SAW (API 5L)
+        <!-- Visionneuse Macro Haute Définition · Studio Vectoriel Façon Inkscape -->
+        <div class="macro-viewer" id="macroStudio">
+          <!-- En-tête Studio Inkscape -->
+          <div class="macro-studio-header">
+            <div class="macro-studio-spec">
+              <svg class="studio-app-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+              <span class="studio-doc-name">Coupe_SAW_API5L.svg</span>
+              <span class="studio-scale-pill">14.28 px/mm</span>
             </div>
-            <div class="macro-switcher" role="tablist" aria-label="Affichage de la coupe">
+            <div class="macro-switcher" role="tablist" aria-label="Mode de visualisation">
               <button type="button" class="macro-switch-btn active" id="btnTrace" role="tab" aria-selected="true">
                 Traçage vectoriel
               </button>
@@ -196,11 +200,119 @@
             </div>
           </div>
 
-          <div class="macro-stage">
-            <img id="imgTrace" src="assets/macro_hero_specimen.png" alt="Coupe macrographique avec tracé vectoriel des cordons de soudure">
-            <img id="imgRaw" src="assets/macro_raw_real.png" alt="Coupe macrographique brute après attaque nital" class="hidden">
+          <!-- Barre de Contrôles et Outils Inkscape -->
+          <div class="inkscape-controls-bar">
+            <div class="inkscape-tool-group" role="toolbar" aria-label="Outils d’analyse vectorielle">
+              <button type="button" class="inkscape-tool-btn active" id="toolNodes" aria-pressed="true" title="Outil Nœuds et Courbes de Bézier (F2)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/>
+                  <rect x="2" y="3" width="6" height="6" rx="1"/>
+                  <rect x="16" y="3" width="6" height="6" rx="1"/>
+                  <path d="M8 6h8"/>
+                </svg>
+                <span>Nœuds (F2)</span>
+              </button>
+              <button type="button" class="inkscape-tool-btn active" id="toolMeasure" aria-pressed="true" title="Cotation dimensionnelle (M)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M21.3 8.7 8.7 21.3c-1 1-2.5 1-3.4 0l-2.6-2.6c-1-1-1-2.5 0-3.4L15.3 2.7c1-1 2.5-1 3.4 0l2.6 2.6c1 1 1 2.5 0 3.4Z"/>
+                  <path d="m14.5 3.5 2 2M11.5 6.5l2 2M8.5 9.5l2 2M5.5 12.5l2 2"/>
+                </svg>
+                <span>Cotation (M)</span>
+              </button>
+              <button type="button" class="inkscape-tool-btn" id="toolSnap" aria-pressed="false" title="Aimantation aux lignes de fusion">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="m6 15-4-4 6.7-6.7a4 4 0 0 1 5.6 0l1.4 1.4a4 4 0 0 1 0 5.6L9 18"/>
+                  <path d="m9 21 3-3"/>
+                  <path d="m14 10 3 3"/>
+                </svg>
+                <span>Aimantation</span>
+              </button>
+            </div>
+
+            <div class="inkscape-coords-hud" id="coordsHud">
+              <span class="coord-item"><span class="coord-lbl">X</span> 42.18 mm</span>
+              <span class="coord-item"><span class="coord-lbl">Y</span> 18.45 mm</span>
+              <span class="coord-item"><span class="coord-lbl">L</span> 14.89 mm</span>
+              <span class="coord-item coord-pill" id="snapPill">Tolérance 0.01mm</span>
+            </div>
           </div>
 
+          <!-- Canevas avec Règle Millimétrique Inkscape -->
+          <div class="inkscape-canvas-wrap">
+            <div class="inkscape-ruler-h" aria-hidden="true">
+              <span class="ruler-unit">mm</span>
+              <span class="ruler-tick">0</span>
+              <span class="ruler-tick">5</span>
+              <span class="ruler-tick">10</span>
+              <span class="ruler-tick">15</span>
+              <span class="ruler-tick">20</span>
+              <span class="ruler-tick">25</span>
+              <span class="ruler-tick">30</span>
+              <span class="ruler-tick">35</span>
+            </div>
+
+            <div class="macro-stage">
+              <img id="imgTrace" src="assets/macro_hero_specimen.png" alt="Coupe macrographique avec tracé vectoriel des cordons de soudure">
+              <img id="imgRaw" src="assets/macro_raw_real.png" alt="Coupe macrographique brute après attaque nital" class="hidden">
+
+              <!-- Calque SVG Vectoriel Interactif façon Inkscape -->
+              <svg id="inkscapeSvgLayer" class="inkscape-svg-overlay" viewBox="0 0 1000 476" preserveAspectRatio="none" aria-hidden="true">
+                <!-- Zone de fusion vectorielle -->
+                <path id="svgFusionArea" class="svg-vector-path svg-fusion-area" d="M 280 260 C 370 345, 630 345, 720 260 Z" />
+
+                <!-- Contour cordon supérieur (Bézier) -->
+                <path id="svgCapPath" class="svg-vector-path svg-cap-path" d="M 175 295 C 275 235, 420 200, 500 200 C 580 200, 725 235, 825 295" />
+
+                <!-- Ligne de pénétration cordon inférieur -->
+                <path id="svgRootPath" class="svg-vector-path svg-root-path" d="M 310 265 C 390 345, 610 345, 690 265" />
+
+                <!-- Cotation dimensionnelle (Lignes de cote et flèches) -->
+                <g id="svgMeasureGroup">
+                  <!-- Ligne de largeur de cordon -->
+                  <line x1="175" y1="165" x2="825" y2="165" class="svg-dim-line" />
+                  <line x1="175" y1="158" x2="175" y2="172" class="svg-dim-tick" />
+                  <line x1="825" y1="158" x2="825" y2="172" class="svg-dim-tick" />
+                  <rect x="420" y="152" width="160" height="24" rx="4" class="svg-dim-bg" />
+                  <text x="500" y="165" class="svg-dim-text">L = 14.89 mm</text>
+
+                  <!-- Flèche de pénétration -->
+                  <line x1="500" y1="200" x2="500" y2="335" class="svg-dim-line svg-dim-accent" />
+                  <polygon points="500,200 496,210 504,210" class="svg-arrow" />
+                  <polygon points="500,335 496,325 504,325" class="svg-arrow" />
+                </g>
+
+                <!-- Nœuds d'ancrage vectoriels (Nodes & Tangents Inkscape) -->
+                <g id="svgNodesGroup">
+                  <!-- Lignes tangentes -->
+                  <line x1="435" y1="200" x2="565" y2="200" class="svg-tangent-line" />
+                  <!-- Poignées tangentes (losanges) -->
+                  <polygon points="435,196 439,200 435,204 431,200" class="svg-node-handle" />
+                  <polygon points="565,196 569,200 565,204 561,200" class="svg-node-handle" />
+                  <!-- Nœuds d'ancrage (carrés Inkscape) -->
+                  <rect x="495" y="195" width="10" height="10" rx="1" class="svg-node-anchor" data-info="Sommet Cordon Extérieur" />
+                  <rect x="170" y="290" width="10" height="10" rx="1" class="svg-node-anchor" data-info="Raccordement Gauche" />
+                  <rect x="820" y="290" width="10" height="10" rx="1" class="svg-node-anchor" data-info="Raccordement Droit" />
+                  <rect x="495" y="330" width="10" height="10" rx="1" class="svg-node-anchor" data-info="Racine Pénétration" />
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Barre d’état & Nuancier métallographique Inkscape -->
+          <div class="inkscape-statusbar">
+            <div class="inkscape-swatches">
+              <span class="swatch-item"><span class="swatch-color sw-zf"></span>ZF Fondue</span>
+              <span class="swatch-item"><span class="swatch-color sw-zat"></span>ZAT Affectée</span>
+              <span class="swatch-item"><span class="swatch-color sw-mb"></span>MB Métal Base</span>
+            </div>
+            <div class="inkscape-status-meta">
+              <span>Calque : SAW Ext/Int</span>
+              <span class="sep">·</span>
+              <span>Zoom : 100%</span>
+            </div>
+          </div>
+
+          <!-- Relevé Métrologique API 5L -->
           <div class="macro-hud-bar">
             <div class="macro-hud-cell">
               <div class="macro-hud-val accent">55,89%</div>
@@ -234,16 +346,16 @@
 
         <div class="comparison-grid">
           <div class="comp-panel">
-            <h3>Révélation de la structure</h3>
+            <h3>Révélation de structure</h3>
             <p>
-              L’attaque nital révèle la zone fondue, la zone thermiquement affectée (ZAT), la compacité et l’absence de défauts.
+              L’attaque nital révèle la zone fondue, la ZAT et l’absence de défauts.
             </p>
           </div>
 
           <div class="comp-panel active-state">
             <h3>Tous procédés de soudage</h3>
             <p>
-              Couverture universelle : joints bout à bout, en angle, multipasses, SAWH, SAWL, TIG, MIG/MAG et électrode (API 5L, ISO 15614).
+              Couverture totale : joints bout à bout, en angle, multipasses, SAWH, SAWL, TIG, MIG/MAG (API 5L, ISO 15614).
             </p>
           </div>
         </div>
@@ -572,11 +684,18 @@
         });
       }
 
-      // 3. Macro Viewer Switcher (Zero-jump fixed stage)
+      // 3. Macro Viewer & Inkscape CAD Studio Switcher (Zero-jump fixed stage)
       var btnTrace = document.getElementById('btnTrace');
       var btnRaw = document.getElementById('btnRaw');
       var imgTrace = document.getElementById('imgTrace');
       var imgRaw = document.getElementById('imgRaw');
+      var inkscapeSvgLayer = document.getElementById('inkscapeSvgLayer');
+      var toolNodes = document.getElementById('toolNodes');
+      var toolMeasure = document.getElementById('toolMeasure');
+      var toolSnap = document.getElementById('toolSnap');
+      var svgNodesGroup = document.getElementById('svgNodesGroup');
+      var svgMeasureGroup = document.getElementById('svgMeasureGroup');
+      var snapPill = document.getElementById('snapPill');
 
       if (btnTrace && btnRaw && imgTrace && imgRaw) {
         btnTrace.addEventListener('click', function (e) {
@@ -587,6 +706,7 @@
           btnRaw.setAttribute('aria-selected', 'false');
           imgTrace.classList.remove('hidden');
           imgRaw.classList.add('hidden');
+          if (inkscapeSvgLayer) inkscapeSvgLayer.classList.remove('hidden');
         });
 
         btnRaw.addEventListener('click', function (e) {
@@ -597,8 +717,51 @@
           btnTrace.setAttribute('aria-selected', 'false');
           imgRaw.classList.remove('hidden');
           imgTrace.classList.add('hidden');
+          if (inkscapeSvgLayer) inkscapeSvgLayer.classList.add('hidden');
         });
       }
+
+      // Inkscape Tools Interactivity
+      if (toolNodes && svgNodesGroup) {
+        toolNodes.addEventListener('click', function (e) {
+          e.preventDefault();
+          var isHidden = svgNodesGroup.classList.toggle('hidden');
+          toolNodes.classList.toggle('active', !isHidden);
+          toolNodes.setAttribute('aria-pressed', isHidden ? 'false' : 'true');
+        });
+      }
+
+      if (toolMeasure && svgMeasureGroup) {
+        toolMeasure.addEventListener('click', function (e) {
+          e.preventDefault();
+          var isHidden = svgMeasureGroup.classList.toggle('hidden');
+          toolMeasure.classList.toggle('active', !isHidden);
+          toolMeasure.setAttribute('aria-pressed', isHidden ? 'false' : 'true');
+        });
+      }
+
+      if (toolSnap && snapPill) {
+        toolSnap.addEventListener('click', function (e) {
+          e.preventDefault();
+          var isActive = toolSnap.classList.toggle('active');
+          toolSnap.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+          snapPill.textContent = isActive ? 'Aimantation active' : 'Tolérance 0.01mm';
+        });
+      }
+
+      // Interactive Vector Node Anchors Hover Readout
+      var nodeAnchors = document.querySelectorAll('.svg-node-anchor');
+      nodeAnchors.forEach(function (node) {
+        node.addEventListener('mouseenter', function () {
+          var info = node.getAttribute('data-info');
+          if (snapPill && info) snapPill.textContent = info;
+        });
+        node.addEventListener('mouseleave', function () {
+          if (snapPill) {
+            snapPill.textContent = (toolSnap && toolSnap.classList.contains('active')) ? 'Aimantation active' : 'Tolérance 0.01mm';
+          }
+        });
+      });
 
       // 4. 5-Step Catalogue Stepper (Zero DOM reflow, zero jump)
       var stepsData = [
