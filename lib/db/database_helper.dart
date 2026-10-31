@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
-import 'package:intl/intl.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -533,149 +532,8 @@ class DatabaseHelper {
   }
 
   Future<void> _seedInitialExamplesIfEmpty(Database db) async {
-    final count = Sqflite.firstIntValue(
-      await db.rawQuery('SELECT COUNT(*) FROM rapports'),
-    );
-    if (count != null && count > 0) return;
-
-    final today = DateFormat('dd/MM/yyyy').format(DateTime.now());
-    final now = DateTime.now().toIso8601String();
-
-    // 1. Sonelgaz (Cmd Interne)
-    final r1Id = await db.insert('rapports', {
-      'pv_numero': '01/2026',
-      'date_reception': today,
-      'date_emission': today,
-      'date_essai': today,
-      'type_rapport': 'commande_interne',
-      'nom_client': 'Client Industriel',
-      'coordonnees_client': 'Zone Industrielle',
-      'dimensions': '406 x 11,10 mm',
-      'nuance': 'X 60',
-      'n_wps': 'WPS-01',
-      'n_pqr': 'PQR-01',
-      'methode_essai': 'Examen Macrographique',
-      'nb_echantillons': 1,
-      'methode_echantillonnage': 'ISO15614-1',
-      'specification_essai': 'ISO15614-1',
-      'projet': 'Projet Démonstration',
-      'observation': "L'examen macrographique a relevé une fusion complète et une bonne interpénétration des passes de soudure.",
-      'date_signature': today,
-      'laboratoire': 'L.N.C',
-      'demandeur': 'Sonelgaz',
-      'n_commande_interne': '23/164/SIG',
-      'designation_soudure': 'Angle bout à bout',
-      'date_soudage': today,
-      'procede_soudage': 'TIG / MIG',
-      'position_soudage': 'PA',
-      'soudeur_code': 'S001',
-      'param_penetration': 'Pénétration;TIG;3.2mm;180A;22V;12cm/min;DC+;Er70S6',
-      'param_remplissage': 'Remplissage;MIG;1.2mm;240A;26V;25cm/min;DC+;Er70S6',
-      'param_finition': 'Finition;MIG;1.2mm;220A;25V;20cm/min;DC+;Er70S6',
-      'attaque_chimique': 'Nital 5%',
-      'materiel_utilise': 'Tronçonneuse, polisseuse',
-      'sig_interne_operateur': 'AYATI Tahar',
-      'sig_interne_verificateur': 'L.N.C',
-      'sig_interne_chef': 'Ingénieur Tahar',
-      'created_at': now,
-    });
-
-    await db.insert('echantillons', {
-      'rapport_id': r1Id,
-      'numero': 1,
-      'photo_path': null,
-      'observation': "Fusion complète et bonne interpénétration.",
-      'vitesse': '0,9',
-      'u_int': '32 V',
-      'u_ext': '32 V',
-      'i_int': '630 A',
-      'i_ext': '780 A',
-      'fil_int_1': '(3,2mm) 200987',
-      'fil_int_2': '(4 mm) 200955',
-      'flux': 'D1FX25376 P223',
-      'type_lot': 'LOT 27',
-      'grossissement': '1,8 FOIS',
-      'metal_nuance': 'X 60',
-      'n_coulee': '26302120',
-      'n_bobine': '2630415233',
-      'diametre_tube': '406',
-      'ep_nominale': '11,10',
-      'ep_reel': '11',
-      'fournisseur': 'Aciérie A',
-      'n_tube': '1345 G',
-      'surep_ext': '1,66',
-      'surep_int': '1,66',
-      'largeur_ext': '15',
-      'largeur_int': '12,77',
-      'penetration_ext': '68,18',
-      'penetration_int': '55,54',
-      'desaxage': '0',
-      'interpenetration': '2,22',
-    });
-
-    // 2. Inspection Power (Prestation)
-    final r2Id = await db.insert('rapports', {
-      'pv_numero': '02/2026',
-      'date_reception': today,
-      'date_emission': today,
-      'date_essai': today,
-      'type_rapport': 'prestation',
-      'nom_client': 'Inspection Power',
-      'coordonnees_client': '12 Rue des Usines, Alger',
-      'dimensions': '406 x 11 mm',
-      'nuance': 'Acier au carbone',
-      'n_wps': '02 /695',
-      'n_pqr': 'A QUALIFIER',
-      'methode_essai': '/',
-      'nb_echantillons': 2,
-      'methode_echantillonnage': 'ISO15614-1',
-      'specification_essai': '/',
-      'projet': '/',
-      'observation': "L'examen macrographique a relevé une fusion complète et une bonne interpénétration des passes de soudure.",
-      'date_signature': today,
-      'laboratoire': 'EM',
-      'sig_col1_value': 'Ingénieur Tahar',
-      'sig_col2_header': 'Nom Client / Représentant',
-      'sig_col2_value': 'Inspection Power',
-      'sig_col3_header': 'Représentant Cosider',
-      'sig_col3_value': 'Cosider',
-      'sig_col4_header': 'Tierce Partie / Autorités',
-      'sig_col4_value': '/',
-      'created_at': now,
-    });
-
-    await db.insert('echantillons', {
-      'rapport_id': r2Id,
-      'numero': 1,
-      'photo_path': null,
-      'observation': "Examen conforme.",
-      'vitesse': '0,9',
-      'u_int': '32 V',
-      'u_ext': '32 V',
-      'i_int': '630 A',
-      'i_ext': '780 A',
-      'fil_int_1': '(3,2mm) 200987',
-      'fil_int_2': '(4 mm) 200955',
-      'flux': 'D1FX25376 P223',
-      'type_lot': 'LOT 27',
-      'grossissement': '1,8 FOIS',
-      'metal_nuance': 'X 60',
-      'n_coulee': '26302120',
-      'n_bobine': '2630415233',
-      'diametre_tube': '406',
-      'ep_nominale': '11,10',
-      'ep_reel': '11',
-      'fournisseur': 'Aciérie A',
-      'n_tube': '1345 G',
-      'surep_ext': '1,66',
-      'surep_int': '1,66',
-      'largeur_ext': '15',
-      'largeur_int': '12,77',
-      'penetration_ext': '68,18',
-      'penetration_int': '55,54',
-      'desaxage': '0',
-      'interpenetration': '2,22',
-    });
+    // Distribution officielle vierge : 0 rapports, 0 dossiers clients au démarrage.
+    return;
   }
 
   Future<Map<String, int>> getDashboardStats() async {
