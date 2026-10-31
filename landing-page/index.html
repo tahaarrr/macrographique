@@ -285,88 +285,49 @@
 
           <!-- Affichage de chaque panneau avec capture réelle -->
           <div class="workflow-stage">
-            <div class="step-panel" id="stepPanel1">
+            <div class="step-panel" id="catalogStage">
               <div class="step-image-wrap">
-                <img src="assets/steps/step1_identification.png" alt="Étape 1 : Identification du procès&#8209;verbal" loading="lazy">
+                <img id="stepCatalogImg" src="assets/steps/step1_identification.png" alt="Capture d’écran du protocole d’essai" loading="eager">
               </div>
               <div class="step-info-card">
-                <div class="step-tag-pill">Étape 01 · Traçabilité</div>
-                <h3>Identification et Nuances</h3>
-                <p>Numéro unique, dates, client et nuances certifiées (API 5L, ISO 15614).</p>
-                <div class="step-meta-chips">
+                <div class="step-tag-pill" id="stepCatalogPill">Étape 01 · Traçabilité</div>
+                <h3 id="stepCatalogTitle">Identification et Nuances</h3>
+                <p id="stepCatalogDesc">Numéro unique, dates, client et nuances certifiées (API 5L, ISO 15614).</p>
+                <div class="step-meta-chips" id="stepCatalogChips">
                   <span>API 5L</span>
                   <span>ISO 15614</span>
                   <span>SQLite</span>
                 </div>
               </div>
             </div>
-
-            <div class="step-panel hidden" id="stepPanel2">
-              <div class="step-image-wrap">
-                <img src="assets/steps/step2_soudage.png" alt="Étape 2 : Paramètres de soudage" loading="lazy">
-              </div>
-              <div class="step-info-card">
-                <div class="step-tag-pill">Étape 02 · Procédé</div>
-                <h3>Paramètres Opératoires</h3>
-                <p>Grandeurs opératoires : ampérage, tensions, vitesses et cahiers WPS.</p>
-                <div class="step-meta-chips">
-                  <span>Contrôle U/I</span>
-                  <span>Fils et flux</span>
-                  <span>WPS</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="step-panel hidden" id="stepPanel3">
-              <div class="step-image-wrap">
-                <img src="assets/steps/step3_echantillons.png" alt="Étape 3 : Échantillons métallurgiques" loading="lazy">
-              </div>
-              <div class="step-info-card">
-                <div class="step-tag-pill">Étape 03 · Métrologie</div>
-                <h3>Échantillons et Cliché Macro</h3>
-                <p>Clichés nital, étalonnage optique et traçage direct des cotes.</p>
-                <div class="step-meta-chips">
-                  <span>Grossissement</span>
-                  <span>Cotation</span>
-                  <span>Coulée</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="step-panel hidden" id="stepPanel4">
-              <div class="step-image-wrap">
-                <img src="assets/steps/step4_constat.png" alt="Étape 4 : Constat macrographique" loading="lazy">
-              </div>
-              <div class="step-info-card">
-                <div class="step-tag-pill">Étape 04 · Jugement</div>
-                <h3>Constat Métallurgique</h3>
-                <p>Formulations normées : intégrité ZAT, interpénétration et fusion.</p>
-                <div class="step-meta-chips">
-                  <span>Presets normés</span>
-                  <span>Contrôle</span>
-                  <span>Jugement</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="step-panel hidden" id="stepPanel5">
-              <div class="step-image-wrap">
-                <img src="assets/steps/step5_signatures.png" alt="Étape 5 : Signatures certifiées" loading="lazy">
-              </div>
-              <div class="step-info-card">
-                <div class="step-tag-pill">Étape 05 · Validation</div>
-                <h3>Signatures Certifiées</h3>
-                <p>Tableau à 4 signataires : laboratoire, client et autorités.</p>
-                <div class="step-meta-chips">
-                  <span>4 Signataires</span>
-                  <span>Approbation</span>
-                  <span>Verrouillé</span>
-                </div>
-              </div>
-            </div>
           </div>
 
-          <!-- Contrôles du Stepper -->
+          <!-- Catalogue Mini-Thumbnails -->
+          <div class="catalog-thumbnails-row" role="tablist" aria-label="Miniatures du catalogue des 5 étapes">
+            <button type="button" class="catalog-thumb active" data-step="1" role="tab" aria-selected="true" aria-label="Afficher Étape 1">
+              <img src="assets/steps/step1_identification.png" alt="Miniature 01">
+              <span>01 Identification</span>
+            </button>
+            <button type="button" class="catalog-thumb" data-step="2" role="tab" aria-selected="false" aria-label="Afficher Étape 2">
+              <img src="assets/steps/step2_soudage.png" alt="Miniature 02">
+              <span>02 Soudage</span>
+            </button>
+            <button type="button" class="catalog-thumb" data-step="3" role="tab" aria-selected="false" aria-label="Afficher Étape 3">
+              <img src="assets/steps/step3_echantillons.png" alt="Miniature 03">
+              <span>03 Échantillons</span>
+            </button>
+            <button type="button" class="catalog-thumb" data-step="4" role="tab" aria-selected="false" aria-label="Afficher Étape 4">
+              <img src="assets/steps/step4_constat.png" alt="Miniature 04">
+              <span>04 Constat</span>
+            </button>
+            <button type="button" class="catalog-thumb" data-step="5" role="tab" aria-selected="false" aria-label="Afficher Étape 5">
+              <img src="assets/steps/step5_signatures.png" alt="Miniature 05">
+              <span>05 Signatures</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Contrôles du Stepper -->
           <div class="workflow-footer-nav">
             <button type="button" class="btn-secondary" id="btnPrevStep" aria-label="Étape précédente">
               Précédent
@@ -639,9 +600,52 @@
         });
       }
 
-      // 4. 5-Step Workflow Stepper
+      // 4. 5-Step Catalogue Stepper (Zero DOM reflow, zero jump)
+      var stepsData = [
+        {
+          pill: 'Étape 01 · Traçabilité',
+          title: 'Identification et Nuances',
+          desc: 'Numéro unique, dates, client et nuances certifiées (API 5L, ISO 15614).',
+          chips: '<span>API 5L</span><span>ISO 15614</span><span>SQLite</span>',
+          img: 'assets/steps/step1_identification.png'
+        },
+        {
+          pill: 'Étape 02 · Procédé',
+          title: 'Paramètres Opératoires',
+          desc: 'Grandeurs opératoires : ampérage, tensions, vitesses et cahiers WPS.',
+          chips: '<span>Contrôle U/I</span><span>Fils et flux</span><span>WPS</span>',
+          img: 'assets/steps/step2_soudage.png'
+        },
+        {
+          pill: 'Étape 03 · Métrologie',
+          title: 'Échantillons et Cliché Macro',
+          desc: 'Clichés nital, étalonnage optique et traçage direct des cotes.',
+          chips: '<span>Grossissement</span><span>Cotation</span><span>Coulée</span>',
+          img: 'assets/steps/step3_echantillons.png'
+        },
+        {
+          pill: 'Étape 04 · Jugement',
+          title: 'Constat Métallurgique',
+          desc: 'Formulations normées : intégrité ZAT, interpénétration et fusion.',
+          chips: '<span>Presets normés</span><span>Contrôle</span><span>Jugement</span>',
+          img: 'assets/steps/step4_constat.png'
+        },
+        {
+          pill: 'Étape 05 · Validation',
+          title: 'Signatures Certifiées',
+          desc: 'Tableau à 4 signataires : laboratoire, client et autorités.',
+          chips: '<span>4 Signataires</span><span>Approbation</span><span>Verrouillé</span>',
+          img: 'assets/steps/step5_signatures.png'
+        }
+      ];
+
       var stepTabs = document.querySelectorAll('.step-tab-btn');
-      var stepPanels = document.querySelectorAll('.step-panel');
+      var catalogThumbs = document.querySelectorAll('.catalog-thumb');
+      var catalogImg = document.getElementById('stepCatalogImg');
+      var catalogPill = document.getElementById('stepCatalogPill');
+      var catalogTitle = document.getElementById('stepCatalogTitle');
+      var catalogDesc = document.getElementById('stepCatalogDesc');
+      var catalogChips = document.getElementById('stepCatalogChips');
       var btnPrevStep = document.getElementById('btnPrevStep');
       var btnNextStep = document.getElementById('btnNextStep');
       var stepCounterText = document.getElementById('stepCounterText');
@@ -652,25 +656,32 @@
         if (step < 1) step = 1;
         if (step > totalSteps) step = totalSteps;
         currentStep = step;
+        var data = stepsData[currentStep - 1];
 
+        // Update tabs
         stepTabs.forEach(function (tab) {
           var s = parseInt(tab.getAttribute('data-step'), 10);
-          if (s === currentStep) {
-            tab.classList.add('active');
-            tab.setAttribute('aria-selected', 'true');
-          } else {
-            tab.classList.remove('active');
-            tab.setAttribute('aria-selected', 'false');
-          }
+          var active = s === currentStep;
+          tab.classList.toggle('active', active);
+          tab.setAttribute('aria-selected', active ? 'true' : 'false');
         });
 
-        stepPanels.forEach(function (panel, idx) {
-          if (idx + 1 === currentStep) {
-            panel.classList.remove('hidden');
-          } else {
-            panel.classList.add('hidden');
-          }
+        // Update thumbnails
+        catalogThumbs.forEach(function (thumb) {
+          var s = parseInt(thumb.getAttribute('data-step'), 10);
+          var active = s === currentStep;
+          thumb.classList.toggle('active', active);
+          thumb.setAttribute('aria-selected', active ? 'true' : 'false');
         });
+
+        // Update content with rock-solid stability (no DOM removal)
+        if (catalogImg) {
+          catalogImg.src = data.img;
+        }
+        if (catalogPill) catalogPill.textContent = data.pill;
+        if (catalogTitle) catalogTitle.textContent = data.title;
+        if (catalogDesc) catalogDesc.textContent = data.desc;
+        if (catalogChips) catalogChips.innerHTML = data.chips;
 
         if (stepCounterText) {
           stepCounterText.textContent = 'Étape ' + currentStep + ' sur ' + totalSteps;
@@ -681,6 +692,14 @@
         tab.addEventListener('click', function (e) {
           e.preventDefault();
           var step = parseInt(tab.getAttribute('data-step'), 10);
+          goToStep(step);
+        });
+      });
+
+      catalogThumbs.forEach(function (thumb) {
+        thumb.addEventListener('click', function (e) {
+          e.preventDefault();
+          var step = parseInt(thumb.getAttribute('data-step'), 10);
           goToStep(step);
         });
       });
