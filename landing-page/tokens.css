@@ -1079,6 +1079,8 @@ html {
 body {
   overflow-x: hidden;
   width: 100%;
+  background-image: radial-gradient(var(--color-rule) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 .platform-card,
@@ -1086,9 +1088,16 @@ body {
   transition: transform var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
 }
 
+.platform-card,
+.comp-panel,
+.feedback-card,
+.pv-preview-card {
+  transition: border-color var(--dur-short) var(--ease-out);
+}
+
 .platform-card:hover,
-.comp-panel:hover {
-  transform: translateY(-2px);
+.comp-panel:hover,
+.feedback-card:hover {
   border-color: var(--color-rule-2);
 }
 
@@ -1125,6 +1134,20 @@ body {
 .back-to-top[disabled] {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+
+/* UI/UX enhancements */
+
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-icon svg {
+  flex-shrink: 0;
 }
 
 /* Motion reduction */
