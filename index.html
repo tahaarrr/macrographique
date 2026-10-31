@@ -125,51 +125,8 @@
         "url": "https://tahaarrr.github.io/macrographique/",
         "name": "Macrographique : Travaux d’Ayati Tahar",
         "author": { "@id": "https://tahaarrr.github.io/macrographique/#ayati-tahar" }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Le logiciel Macrographique est-il gratuit ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Oui. Macrographique est un logiciel libre d'ingénierie, distribué gratuitement en téléchargement direct (Web, Windows, Android)."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Quelles normes sont prises en charge ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "API Spec 5L (tubes soudés SAWH) et ISO 15614-1 (qualification de modes opératoires de soudage)."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Les données restent-elles sur mon appareil ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Oui, 100% des données sont stockées localement en SQLite. Aucune donnée n'est envoyée vers un serveur externe."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Faut-il une connexion internet ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Non. L'application fonctionne entièrement hors-ligne après installation (Windows et Android). La version Web nécessite un navigateur."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Qui est l'auteur de Macrographique ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ayati Tahar (Tahar Ayati), ingénieur et chercheur en génie des matériaux, spécialisé en métallurgie des soudures industrielles."
-            }
-          }
-        ]
+      }
+    ]
       }
     ]
   }
@@ -199,9 +156,10 @@
         <a href="#inspection">Inspection</a>
         <a href="#etapes">Étapes PV</a>
         <a href="#etabli">Poste mesure</a>
+        <a href="#methode">Méthode</a>
         <a href="#modele">Modèle</a>
         <a href="#telecharger">Téléchargements</a>
-        <a href="#faq">FAQ</a>
+        <a href="#feedback">Retours</a>
         <a href="#auteur">Auteur</a>
       </nav>
 
@@ -223,9 +181,10 @@
         <a href="#inspection" class="mobile-nav-link">Inspection</a>
         <a href="#etapes" class="mobile-nav-link">Étapes PV</a>
         <a href="#etabli" class="mobile-nav-link">Poste de Mesure</a>
+        <a href="#methode" class="mobile-nav-link">Méthode</a>
         <a href="#modele" class="mobile-nav-link">Modèle</a>
         <a href="#telecharger" class="mobile-nav-link">Téléchargements</a>
-        <a href="#faq" class="mobile-nav-link">FAQ</a>
+        <a href="#feedback" class="mobile-nav-link">Retours</a>
         <a href="#auteur" class="mobile-nav-link">Auteur</a>
       </nav>
       <div class="mobile-drawer-cta">
@@ -244,7 +203,7 @@
           </h1>
 
           <p class="hero-sentence">
-            Traçabilité des soudures et calculs dimensionnels immédiats pour laboratoires d’essais mécaniques.
+            Traçabilité des soudures et calculs dimensionnels pour laboratoires d’essais.
           </p>
 
           <div class="hero-actions">
@@ -312,6 +271,33 @@
       </div>
     </section>
 
+    
+    <!-- Examen Macrographique & Couverture Universelle -->
+    <section class="workbench-section" id="methode">
+      <div class="container">
+        <div class="section-head-simple">
+          <h2>L’examen macrographique et le projet</h2>
+          <p>Contrôle métallurgique certifié pour l’ensemble des assemblages soudés.</p>
+        </div>
+
+        <div class="comparison-grid">
+          <div class="comp-panel">
+            <h3>Révélation de la structure</h3>
+            <p>
+              L’attaque nital révèle la zone fondue, la zone thermiquement affectée (ZAT), la compacité et l’absence de défauts.
+            </p>
+          </div>
+
+          <div class="comp-panel active-state">
+            <h3>Tous procédés de soudage</h3>
+            <p>
+              Couverture universelle : joints bout à bout, en angle, multipasses, SAWH, SAWL, TIG, MIG/MAG et électrode (API 5L, ISO 15614).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 5 Étapes du Rapport Réalisées en Direct -->
     <section class="workflow-section" id="etapes">
       <div class="container">
@@ -354,7 +340,7 @@
               <div class="step-info-card">
                 <div class="step-tag-pill">Étape 01 · Traçabilité</div>
                 <h3>Identification et Nuances</h3>
-                <p>Numéro unique, dates, client et nuances d’acier (API 5L, ISO 15614-1).</p>
+                <p>Numéro unique, dates, client et nuances certifiées (API 5L, ISO 15614).</p>
                 <div class="step-meta-chips">
                   <span>API 5L</span>
                   <span>ISO 15614</span>
@@ -370,7 +356,7 @@
               <div class="step-info-card">
                 <div class="step-tag-pill">Étape 02 · Procédé</div>
                 <h3>Paramètres Opératoires</h3>
-                <p>Grandeurs opératoires : ampérage, tensions interne/externe, vitesses et cahiers WPS.</p>
+                <p>Grandeurs opératoires : ampérage, tensions, vitesses et cahiers WPS.</p>
                 <div class="step-meta-chips">
                   <span>Contrôle U/I</span>
                   <span>Fils et flux</span>
@@ -386,7 +372,7 @@
               <div class="step-info-card">
                 <div class="step-tag-pill">Étape 03 · Métrologie</div>
                 <h3>Échantillons et Cliché Macro</h3>
-                <p>Clichés nital, étalonnage micrométrique et traçage direct des pénétrations.</p>
+                <p>Clichés nital, étalonnage optique et traçage direct des cotes.</p>
                 <div class="step-meta-chips">
                   <span>Grossissement</span>
                   <span>Cotation</span>
@@ -402,7 +388,7 @@
               <div class="step-info-card">
                 <div class="step-tag-pill">Étape 04 · Jugement</div>
                 <h3>Constat Métallurgique</h3>
-                <p>Formulations normées : intégrité ZTA, interpénétration et fusion complète.</p>
+                <p>Formulations normées : intégrité ZAT, interpénétration et fusion.</p>
                 <div class="step-meta-chips">
                   <span>Presets normés</span>
                   <span>Contrôle</span>
@@ -418,7 +404,7 @@
               <div class="step-info-card">
                 <div class="step-tag-pill">Étape 05 · Validation</div>
                 <h3>Signatures Certifiées</h3>
-                <p>Tableau à 4 colonnes : laboratoire, tiers partie, client et autorité.</p>
+                <p>Tableau à 4 signataires : laboratoire, client et autorités.</p>
                 <div class="step-meta-chips">
                   <span>4 Signataires</span>
                   <span>Approbation</span>
@@ -515,7 +501,7 @@
               <a href="app/index.html" target="_blank" class="btn-primary" style="width: 100%; justify-content: center;">
                 Ouvrir plein écran
               </a>
-              <div class="foot-meta">Zéro installation requise</div>
+              <div class="foot-meta">Sans installation</div>
             </div>
           </div>
 
@@ -550,54 +536,29 @@
       </div>
     </section>
 
-    <!-- Foire Aux Questions (FAQ) -->
-    <section class="faq-section" id="faq">
+    <!-- Espace Retours et Contact -->
+    <section class="feedback-section" id="feedback">
       <div class="container">
         <div class="section-head-simple">
-          <h2>Foire aux questions</h2>
-          <p>Précisions techniques sur le déploiement et la conformité.</p>
+          <h2>Retours d’expérience & contact</h2>
+          <p>Vos retours enrichissent le logiciel.</p>
         </div>
 
-        <div class="faq-grid">
-          <details class="faq-card">
-            <summary class="faq-summary">
-              <span>Le logiciel Macrographique est-il gratuit ?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-body">
-              <p>Oui. Logiciel libre distribué gratuitement pour Windows, Android et Web.</p>
+        <div class="feedback-card">
+          <div class="feedback-body">
+            <h3>Partager un retour technique</h3>
+            <p>
+              Transmettez vos remarques de terrain, protocoles de mesure ou demandes d’adaptation pour votre laboratoire.
+            </p>
+            <div class="feedback-actions">
+              <a href="https://github.com/tahaarrr/macrographique/issues" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                Signaler sur GitHub
+              </a>
+              <a href="https://www.researchgate.net/profile/Tahar-Ayati" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                ResearchGate
+              </a>
             </div>
-          </details>
-
-          <details class="faq-card">
-            <summary class="faq-summary">
-              <span>Quelles normes sont couvertes ?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-body">
-              <p>Normes API Spec 5L et ISO 15614-1.</p>
-            </div>
-          </details>
-
-          <details class="faq-card">
-            <summary class="faq-summary">
-              <span>Où résident les données ?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-body">
-              <p>En local via SQLite. Aucun transfert externe.</p>
-            </div>
-          </details>
-
-          <details class="faq-card">
-            <summary class="faq-summary">
-              <span>Fonctionne-t-il hors ligne ?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-body">
-              <p>Windows et Android fonctionnent en autonomie complète hors ligne.</p>
-            </div>
-          </details>
+          </div>
         </div>
       </div>
     </section>
@@ -619,11 +580,11 @@
         </div>
 
         <div class="author-details-box">
-          <div class="section-label">Domaine d’expertise</div>
+          <div class="section-label">Expertise</div>
           <ul>
-            <li>Analyse macrographique et CND</li>
-            <li>Homologation modes opératoires (WPS)</li>
-            <li>Métallurgie des aciers soudés</li>
+            <li>Macrographie et CND</li>
+            <li>Homologation WPS</li>
+            <li>Métallurgie des aciers</li>
             <li>Instrumentation logicielle</li>
           </ul>
         </div>
@@ -642,7 +603,7 @@
   <footer class="mast-footer">
     <div class="container mast-footer-inner">
       <div>
-        Macrographique : Solution conçue pour la recherche et l’industrie métallurgique.
+        Macrographique : Recherche et industrie métallurgique.
       </div>
       <div>
         Ayati Tahar, 2026. Logiciel libre d’ingénierie.

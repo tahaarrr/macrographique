@@ -1025,76 +1025,63 @@ textarea:disabled {
   flex-wrap: wrap;
 }
 
-/* FAQ Section */
-.faq-section {
+/* Feedback Section */
+.feedback-section {
   padding-block: var(--space-4xl);
   border-top: var(--rule-hair) solid var(--color-rule);
 }
 
-.faq-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-lg);
-}
-
-.faq-card {
+.feedback-card {
   background: var(--color-paper-2);
   border: var(--rule-hair) solid var(--color-rule);
   border-radius: var(--radius-card);
-  padding: var(--space-lg);
+  padding: var(--space-xl);
   color: var(--color-ink);
-  transition: border-color var(--dur-short) var(--ease-out);
+  transition: border-color var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out);
 }
 
-.faq-card[open] {
+.feedback-card:hover {
+  transform: translateY(-2px);
   border-color: var(--color-rule-2);
 }
 
-.faq-summary {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
+.feedback-card h3 {
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
   color: var(--color-ink);
-  list-style: none;
-  gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
+  letter-spacing: var(--tracking-display);
 }
 
-.faq-summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq-summary:focus-visible {
-  outline: 2px solid var(--color-focus);
-  outline-offset: 4px;
-  border-radius: var(--radius-pill);
-}
-
-.faq-icon {
-  font-family: var(--font-outlier);
-  font-size: 18px;
-  color: var(--color-cool);
-  transition: transform var(--dur-short) var(--ease-out);
-}
-
-.faq-card[open] .faq-icon {
-  transform: rotate(45deg);
-}
-
-.faq-body {
-  margin-top: var(--space-sm);
-  padding-top: var(--space-sm);
-  border-top: var(--rule-hair) solid var(--color-rule);
-  color: var(--color-ink-2);
-}
-
-.faq-body p {
-  font-size: 14px;
+.feedback-card p {
+  font-size: 15px;
   color: var(--color-muted);
   line-height: 1.6;
+  max-width: 64ch;
+}
+
+.feedback-actions {
+  margin-top: var(--space-lg);
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* Fluid modern interactions */
+html {
+  scroll-behavior: smooth;
+}
+
+.platform-card,
+.comp-panel {
+  transition: transform var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
+}
+
+.platform-card:hover,
+.comp-panel:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-rule-2);
 }
 
 /* Back to top button */
@@ -1148,7 +1135,6 @@ textarea:disabled {
   .comparison-grid,
   .platforms-grid,
   .pv-preview-card,
-  .faq-grid,
   .author-grid {
     grid-template-columns: minmax(0, 1fr);
   }
