@@ -10,12 +10,12 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tahaarrr.github.io/macrographique/">
 
-  <!-- Script inline anti-flash Hallmark -->
+  <!-- Inline Anti-Flash Theme Script -->
   <script>
     (function () {
       try {
         var saved = localStorage.getItem('mode');
-        if (saved === 'dark' || saved === 'light') {
+        if (saved === 'light' || saved === 'dark') {
           document.documentElement.dataset.mode = saved;
         }
       } catch (e) {}
@@ -47,39 +47,62 @@
   }
   </script>
 
-  <!-- Typography: Geologica (Google Fonts) -->
+  <!-- Google Fonts: Geologica & Geist Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@200;300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="tokens.css">
 </head>
 <body>
 
-  <!-- Masthead Navigation -->
-  <nav class="masthead">
+  <!-- Floating Navigation Bar -->
+  <header class="masthead">
     <div class="container masthead-inner">
-      <a href="#" class="brand">
+      <a href="#" class="brand" aria-label="Macrographique Accueil">
         <img src="assets/logo.png" alt="Logo Macrographique" class="brand-logo-img">
-        <span>Macrographique</span>
+        <span class="brand-name">Macrographique</span>
+        <span class="version-badge">v1.2.2</span>
       </a>
-      <ul class="nav-links">
-        <li><a href="#inspection">Inspection</a></li>
-        <li><a href="#modele-pv">Spécimen PV</a></li>
-        <li><a href="#etapes">Étapes PV</a></li>
-        <li><a href="#etabli">Poste mesure</a></li>
-        <li><a href="#embleme">Emblème</a></li>
-        <li><a href="#telecharger">Téléchargements</a></li>
-        <li><a href="#auteur">Auteur</a></li>
-      </ul>
+
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a href="#inspection">Inspection</a>
+        <a href="#modele-pv">Spécimen PV</a>
+        <a href="#etapes">Étapes PV</a>
+        <a href="#etabli">Poste mesure</a>
+        <a href="#embleme">Emblème</a>
+        <a href="#telecharger">Téléchargements</a>
+        <a href="#auteur">Auteur</a>
+      </nav>
+
       <div class="nav-actions">
         <button type="button" class="theme-toggle" id="modeBtn" aria-label="Basculer entre le mode clair et sombre">
           <span id="modeIcon">Mode</span>
         </button>
-        <a href="#telecharger" class="btn-primary">Télécharger v1.2.2</a>
+        <a href="#telecharger" class="btn-primary desktop-cta">Télécharger</a>
+        <button type="button" class="mobile-toggle" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Menu de navigation">
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
-  </nav>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer" id="mobileDrawer" hidden>
+      <nav class="mobile-nav-links">
+        <a href="#inspection" class="mobile-nav-link">Inspection</a>
+        <a href="#modele-pv" class="mobile-nav-link">Spécimen</a>
+        <a href="#etapes" class="mobile-nav-link">Étapes</a>
+        <a href="#etabli" class="mobile-nav-link">Poste</a>
+        <a href="#embleme" class="mobile-nav-link">Emblème</a>
+        <a href="#telecharger" class="mobile-nav-link">Téléchargement</a>
+        <a href="#auteur" class="mobile-nav-link">Auteur</a>
+      </nav>
+      <div class="mobile-drawer-cta">
+        <a href="#telecharger" class="btn-primary" style="width: 100%; justify-content: center;">Télécharger v1.2.2</a>
+      </div>
+    </div>
+  </header>
 
   <main>
     <!-- Hero Section -->
@@ -94,10 +117,9 @@
           </p>
           <div class="hero-actions">
             <a href="#telecharger" class="btn-primary">Télécharger l’outil</a>
-            <a href="#modele-pv" class="btn-secondary">Voir le modèle PV</a>
+            <a href="app/index.html" target="_blank" class="btn-secondary">Accès Web Direct</a>
           </div>
 
-          <!-- Counter posture statistics -->
           <div class="stat-counter-bar">
             <div class="stat-item">
               <div class="figure">100<span class="unit">%</span></div>
@@ -115,17 +137,17 @@
         </div>
 
         <!-- Right Side: Real Specimen Macro Inspection Viewer -->
-        <div class="macro-viewer ticked-frame">
+        <div class="macro-viewer">
           <div class="macro-viewer-header">
             <div class="macro-viewer-title">
               <span class="dot-live"></span>
               Coupe réelle SAW (API 5L)
             </div>
-            <div class="macro-switcher">
-              <button type="button" class="macro-switch-btn active" id="btnTrace">
+            <div class="macro-switcher" role="tablist" aria-label="Affichage de la coupe">
+              <button type="button" class="macro-switch-btn active" id="btnTrace" role="tab" aria-selected="true">
                 Traçage vectoriel
               </button>
-              <button type="button" class="macro-switch-btn" id="btnRaw">
+              <button type="button" class="macro-switch-btn" id="btnRaw" role="tab" aria-selected="false">
                 Éprouvette brute
               </button>
             </div>
@@ -167,9 +189,8 @@
         </div>
 
         <div class="pv-report-grid">
-          <!-- Left: Real Official Report Preview -->
-          <div class="pv-doc-frame ticked-frame">
-            <img src="assets/pv_model_preview.png" alt="Spécimen officiel du rapport d’essai macrographique">
+          <div class="pv-doc-frame">
+            <img src="assets/pv_model_preview.png" alt="Spécimen officiel du rapport d’essai macrographique" loading="lazy">
             <div class="pv-doc-meta">
               <span>Spécimen A4 certifié</span>
               <span>1 page stricte</span>
@@ -181,16 +202,15 @@
             </div>
           </div>
 
-          <!-- Right: Report Anatomy Ledger -->
           <div class="pv-anatomy-list">
-            <div class="pv-anatomy-item ticked-frame">
+            <div class="pv-anatomy-item">
               <h3>Rapport certifié A4</h3>
-              <p>Édition vectorielle intégrant macrographies calibrées, cotes et visas officiels.</p>
+              <p>Édition vectorielle avec macrographies calibrées, cotes et visas.</p>
             </div>
 
-            <div class="pv-anatomy-item ticked-frame">
+            <div class="pv-anatomy-item">
               <h3>Archivage SQLite</h3>
-              <p>Historique complet des procès-verbaux stocké localement sans dépendance réseau.</p>
+              <p>Historique complet des procès-verbaux stocké localement sans cloud.</p>
             </div>
           </div>
         </div>
@@ -205,8 +225,8 @@
           <p>Workflow normé de la matière première aux signatures certifiées.</p>
         </div>
 
-        <div class="workflow-stepper-wrap ticked-frame">
-          <!-- Top Step Switcher Bar -->
+        <div class="workflow-stepper-wrap">
+          <!-- Step Switcher Tabs (Scrollable on mobile) -->
           <div class="step-switcher-bar" role="tablist" aria-label="Étapes du rapport">
             <button type="button" class="step-tab-btn active" role="tab" aria-selected="true" data-step="1">
               <span class="step-num">01</span>
@@ -337,17 +357,17 @@
           <p>Tracé vectoriel interactif et cotation dimensionnelle assistée par étalonnage.</p>
         </div>
 
-        <div class="workbench-frame ticked-frame">
-          <img src="assets/poste_mesure_exact.jpg" alt="Outil de mesure et traçage macrographique avec étalonnage optique">
+        <div class="workbench-frame">
+          <img src="assets/poste_mesure_exact.jpg" alt="Outil de mesure et traçage macrographique avec étalonnage optique" loading="lazy">
         </div>
 
         <div class="comparison-grid" style="margin-top: 32px;">
-          <div class="comp-panel ticked-frame">
+          <div class="comp-panel">
             <h3>Étalonnage optique</h3>
             <p>Calcul du ratio pixel/millimètre au centième.</p>
           </div>
 
-          <div class="comp-panel ticked-frame active-state">
+          <div class="comp-panel active-state">
             <h3>Transfert direct</h3>
             <p>Injection immédiate des cotes sur le PV officiel.</p>
           </div>
@@ -364,22 +384,22 @@
         </div>
 
         <div class="emblem-grid">
-          <div class="emblem-display ticked-frame">
-            <img src="assets/logo.png" alt="Emblème officiel Macrographique">
+          <div class="emblem-display">
+            <img src="assets/logo.png" alt="Emblème officiel Macrographique" loading="lazy">
           </div>
 
           <div class="emblem-specs-list">
-            <div class="emblem-spec-card ticked-frame">
+            <div class="emblem-spec-card">
               <h3>Double cordon sous flux (SAW)</h3>
-              <p>Géométrie exacte des passes externe en cyan et interne en ambre.</p>
+              <p>Passes externe en cyan et interne en ambre.</p>
             </div>
 
-            <div class="emblem-spec-card ticked-frame">
+            <div class="emblem-spec-card">
               <h3>Réticule optique gradué</h3>
               <p>Anneau métrologique avec repères micrométriques de microscope optique.</p>
             </div>
 
-            <div class="emblem-spec-card ticked-frame">
+            <div class="emblem-spec-card">
               <h3>Axes de désaxage M1 et M2</h3>
               <p>Cote centrale mesurant l’alignement des passes et l’interpénétration critique.</p>
             </div>
@@ -398,7 +418,7 @@
 
         <div class="platforms-grid">
           <!-- Android -->
-          <div class="platform-card ticked-frame">
+          <div class="platform-card">
             <div>
               <h3>Android</h3>
               <p>Paquet APK pour tablettes d’inspection et smartphones de contrôle.</p>
@@ -412,7 +432,7 @@
           </div>
 
           <!-- Windows -->
-          <div class="platform-card ticked-frame">
+          <div class="platform-card">
             <div>
               <h3>Windows 64 bits</h3>
               <p>Installeur autonome pour postes sous Windows 10 et 11.</p>
@@ -426,7 +446,7 @@
           </div>
 
           <!-- Web Standalone -->
-          <div class="platform-card ticked-frame">
+          <div class="platform-card">
             <div>
               <h3>Accès Web Direct</h3>
               <p>Utilisable en plein écran sur Chrome, Edge ou Firefox.</p>
@@ -457,7 +477,7 @@
           </div>
         </div>
 
-        <div class="ticked-frame author-details-box">
+        <div class="author-details-box">
           <div class="section-label">Domaine d’expertise</div>
           <ul>
             <li>Analyse macrographique et CND</li>
@@ -482,10 +502,10 @@
     </div>
   </footer>
 
-  <!-- Scripts: Theme Toggle, Macro Viewer Switcher & 5-Step Workflow -->
+  <!-- Scripts: Theme Toggle, Mobile Menu, Macro Viewer Switcher & 5-Step Workflow -->
   <script>
     (function () {
-      // Theme Toggle (dataset.mode)
+      // 1. Theme Toggle
       var modeBtn = document.getElementById('modeBtn');
       var modeIcon = document.getElementById('modeIcon');
 
@@ -510,7 +530,43 @@
         });
       }
 
-      // Macro Specimen Switcher (Traçage vectoriel vs Éprouvette brute)
+      // 2. Mobile Menu Drawer
+      var mobileBtn = document.getElementById('mobileMenuBtn');
+      var mobileDrawer = document.getElementById('mobileDrawer');
+      var mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function toggleMobileMenu(open) {
+        var isOpening = typeof open === 'boolean' ? open : mobileDrawer.hasAttribute('hidden');
+        if (isOpening) {
+          mobileDrawer.removeAttribute('hidden');
+          mobileBtn.setAttribute('aria-expanded', 'true');
+          mobileBtn.classList.add('open');
+        } else {
+          mobileDrawer.setAttribute('hidden', '');
+          mobileBtn.setAttribute('aria-expanded', 'false');
+          mobileBtn.classList.remove('open');
+        }
+      }
+
+      if (mobileBtn && mobileDrawer) {
+        mobileBtn.addEventListener('click', function () {
+          toggleMobileMenu();
+        });
+
+        mobileLinks.forEach(function (link) {
+          link.addEventListener('click', function () {
+            toggleMobileMenu(false);
+          });
+        });
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && !mobileDrawer.hasAttribute('hidden')) {
+            toggleMobileMenu(false);
+          }
+        });
+      }
+
+      // 3. Macro Specimen Switcher (Traçage vectoriel vs Éprouvette brute)
       var btnTrace = document.getElementById('btnTrace');
       var btnRaw = document.getElementById('btnRaw');
       var imgTrace = document.getElementById('imgTrace');
@@ -519,20 +575,24 @@
       if (btnTrace && btnRaw && imgTrace && imgRaw) {
         btnTrace.addEventListener('click', function () {
           btnTrace.classList.add('active');
+          btnTrace.setAttribute('aria-selected', 'true');
           btnRaw.classList.remove('active');
+          btnRaw.setAttribute('aria-selected', 'false');
           imgTrace.classList.remove('hidden');
           imgRaw.classList.add('hidden');
         });
 
         btnRaw.addEventListener('click', function () {
           btnRaw.classList.add('active');
+          btnRaw.setAttribute('aria-selected', 'true');
           btnTrace.classList.remove('active');
+          btnTrace.setAttribute('aria-selected', 'false');
           imgRaw.classList.remove('hidden');
           imgTrace.classList.add('hidden');
         });
       }
 
-      // Workflow 5 Steps Switcher
+      // 4. Workflow 5 Steps Switcher
       var stepTabs = document.querySelectorAll('.step-tab-btn');
       var stepPanels = document.querySelectorAll('.step-panel');
       var btnPrevStep = document.getElementById('btnPrevStep');
@@ -551,6 +611,8 @@
           if (s === currentStep) {
             tab.classList.add('active');
             tab.setAttribute('aria-selected', 'true');
+            // Scroll into view on mobile switcher bar smoothly
+            tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
           } else {
             tab.classList.remove('active');
             tab.setAttribute('aria-selected', 'false');
