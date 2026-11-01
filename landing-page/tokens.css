@@ -21,31 +21,31 @@
   --space-3xl: 64px;
   --space-4xl: 96px;
 
-  /* Console Graphite Palette */
-  --color-paper: oklch(17% 0.008 250);
-  --color-paper-2: oklch(21% 0.009 250);
-  --color-paper-3: oklch(13.5% 0.007 250);
-  --color-paper-elevated: oklch(23% 0.01 250);
-  --color-ink: oklch(95% 0.005 250);
-  --color-ink-2: oklch(83% 0.008 250);
-  --color-muted: oklch(71% 0.01 250);
-  --color-rule: oklch(31% 0.01 250);
-  --color-rule-2: oklch(42% 0.012 250);
+  /* Obsidian Tech SaaS Palette (Linear / Vercel grade) */
+  --color-paper: oklch(12% 0.012 255);
+  --color-paper-2: oklch(16% 0.018 255 / 0.82);
+  --color-paper-3: oklch(9% 0.010 255);
+  --color-paper-elevated: oklch(20% 0.022 255 / 0.90);
+  --color-ink: oklch(98% 0.005 250);
+  --color-ink-2: oklch(86% 0.012 250);
+  --color-muted: oklch(68% 0.018 250);
+  --color-rule: rgba(255, 255, 255, 0.08);
+  --color-rule-2: rgba(255, 255, 255, 0.16);
 
-  /* Dual Signals: Amber for Person, Cool Blue for Instrument */
-  --color-accent: oklch(82% 0.15 80);
-  --color-accent-ink: oklch(18% 0.04 75);
-  --color-accent-soft: oklch(29% 0.05 80);
-  --color-focus: oklch(82% 0.15 80);
+  /* Dual Signals: Luminescent Amber & Cyan Glow */
+  --color-accent: oklch(78% 0.18 75);
+  --color-accent-ink: oklch(14% 0.04 75);
+  --color-accent-soft: oklch(24% 0.08 75 / 0.4);
+  --color-focus: oklch(78% 0.18 75);
 
-  --color-cool: oklch(77% 0.12 245);
-  --color-cool-soft: oklch(29% 0.05 245);
-  --color-ok: oklch(76% 0.15 150);
-  --color-ok-soft: oklch(24.5% 0.03 150);
-  --color-bad: oklch(70% 0.17 25);
-  --color-bad-soft: oklch(24.5% 0.035 25);
+  --color-cool: oklch(78% 0.16 230);
+  --color-cool-soft: oklch(24% 0.08 230 / 0.4);
+  --color-ok: oklch(78% 0.18 155);
+  --color-ok-soft: oklch(24% 0.08 155 / 0.4);
+  --color-bad: oklch(68% 0.20 25);
+  --color-bad-soft: oklch(24% 0.08 25 / 0.4);
 
-  --color-glass: oklch(17% 0.008 250 / 0.92);
+  --color-glass: rgba(7, 9, 14, 0.82);
 
   /* Typography */
   --font-display: "Host Grotesk", ui-sans-serif, system-ui, sans-serif;
@@ -354,7 +354,7 @@ textarea:disabled {
 }
 
 .btn-primary:hover {
-  opacity: 0.9;
+  opacity: 0.92;
 }
 
 .btn-secondary {
@@ -374,6 +374,22 @@ textarea:disabled {
 .btn-secondary:hover {
   background: var(--color-paper-3);
   border-color: var(--color-rule);
+}
+
+.hero-link {
+  font-size: 14px;
+  color: var(--color-ink-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: var(--rule-hair) solid var(--color-rule-2);
+  transition: color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
+}
+
+.hero-link:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
 /* Section Headings */
@@ -551,8 +567,9 @@ textarea:disabled {
 }
 
 .macro-switch-btn.active {
-  background: var(--color-cool);
-  color: var(--color-paper-3);
+  background: var(--color-paper-elevated);
+  border: var(--rule-hair) solid var(--color-cool);
+  color: var(--color-cool);
   font-weight: 500;
 }
 
@@ -560,11 +577,12 @@ textarea:disabled {
   position: relative;
   width: 100%;
   aspect-ratio: 16/10;
-  background: var(--color-paper);
+  background: var(--color-paper-3);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  cursor: crosshair;
 }
 
 .macro-stage img {
@@ -583,6 +601,111 @@ textarea:disabled {
   display: block !important;
 }
 
+/* Interactive Crosshair & Palpeur Loupe */
+.reticle-line-h {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-cool);
+  opacity: 0.65;
+  pointer-events: none;
+  z-index: 4;
+  top: 50%;
+}
+
+.reticle-line-v {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--color-cool);
+  opacity: 0.65;
+  pointer-events: none;
+  z-index: 4;
+  left: 50%;
+}
+
+.specimen-hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  z-index: 5;
+}
+
+.spot-pulse {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--color-cool);
+  display: block;
+  animation: spot-pulse 2s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
+@keyframes spot-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.45; }
+}
+
+.spot-pill {
+  font-family: var(--font-outlier);
+  font-size: 11px;
+  background: var(--color-paper-3);
+  border: var(--rule-hair) solid var(--color-rule-2);
+  color: var(--color-ink);
+  padding: 4px 8px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  transition: border-color var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out);
+}
+
+.specimen-hotspot:hover .spot-pill,
+.specimen-hotspot.active .spot-pill {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: var(--color-paper-elevated);
+}
+
+.reticle-telemetry {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: var(--color-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-pill);
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.reticle-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-outlier);
+  font-size: 11px;
+  color: var(--color-muted);
+}
+
+.reticle-readout {
+  font-family: var(--font-outlier);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-cool);
+}
+
 .macro-hud-bar {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -597,6 +720,12 @@ textarea:disabled {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  transition: background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
+}
+
+.macro-hud-cell.highlight {
+  background: var(--color-paper-elevated);
+  border-left: 2px solid var(--color-cool);
 }
 
 .macro-hud-val {
@@ -1273,8 +1402,15 @@ body {
 .platform-card,
 .comp-panel,
 .feedback-card,
-.pv-preview-card {
-  transition: transform var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
+.pv-preview-card,
+.macro-viewer,
+.workflow-stepper-wrap,
+.author-details-box {
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-card);
+  transition: border-color var(--dur-short) var(--ease-out);
 }
 
 .platform-card:hover,
