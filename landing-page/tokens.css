@@ -582,7 +582,7 @@ textarea:disabled {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  cursor: crosshair;
+  cursor: default;
 }
 
 .macro-stage img {
@@ -599,111 +599,6 @@ textarea:disabled {
   opacity: 0;
   pointer-events: none;
   display: block !important;
-}
-
-/* Interactive Crosshair & Palpeur Loupe */
-.reticle-line-h {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: var(--color-cool);
-  opacity: 0.65;
-  pointer-events: none;
-  z-index: 4;
-  top: 50%;
-}
-
-.reticle-line-v {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: var(--color-cool);
-  opacity: 0.65;
-  pointer-events: none;
-  z-index: 4;
-  left: 50%;
-}
-
-.specimen-hotspot {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 4px;
-  z-index: 5;
-}
-
-.spot-pulse {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: var(--color-cool);
-  display: block;
-  animation: spot-pulse 2s infinite ease-in-out;
-  flex-shrink: 0;
-}
-
-@keyframes spot-pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.4); opacity: 0.45; }
-}
-
-.spot-pill {
-  font-family: var(--font-outlier);
-  font-size: 11px;
-  background: var(--color-paper-3);
-  border: var(--rule-hair) solid var(--color-rule-2);
-  color: var(--color-ink);
-  padding: 4px 8px;
-  border-radius: var(--radius-pill);
-  white-space: nowrap;
-  transition: border-color var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out);
-}
-
-.specimen-hotspot:hover .spot-pill,
-.specimen-hotspot.active .spot-pill {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-  background: var(--color-paper-elevated);
-}
-
-.reticle-telemetry {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  background: var(--color-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: var(--rule-hair) solid var(--color-rule);
-  border-radius: var(--radius-pill);
-  padding: 8px 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  pointer-events: none;
-  z-index: 6;
-}
-
-.reticle-status {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-outlier);
-  font-size: 11px;
-  color: var(--color-muted);
-}
-
-.reticle-readout {
-  font-family: var(--font-outlier);
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--color-cool);
 }
 
 .macro-hud-bar {
