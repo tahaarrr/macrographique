@@ -95,7 +95,7 @@
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="stylesheet" href="tokens.css?v=2.4">
+  <link rel="stylesheet" href="tokens.css?v=3.0">
 </head>
 <body>
 
@@ -161,13 +161,13 @@
 
           <div class="hero-actions">
             <a href="app/index.html" target="_blank" class="btn-primary">Accès Web Direct</a>
-            <a href="#etapes" class="btn-secondary">Découvrir les 5 Étapes</a>
+            <a href="#etapes" class="hero-link">Consulter les 5 étapes</a>
           </div>
 
           <div class="stat-counter-bar">
             <div class="stat-item">
               <div class="figure" data-target="100" data-unit="%">100<span class="unit">%</span></div>
-              <div class="label">Données locales SQLite</div>
+              <div class="label">Données SQLite</div>
             </div>
             <div class="stat-item">
               <div class="figure" data-target="0.01" data-decimals="2" data-unit="mm">0.01<span class="unit">mm</span></div>
@@ -197,28 +197,56 @@
             </div>
           </div>
 
-          <div class="macro-stage">
+          <div class="macro-stage" id="macroStage">
             <img id="imgTrace" src="assets/macro_hero_specimen.png" alt="Coupe macrographique avec tracé vectoriel des cordons de soudure">
             <img id="imgRaw" src="assets/macro_raw_real.png" alt="Coupe macrographique brute après attaque nital" class="hidden">
+            
+            <!-- Laser Crosshair & Interactive Reticle -->
+            <div class="reticle-line-h" id="reticleLineH"></div>
+            <div class="reticle-line-v" id="reticleLineV"></div>
+
+            <!-- Specimen Target Hotspots -->
+            <button type="button" class="specimen-hotspot active" id="spotExt" data-target="ext" style="top: 24%; left: 51%;" aria-label="Inspecter cordon extérieur">
+              <span class="spot-pulse"></span>
+              <span class="spot-pill">EXT 1,95 mm</span>
+            </button>
+            <button type="button" class="specimen-hotspot" id="spotInt" data-target="int" style="top: 72%; left: 49%;" aria-label="Inspecter cordon intérieur">
+              <span class="spot-pulse"></span>
+              <span class="spot-pill">INT 1,20 mm</span>
+            </button>
+            <button type="button" class="specimen-hotspot" id="spotAxe" data-target="axe" style="top: 48%; left: 46%;" aria-label="Inspecter désaxage">
+              <span class="spot-pulse"></span>
+              <span class="spot-pill">Axe 1,66 mm</span>
+            </button>
+            <button type="button" class="specimen-hotspot" id="spotBase" data-target="base" style="top: 48%; left: 82%;" aria-label="Inspecter métal de base">
+              <span class="spot-pulse"></span>
+              <span class="spot-pill">Ép. 9,56 mm</span>
+            </button>
+
+            <!-- Digital Telemetry HUD Overlay -->
+            <div class="reticle-telemetry" id="reticleTelemetry">
+              <div class="reticle-status"><span class="dot-live"></span> <span id="reticleTargetName">Palpeur : cordon extérieur</span></div>
+              <div class="reticle-readout" id="reticleReadout">Pénétration 55,89%, largeur 14,89 mm, surépaisseur 1,95 mm</div>
+            </div>
           </div>
 
           <div class="macro-hud-bar">
-            <div class="macro-hud-cell">
+            <div class="macro-hud-cell highlight" id="hudCellExt">
               <div class="macro-hud-val accent">55,89%</div>
               <div class="macro-hud-lbl">Pénétration EXT</div>
-              <div class="macro-hud-sub">Larg 14,89 · Surép 1,95</div>
+              <div class="macro-hud-sub">Larg. 14,89 mm, surép. 1,95 mm</div>
             </div>
-            <div class="macro-hud-cell">
+            <div class="macro-hud-cell" id="hudCellInt">
               <div class="macro-hud-val accent">64,11%</div>
               <div class="macro-hud-lbl">Pénétration INT</div>
-              <div class="macro-hud-sub">Larg 11,58 · Surép 1,20</div>
+              <div class="macro-hud-sub">Larg. 11,58 mm, surép. 1,20 mm</div>
             </div>
-            <div class="macro-hud-cell">
+            <div class="macro-hud-cell" id="hudCellAxe">
               <div class="macro-hud-val">1,66 mm</div>
               <div class="macro-hud-lbl">Désaxage M1/M2</div>
-              <div class="macro-hud-sub">Interpén. 1,90 mm</div>
+              <div class="macro-hud-sub">Interpénétration 1,90 mm</div>
             </div>
-            <div class="macro-hud-cell">
+            <div class="macro-hud-cell" id="hudCellBase">
               <div class="macro-hud-val">9,56 mm</div>
               <div class="macro-hud-lbl">Épaisseur réelle</div>
               <div class="macro-hud-sub">Sur photo 17,21 mm</div>
@@ -233,15 +261,15 @@
     <section class="workbench-section" id="methode">
       <div class="container">
         <div class="section-head-simple">
-          <h2>L’examen macrographique et le projet</h2>
-          <p>Contrôle métallurgique certifié pour l’ensemble des assemblages soudés.</p>
+          <h2>Examen macrographique</h2>
+          <p>Contrôle certifié des assemblages soudés.</p>
         </div>
 
         <div class="comparison-grid">
           <div class="comp-panel">
             <h3>Révélation nital</h3>
             <p>
-              Révélation de la zone fondue, de la ZAT et détection des défauts internes.
+              Révélation de la zone fondue, de la ZAT et détection des défauts.
             </p>
           </div>
 
@@ -259,8 +287,8 @@
     <section class="workflow-section" id="etapes">
       <div class="container">
         <div class="section-head-simple">
-          <h2>Protocole d’édition en 5 étapes</h2>
-          <p>Workflow normé de la matière première aux signatures certifiées.</p>
+          <h2>Protocole en 5 étapes</h2>
+          <p>Du contrôle matière aux signatures certifiées.</p>
         </div>
 
         <div class="workflow-stepper-wrap">
@@ -353,7 +381,7 @@
       <div class="container">
         <div class="section-head-simple">
           <h2>Poste de mesure instrumentale</h2>
-          <p>Tracé vectoriel interactif et cotation dimensionnelle assistée par étalonnage.</p>
+          <p>Tracé vectoriel et cotation assistée par étalonnage.</p>
         </div>
 
         <div class="workbench-frame">
@@ -378,8 +406,8 @@
     <section class="pv-preview-section" id="modele">
       <div class="container">
         <div class="section-head-simple">
-          <h2>Modèle de <span style="white-space: nowrap;">procès&#8209;verbal</span> certifié</h2>
-          <p>Édition conforme API 5L et ISO 15614-1.</p>
+          <h2>Modèle de <span style="white-space: nowrap;">procès&#8209;verbal</span></h2>
+          <p>Édition conforme API 5L et ISO 15614.</p>
         </div>
 
         <div class="pv-preview-card">
@@ -656,6 +684,71 @@
           imgRaw.classList.remove('hidden');
           imgTrace.classList.add('hidden');
         });
+      }
+
+      // 3.1 Laser Reticle & Hotspots Inspection
+      var macroStage = document.getElementById('macroStage');
+      var reticleLineH = document.getElementById('reticleLineH');
+      var reticleLineV = document.getElementById('reticleLineV');
+      var reticleTargetName = document.getElementById('reticleTargetName');
+      var reticleReadout = document.getElementById('reticleReadout');
+      var hotspots = document.querySelectorAll('.specimen-hotspot');
+      var hudCells = {
+        ext: document.getElementById('hudCellExt'),
+        int: document.getElementById('hudCellInt'),
+        axe: document.getElementById('hudCellAxe'),
+        base: document.getElementById('hudCellBase')
+      };
+
+      var spotData = {
+        ext: { name: 'cordon extérieur', text: 'Pénétration 55,89%, largeur 14,89 mm, surépaisseur 1,95 mm' },
+        int: { name: 'cordon intérieur', text: 'Pénétration 64,11%, largeur 11,58 mm, surépaisseur 1,20 mm' },
+        axe: { name: 'désaxage et alignement', text: 'Désaxage 1,66 mm, interpénétration 1,90 mm' },
+        base: { name: 'métal de base', text: 'Épaisseur réelle 9,56 mm, sur photo 17,21 mm' }
+      };
+
+      function selectHotspot(targetKey) {
+        hotspots.forEach(function (btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-target') === targetKey);
+        });
+        Object.keys(hudCells).forEach(function (k) {
+          if (hudCells[k]) hudCells[k].classList.toggle('highlight', k === targetKey);
+        });
+        var d = spotData[targetKey];
+        if (d && reticleTargetName && reticleReadout) {
+          reticleTargetName.textContent = 'Palpeur : ' + d.name;
+          reticleReadout.textContent = d.text;
+        }
+      }
+
+      hotspots.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var t = btn.getAttribute('data-target');
+          selectHotspot(t);
+        });
+      });
+
+      if (macroStage && reticleLineH && reticleLineV) {
+        function moveReticle(clientX, clientY) {
+          var rect = macroStage.getBoundingClientRect();
+          var x = clientX - rect.left;
+          var y = clientY - rect.top;
+          if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+            reticleLineH.style.top = y + 'px';
+            reticleLineV.style.left = x + 'px';
+          }
+        }
+
+        macroStage.addEventListener('mousemove', function (e) {
+          moveReticle(e.clientX, e.clientY);
+        });
+
+        macroStage.addEventListener('touchmove', function (e) {
+          if (e.touches && e.touches[0]) {
+            moveReticle(e.touches[0].clientX, e.touches[0].clientY);
+          }
+        }, { passive: true });
       }
 
       // 4. 5-Step Catalogue Stepper (Zero DOM reflow, zero jump)
