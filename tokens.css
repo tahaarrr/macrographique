@@ -538,6 +538,7 @@ button:disabled {
   font-size: 13px;
   font-family: var(--font-outlier);
   color: var(--color-ink-2);
+  white-space: nowrap;
 }
 
 .dot-live {
@@ -645,14 +646,6 @@ button:disabled {
   font-size: 11px;
   color: var(--color-muted);
   white-space: nowrap;
-}
-
-.macro-hud-sub {
-  font-size: 10px;
-  font-family: var(--font-outlier);
-  color: var(--color-cool);
-  white-space: nowrap;
-  margin-top: 2px;
 }
 
 /* Bento Grid Showcase */
