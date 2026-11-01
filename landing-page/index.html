@@ -223,11 +223,7 @@
               <span class="spot-pill">Ép. 9,56 mm</span>
             </button>
 
-            <!-- Digital Telemetry HUD Overlay -->
-            <div class="reticle-telemetry" id="reticleTelemetry">
-              <div class="reticle-status"><span class="dot-live"></span> <span id="reticleTargetName">Palpeur : cordon extérieur</span></div>
-              <div class="reticle-readout" id="reticleReadout">Pénétration 55,89%, largeur 14,89 mm, surépaisseur 1,95 mm</div>
-            </div>
+
           </div>
 
           <div class="macro-hud-bar">
@@ -690,8 +686,7 @@
       var macroStage = document.getElementById('macroStage');
       var reticleLineH = document.getElementById('reticleLineH');
       var reticleLineV = document.getElementById('reticleLineV');
-      var reticleTargetName = document.getElementById('reticleTargetName');
-      var reticleReadout = document.getElementById('reticleReadout');
+
       var hotspots = document.querySelectorAll('.specimen-hotspot');
       var hudCells = {
         ext: document.getElementById('hudCellExt'),
@@ -714,11 +709,7 @@
         Object.keys(hudCells).forEach(function (k) {
           if (hudCells[k]) hudCells[k].classList.toggle('highlight', k === targetKey);
         });
-        var d = spotData[targetKey];
-        if (d && reticleTargetName && reticleReadout) {
-          reticleTargetName.textContent = 'Palpeur : ' + d.name;
-          reticleReadout.textContent = d.text;
-        }
+
       }
 
       hotspots.forEach(function (btn) {
