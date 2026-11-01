@@ -621,6 +621,14 @@ textarea:disabled {
   white-space: nowrap;
 }
 
+.macro-hud-sub {
+  font-size: 10px;
+  font-family: var(--font-outlier);
+  color: var(--color-cool);
+  white-space: nowrap;
+  margin-top: 2px;
+}
+
 /* Workflow 5 Steps Section */
 .workflow-section {
   padding-block: 64px;
@@ -1115,6 +1123,100 @@ textarea:disabled {
   flex-wrap: wrap;
 }
 
+/* PV Specimen Measurement Matrix Template */
+.pv-template-badge {
+  font-family: var(--font-outlier);
+  font-size: 11px;
+  color: var(--color-cool);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pv-matrix-table-wrap {
+  background: var(--color-paper-3);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  margin-block: 4px;
+}
+
+.pv-specimen-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  text-align: left;
+}
+
+.pv-specimen-table th {
+  background: var(--color-paper);
+  color: var(--color-muted);
+  font-family: var(--font-outlier);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pv-specimen-table th:not(:first-child),
+.pv-specimen-table td:not(:first-child) {
+  text-align: right;
+}
+
+.pv-specimen-table td {
+  padding: 8px 12px;
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+  color: var(--color-ink-2);
+}
+
+.pv-specimen-table tr:last-child td {
+  border-bottom: none;
+}
+
+.pv-specimen-table .mono-val {
+  font-family: var(--font-outlier);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-ink);
+}
+
+.pv-specimen-table .mono-val.accent {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.pv-specimen-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.pv-specimen-cell {
+  background: var(--color-paper-3);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-pill);
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pv-specimen-cell .lbl {
+  font-size: 11px;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.pv-specimen-cell .val {
+  font-family: var(--font-outlier);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}
+
 /* Feedback Section */
 .feedback-section {
   padding-block: var(--space-4xl);
@@ -1354,6 +1456,24 @@ body {
   .platform-card,
   .author-details-box {
     padding: 20px;
+  }
+
+  .pv-specimen-table th,
+  .pv-specimen-table td {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .pv-specimen-cell {
+    padding: 8px;
+  }
+
+  .pv-specimen-cell .lbl {
+    font-size: 10px;
+  }
+
+  .pv-specimen-cell .val {
+    font-size: 11px;
   }
 
   .pv-preview-actions,

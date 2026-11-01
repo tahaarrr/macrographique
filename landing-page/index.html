@@ -95,7 +95,7 @@
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="stylesheet" href="tokens.css?v=2.3">
+  <link rel="stylesheet" href="tokens.css?v=2.4">
 </head>
 <body>
 
@@ -132,16 +132,16 @@
     <div class="mobile-drawer" id="mobileDrawer" hidden>
       <nav class="mobile-nav-links">
         <a href="#inspection" class="mobile-nav-link">Inspection</a>
-        <a href="#methode" class="mobile-nav-link">Méthode et Projet</a>
-        <a href="#etapes" class="mobile-nav-link">Protocole en 5 Étapes</a>
-        <a href="#etabli" class="mobile-nav-link">Poste de Mesure</a>
-        <a href="#modele" class="mobile-nav-link">Modèle de PV</a>
+        <a href="#methode" class="mobile-nav-link">Méthode</a>
+        <a href="#etapes" class="mobile-nav-link">Protocole</a>
+        <a href="#etabli" class="mobile-nav-link">Poste de mesure</a>
+        <a href="#modele" class="mobile-nav-link">Modèle PV</a>
         <a href="#telecharger" class="mobile-nav-link">Téléchargements</a>
-        <a href="#feedback" class="mobile-nav-link">Retours d’expérience</a>
-        <a href="#auteur" class="mobile-nav-link">Auteur et Recherche</a>
+        <a href="#feedback" class="mobile-nav-link">Retours</a>
+        <a href="#auteur" class="mobile-nav-link">Auteur</a>
       </nav>
       <div class="mobile-drawer-cta">
-        <a href="app/index.html" target="_blank" class="btn-primary" style="width: 100%; justify-content: center;">Lancer l’Application</a>
+        <a href="app/index.html" target="_blank" class="btn-primary" style="width: 100%; justify-content: center;">Accès Web Direct</a>
       </div>
     </div>
   </header>
@@ -206,18 +206,22 @@
             <div class="macro-hud-cell">
               <div class="macro-hud-val accent">55,89%</div>
               <div class="macro-hud-lbl">Pénétration EXT</div>
+              <div class="macro-hud-sub">Larg 14,89 · Surép 1,95</div>
             </div>
             <div class="macro-hud-cell">
               <div class="macro-hud-val accent">64,11%</div>
               <div class="macro-hud-lbl">Pénétration INT</div>
+              <div class="macro-hud-sub">Larg 11,58 · Surép 1,20</div>
             </div>
             <div class="macro-hud-cell">
               <div class="macro-hud-val">1,66 mm</div>
               <div class="macro-hud-lbl">Désaxage M1/M2</div>
+              <div class="macro-hud-sub">Interpén. 1,90 mm</div>
             </div>
             <div class="macro-hud-cell">
-              <div class="macro-hud-val">1,90 mm</div>
-              <div class="macro-hud-lbl">Interpénétration</div>
+              <div class="macro-hud-val">9,56 mm</div>
+              <div class="macro-hud-lbl">Épaisseur réelle</div>
+              <div class="macro-hud-sub">Sur photo 17,21 mm</div>
             </div>
           </div>
         </div>
@@ -235,16 +239,16 @@
 
         <div class="comparison-grid">
           <div class="comp-panel">
-            <h3>Révélation de la structure</h3>
+            <h3>Révélation nital</h3>
             <p>
-              L’attaque nital révèle la zone fondue, la zone thermiquement affectée (ZAT), la compacité et l’absence de défauts.
+              Révélation de la zone fondue, de la ZAT et détection des défauts internes.
             </p>
           </div>
 
           <div class="comp-panel active-state">
-            <h3>Tous procédés de soudage</h3>
+            <h3>Procédés universels</h3>
             <p>
-              Couverture universelle : joints bout à bout, en angle, multipasses, SAWH, SAWL, TIG, MIG/MAG et électrode (API 5L, ISO 15614).
+              Joints bout à bout, angle, multipasses : SAWH, SAWL, TIG, MIG/MAG et électrode.
             </p>
           </div>
         </div>
@@ -383,11 +387,64 @@
             <img src="assets/pv_model_preview.png" alt="Procès-verbal macrographique officiel généré par Macrographique" loading="lazy">
           </div>
           <div class="pv-preview-info">
-            <h3>Structure du document officiel</h3>
-            <p>Traçabilité, paramètres opératoires, relevé micrométrique et signatures.</p>
+            <div class="pv-template-badge">Gabarit normé · API 5L / ISO 15614</div>
+            <h3>Cotation normée de l’échantillon</h3>
+            <p>Relevé dimensionnel micrométrique des passes et du métal de base.</p>
+
+            <div class="pv-matrix-table-wrap">
+              <table class="pv-specimen-table">
+                <thead>
+                  <tr>
+                    <th>Mesure cordon</th>
+                    <th>Cordon EXT</th>
+                    <th>Cordon INT</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Surépaisseur</td>
+                    <td class="mono-val">1,95 mm</td>
+                    <td class="mono-val">1,20 mm</td>
+                  </tr>
+                  <tr>
+                    <td>Largeur cordon</td>
+                    <td class="mono-val">14,89 mm</td>
+                    <td class="mono-val">11,58 mm</td>
+                  </tr>
+                  <tr>
+                    <td>Pénétration</td>
+                    <td class="mono-val accent">55,89%</td>
+                    <td class="mono-val accent">64,11%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="pv-specimen-grid">
+              <div class="pv-specimen-cell">
+                <span class="lbl">Désaxage M1/M2</span>
+                <span class="val">1,66 mm</span>
+              </div>
+              <div class="pv-specimen-cell">
+                <span class="lbl">Interpénétration</span>
+                <span class="val">1,90 mm</span>
+              </div>
+              <div class="pv-specimen-cell">
+                <span class="lbl">Ép. réelle / nominale</span>
+                <span class="val">9,56 / 9,50 mm</span>
+              </div>
+              <div class="pv-specimen-cell">
+                <span class="lbl">Ép. sur photo (×2,10)</span>
+                <span class="val">17,21 mm</span>
+              </div>
+            </div>
+
             <div class="pv-preview-actions">
-              <a href="assets/Model_pv_macro_official.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <a href="assets/Model_pv_macro_official.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary">
                 Consulter le modèle PDF
+              </a>
+              <a href="app/index.html" target="_blank" class="btn-secondary">
+                Accès Web Direct
               </a>
             </div>
           </div>
@@ -401,7 +458,7 @@
       <div class="container">
         <div class="section-head-simple">
           <h2>Distributions officielles disponibles</h2>
-          <p>Fichiers exécutables complets et autonomes, sans dépendances externes.</p>
+          <p>Exécutables autonomes sans dépendances.</p>
         </div>
 
         <div class="platforms-grid">
@@ -423,7 +480,7 @@
           <div class="platform-card">
             <div>
               <h3>Windows 64 bits</h3>
-              <p>Installeur autonome pour postes sous Windows 10 et 11.</p>
+              <p>Installeur autonome pour Windows 10 et 11.</p>
             </div>
             <div>
               <a href="downloads/Macrographique-Setup.exe" download class="btn-secondary" style="width: 100%; justify-content: center;">
@@ -437,7 +494,7 @@
           <div class="platform-card">
             <div>
               <h3>Android</h3>
-              <p>Paquet APK pour tablettes d’inspection et smartphones de contrôle.</p>
+              <p>Paquet APK pour tablettes et smartphones d’inspection.</p>
             </div>
             <div>
               <a href="downloads/Macrographique.apk" download class="btn-secondary" style="width: 100%; justify-content: center;">
@@ -462,7 +519,7 @@
           <div class="feedback-body">
             <h3>Partager un retour technique</h3>
             <p>
-              Transmettez vos remarques de terrain ou demandes d’adaptation directement par messagerie électronique.
+              Transmettez vos remarques de terrain par messagerie électronique.
             </p>
             <div class="feedback-actions">
               <a href="mailto:ayati.tahar@gmail.com?subject=Macrographique%20:%20Retour%20technique" class="btn-primary btn-icon">
@@ -484,14 +541,14 @@
     </section>
 
 
-    <!-- SECTION AUTEUR & RECHERCHE : AYATI TAHAR (ÉLÉGANTE ET RESTAURÉE) -->
+    <!-- SECTION AUTEUR & RECHERCHE : AYATI TAHAR -->
     <section class="author-section" id="auteur">
       <div class="container author-grid">
         <div>
           <h2 class="author-name">Ayati Tahar</h2>
-          <div class="author-discipline">Ingénieur et Chercheur en Génie des Matériaux</div>
+          <div class="author-discipline">Ingénieur & Chercheur en Métallurgie</div>
           <p class="author-text">
-            Métallurgie physique et intégrité des soudures industrielles.
+            Métallurgie physique et intégrité des soudures.
           </p>
           <div class="author-links">
             <a href="mailto:ayati.tahar@gmail.com">ayati.tahar@gmail.com</a>
