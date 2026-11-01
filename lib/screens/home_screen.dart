@@ -188,11 +188,15 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             ),
             const SizedBox(width: 14),
 
-            // Champ de recherche desktop
-            SizedBox(
-              width: 300,
-              height: 38,
-              child: _buildSearchTextField(isDark: true),
+            // Champ de recherche desktop adaptatif
+            Flexible(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 300, minWidth: 80),
+                child: SizedBox(
+                  height: 38,
+                  child: _buildSearchTextField(isDark: true),
+                ),
+              ),
             ),
             const SizedBox(width: 8),
 

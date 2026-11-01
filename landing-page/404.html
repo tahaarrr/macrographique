@@ -3,40 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page non trouvée : Macrographique</title>
-  <meta name="description" content="Page introuvable sur le site Macrographique.">
+  <title>Page non trouvée — Macrographique</title>
+  <meta name="theme-color" content="#0d0f14">
+  <link rel="icon" type="image/png" href="favicon.png">
   <script>
+    // GitHub Pages SPA redirect: redirect all 404s to landing page
     var base = '/macrographique/';
     var path = window.location.pathname;
     if (path !== base && path !== base + 'index.html') {
-      window.location.replace(base + '?redirect=' + encodeURIComponent(path));
+      window.location.replace(base);
     }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500&family=Atkinson+Hyperlegible+Mono:wght@400&display=swap" rel="stylesheet">
   <style>
-/* Hallmark: 2.0.0
-   theme: console (console: graphite)
-   shape: Workbench
-   draw: e1128a
-   modes: dark
-*/
     :root {
-      --font-body: "Host Grotesk", ui-sans-serif, system-ui, sans-serif;
-      --font-mono: "Atkinson Hyperlegible Mono", ui-monospace, monospace;
-      --paper: oklch(17% 0.008 250);
-      --ink: oklch(95% 0.005 250);
-      --muted: oklch(71% 0.01 250);
-      --accent: oklch(82% 0.15 80);
-      --accent-ink: oklch(18% 0.04 75);
-      --rule: oklch(31% 0.01 250);
-      --color-focus: oklch(82% 0.15 80);
+      --paper: oklch(12% 0.012 255);
+      --ink: oklch(98% 0.005 250);
+      --muted: oklch(68% 0.018 250);
+      --accent: oklch(78% 0.18 75);
+      --accent-ink: oklch(14% 0.04 75);
+      --rule: rgba(255, 255, 255, 0.08);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body {
-      overflow-x: clip;
-      font-family: var(--font-body);
+    body {
+      font-family: "Host Grotesk", ui-sans-serif, system-ui, sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -46,16 +38,9 @@
       text-align: center;
       -webkit-font-smoothing: antialiased;
     }
-    :focus-visible {
-      outline: 2px solid var(--color-focus);
-      outline-offset: 2px;
-    }
-    :active {
-      transform: translateY(1px);
-    }
     .wrap { padding: 40px 24px; max-width: 480px; }
     .code {
-      font-family: var(--font-mono);
+      font-family: "Atkinson Hyperlegible Mono", ui-monospace, monospace;
       font-size: 72px;
       font-weight: 500;
       color: var(--muted);
@@ -67,7 +52,6 @@
       font-weight: 500;
       letter-spacing: -0.02em;
       margin-bottom: 8px;
-      text-wrap: balance;
     }
     p {
       color: var(--muted);
@@ -95,8 +79,8 @@
   <div class="wrap">
     <div class="code">404</div>
     <h1>Page non trouvée</h1>
-    <p>Cette page n’existe pas. Retournez à l’accueil de Macrographique.</p>
-    <a href="/macrographique/">Retour à l’accueil</a>
+    <p>Cette page n'existe pas. Retournez à l'accueil de Macrographique.</p>
+    <a href="/macrographique/">Retour à l'accueil</a>
   </div>
 </body>
 </html>
