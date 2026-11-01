@@ -93,12 +93,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;600&family=Host+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <meta name="theme-color" content="#1a1c22" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#0b0d13" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#f9f6f0" media="(prefers-color-scheme: light)">
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="stylesheet" href="tokens.css?v=3.1">
+  <link rel="stylesheet" href="tokens.css?v=4.0">
 </head>
 <body>
 
@@ -108,15 +108,17 @@
       <a href="#inspection" class="brand" aria-label="Macrographique Accueil">
         <img src="assets/logo.png" alt="Logo Macrographique" class="brand-logo-img">
         <span class="brand-name">Macrographique</span>
+        <span class="version-badge">v1.2.2</span>
       </a>
 
       <nav class="nav-links" aria-label="Navigation principale">
         <a href="#inspection">Inspection</a>
-        <a href="#methode">Méthode</a>
+        <a href="#methode">Méthode & Outils</a>
         <a href="#etapes">Protocole</a>
         <a href="#modele">Modèle PV</a>
         <a href="#telecharger">Téléchargements</a>
         <a href="#feedback">Retours</a>
+        <a href="#auteur">Auteur</a>
       </nav>
 
       <div class="nav-actions">
@@ -135,9 +137,8 @@
     <div class="mobile-drawer" id="mobileDrawer" hidden>
       <nav class="mobile-nav-links">
         <a href="#inspection" class="mobile-nav-link">Inspection</a>
-        <a href="#methode" class="mobile-nav-link">Méthode</a>
+        <a href="#methode" class="mobile-nav-link">Méthode & Outils</a>
         <a href="#etapes" class="mobile-nav-link">Protocole</a>
-        <a href="#etabli" class="mobile-nav-link">Poste de mesure</a>
         <a href="#modele" class="mobile-nav-link">Modèle PV</a>
         <a href="#telecharger" class="mobile-nav-link">Téléchargements</a>
         <a href="#feedback" class="mobile-nav-link">Retours</a>
@@ -150,40 +151,45 @@
   </header>
 
   <main>
-    <!-- Section Héro -->
+    <!-- Section Héro (Dark Tech SaaS Style Linear/Vercel) -->
     <section class="hero" id="inspection">
       <div class="container hero-layout">
         <div class="hero-text-block">
+          <div class="hero-eyebrow">
+            <span class="dot-live"></span>
+            Conforme API 5L, ISO 15614 et données locales
+          </div>
+
           <h1 class="hero-headline">
             La rigueur du <span style="white-space: nowrap;">procès&#8209;verbal</span> <span style="white-space: nowrap;">macrographique.</span>
           </h1>
 
           <p class="hero-sentence">
-            Traçabilité des soudures et calculs dimensionnels pour laboratoires d’essais.
+            Traçabilité certifiée et calculs dimensionnels pour laboratoires d’essais métallurgiques.
           </p>
 
           <div class="hero-actions">
             <a href="app/index.html" target="_blank" class="btn-primary">Accès Web Direct</a>
-            <a href="#etapes" class="hero-link">Consulter les 5 étapes</a>
+            <a href="#etapes" class="hero-link">Découvrir les 5 étapes</a>
           </div>
 
           <div class="stat-counter-bar">
             <div class="stat-item">
               <div class="figure" data-target="100" data-unit="%">100<span class="unit">%</span></div>
-              <div class="label">Données SQLite</div>
+              <div class="label">Données locales SQLite</div>
             </div>
             <div class="stat-item">
               <div class="figure" data-target="0.01" data-decimals="2" data-unit="mm">0.01<span class="unit">mm</span></div>
-              <div class="label">Précision micrométrique</div>
+              <div class="label">Précision de cotation</div>
             </div>
             <div class="stat-item">
               <div class="figure" data-target="5" data-unit="Étapes">5<span class="unit">Étapes</span></div>
-              <div class="label">Flux certifié</div>
+              <div class="label">Protocole certifié</div>
             </div>
           </div>
         </div>
 
-        <!-- Visionneuse Macro Haute Définition -->
+        <!-- Visionneuse Macro Haute Définition (Zéro texte parasite) -->
         <div class="macro-viewer">
           <div class="macro-viewer-header">
             <div class="macro-viewer-title">
@@ -201,12 +207,12 @@
           </div>
 
           <div class="macro-stage" id="macroStage">
-            <img id="imgTrace" src="assets/macro_hero_specimen.png" alt="Coupe macrographique avec tracé vectoriel des cordons de soudure">
-            <img id="imgRaw" src="assets/macro_raw_real.png" alt="Coupe macrographique brute après attaque nital" class="hidden">
+            <img id="imgTrace" src="assets/macro_hero_specimen.png" alt="Coupe avec tracé vectoriel" loading="eager">
+            <img id="imgRaw" src="assets/macro_raw_real.png" alt="Coupe macrographique brute après attaque nital" class="hidden" loading="eager">
           </div>
 
           <div class="macro-hud-bar">
-            <div class="macro-hud-cell highlight" id="hudCellExt">
+            <div class="macro-hud-cell" id="hudCellExt">
               <div class="macro-hud-val accent">55,89%</div>
               <div class="macro-hud-lbl">Pénétration EXT</div>
               <div class="macro-hud-sub">Larg. 14,89 mm, surép. 1,95 mm</div>
@@ -218,7 +224,7 @@
             </div>
             <div class="macro-hud-cell" id="hudCellAxe">
               <div class="macro-hud-val">1,66 mm</div>
-              <div class="macro-hud-lbl">Désaxage M1/M2</div>
+              <div class="macro-hud-lbl">Désaxage</div>
               <div class="macro-hud-sub">Interpénétration 1,90 mm</div>
             </div>
             <div class="macro-hud-cell" id="hudCellBase">
@@ -231,34 +237,83 @@
       </div>
     </section>
 
-    
-    <!-- Examen Macrographique & Couverture Universelle -->
-    <section class="workbench-section" id="methode">
+    <!-- Bento Grid Showcase: L'Excellence Technologique & Outils de Mesure -->
+    <section class="bento-section" id="methode">
       <div class="container">
         <div class="section-head-simple">
-          <h2>Examen macrographique</h2>
-          <p>Contrôle certifié des assemblages soudés.</p>
+          <h2>Inspection et laboratoires</h2>
+          <p>Métrologie optique et rigueur.</p>
         </div>
 
-        <div class="comparison-grid">
-          <div class="comp-panel">
-            <h3>Révélation nital</h3>
-            <p>
-              Révélation de la zone fondue, de la ZAT et détection des défauts.
-            </p>
+        <div class="bento-grid">
+          <!-- Carte 1 (Large format): Poste de Mesure Instrumentale -->
+          <div class="bento-card bento-card-main">
+            <div>
+              <h3>Étalonnage optique et cotation vectorielle</h3>
+              <p>Étalonnage micrométrique et tracé direct des cordons au centième.</p>
+              
+              <div class="bento-media-frame">
+                <img src="assets/poste_mesure_exact.jpg?v=2" alt="Poste de mesure macrographique" loading="lazy">
+              </div>
+            </div>
+            <div class="bento-chip-list">
+              <span class="bento-chip">Étalonnage 0.01 mm</span>
+              <span class="bento-chip">Injection PV</span>
+            </div>
           </div>
 
-          <div class="comp-panel active-state">
-            <h3>Procédés universels</h3>
-            <p>
-              Joints bout à bout, angle, multipasses : SAWH, SAWL, TIG, MIG/MAG et électrode.
-            </p>
+          <!-- Carte 2: Souveraineté & Base SQLite Locale -->
+          <div class="bento-card bento-card-side">
+            <div>
+              <h3>100% Hors-ligne & SQLite local</h3>
+              <p>Données locales sans fuite cloud.</p>
+            </div>
+            <div class="bento-chip-list">
+              <span class="bento-chip">Base SQLite</span>
+              <span class="bento-chip">100% Hors-ligne</span>
+            </div>
+          </div>
+
+          <!-- Carte 3: Procédés Universels -->
+          <div class="bento-card bento-card-third">
+            <div>
+              <h3>Couverture universelle des soudures</h3>
+              <p>Adapté aux joints bout à bout, en angle et multipasses : procédés SAWH, SAWL, TIG, MIG/MAG et électrode.</p>
+            </div>
+            <div class="bento-chip-list">
+              <span class="bento-chip">API 5L</span>
+              <span class="bento-chip">ISO 15614</span>
+            </div>
+          </div>
+
+          <!-- Carte 4: Métallurgie & ZAT -->
+          <div class="bento-card bento-card-third">
+            <div>
+              <h3>Révélation nital & analyse ZAT</h3>
+              <p>Contrôle de la zone fondue, de la zone affectée thermiquement et détection des défauts d’alignement.</p>
+            </div>
+            <div class="bento-chip-list">
+              <span class="bento-chip">Attaque nital</span>
+              <span class="bento-chip">ZAT</span>
+            </div>
+          </div>
+
+          <!-- Carte 5: Procès-Verbal Officiel Prêt à Signer -->
+          <div class="bento-card bento-card-third">
+            <div>
+              <h3>Génération du PV officiel certifié</h3>
+              <p>Édition automatisée en format PDF normalisé, prête pour les contrôles qualité et auditeurs tiers.</p>
+            </div>
+            <div class="bento-chip-list">
+              <span class="bento-chip">4 Signatures</span>
+              <span class="bento-chip">PDF normé</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 5 Étapes du Rapport Réalisées en Direct -->
+    <!-- 5 Étapes du Rapport (Catalogue Interactif Zéro-Saut) -->
     <section class="workflow-section" id="etapes">
       <div class="container">
         <div class="section-head-simple">
@@ -270,37 +325,32 @@
           <!-- Barre d'onglets des 5 étapes -->
           <div class="step-switcher-bar" role="tablist" aria-label="Étapes du rapport">
             <button type="button" class="step-tab-btn active" role="tab" aria-selected="true" data-step="1">
-              <span class="step-num">01</span>
-              <span class="step-name">Identification</span>
+              <span class="step-num">01</span> Identification
             </button>
             <button type="button" class="step-tab-btn" role="tab" aria-selected="false" data-step="2">
-              <span class="step-num">02</span>
-              <span class="step-name">Soudage</span>
+              <span class="step-num">02</span> Soudage
             </button>
             <button type="button" class="step-tab-btn" role="tab" aria-selected="false" data-step="3">
-              <span class="step-num">03</span>
-              <span class="step-name">Échantillons</span>
+              <span class="step-num">03</span> Échantillons
             </button>
             <button type="button" class="step-tab-btn" role="tab" aria-selected="false" data-step="4">
-              <span class="step-num">04</span>
-              <span class="step-name">Constat</span>
+              <span class="step-num">04</span> Constat
             </button>
             <button type="button" class="step-tab-btn" role="tab" aria-selected="false" data-step="5">
-              <span class="step-num">05</span>
-              <span class="step-name">Signatures</span>
+              <span class="step-num">05</span> Signatures
             </button>
           </div>
 
-          <!-- Affichage de chaque panneau avec capture réelle -->
+          <!-- Affichage du panneau (Zéro reflow, dimensions stables) -->
           <div class="workflow-stage">
             <div class="step-panel" id="catalogStage">
               <div class="step-image-wrap">
                 <img id="stepCatalogImg" src="assets/steps/step1_identification.png" alt="Capture d’écran du protocole d’essai" loading="eager">
               </div>
               <div class="step-info-card">
-                <div class="step-tag-pill" id="stepCatalogPill">Étape 01 · Traçabilité</div>
                 <h3 id="stepCatalogTitle">Identification et Nuances</h3>
-                <p id="stepCatalogDesc">Numéro unique, dates, client et nuances certifiées (API 5L, ISO 15614).</p>
+                <div class="step-tag-pill" id="stepCatalogPill">01 Traçabilité</div>
+                <p id="stepCatalogDesc">Numéro unique, client et nuances certifiées.</p>
                 <div class="step-meta-chips" id="stepCatalogChips">
                   <span>API 5L</span>
                   <span>ISO 15614</span>
@@ -310,7 +360,7 @@
             </div>
           </div>
 
-          <!-- Catalogue Mini-Thumbnails -->
+          <!-- Miniatures du catalogue -->
           <div class="catalog-thumbnails-row" role="tablist" aria-label="Miniatures du catalogue des 5 étapes">
             <button type="button" class="catalog-thumb active" data-step="1" role="tab" aria-selected="true" aria-label="Afficher Étape 1">
               <img src="assets/steps/step1_identification.png" alt="Miniature 01" loading="lazy">
@@ -347,33 +397,6 @@
             Suivant
           </button>
         </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Poste de Mesure Instrumentale -->
-    <section class="workbench-section" id="etabli">
-      <div class="container">
-        <div class="section-head-simple">
-          <h2>Poste de mesure instrumentale</h2>
-          <p>Tracé vectoriel et cotation assistée par étalonnage.</p>
-        </div>
-
-        <div class="workbench-frame">
-          <img src="assets/poste_mesure_exact.jpg?v=2" alt="Outil de mesure et traçage macrographique avec étalonnage optique" loading="lazy">
-        </div>
-
-        <div class="comparison-grid" style="margin-top: 32px;">
-          <div class="comp-panel">
-            <h3>Étalonnage optique</h3>
-            <p>Calcul du ratio pixel/millimètre au centième.</p>
-          </div>
-
-          <div class="comp-panel active-state">
-            <h3>Transfert direct</h3>
-            <p>Injection immédiate des cotes sur le PV officiel.</p>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -390,9 +413,9 @@
             <img src="assets/pv_model_preview.png" alt="Procès-verbal macrographique officiel généré par Macrographique" loading="lazy">
           </div>
           <div class="pv-preview-info">
-            <div class="pv-template-badge">Gabarit normé · API 5L / ISO 15614</div>
-            <h3>Cotation normée de l’échantillon</h3>
-            <p>Relevé dimensionnel micrométrique des passes et du métal de base.</p>
+            <div class="pv-template-badge">Normé API 5L / ISO 15614</div>
+            <h3>Cotation de l’échantillon</h3>
+            <p>Relevé des cordons et métal de base.</p>
 
             <div class="pv-matrix-table-wrap">
               <table class="pv-specimen-table">
@@ -425,7 +448,7 @@
 
             <div class="pv-specimen-grid">
               <div class="pv-specimen-cell">
-                <span class="lbl">Désaxage M1/M2</span>
+                <span class="lbl">Désaxage</span>
                 <span class="val">1,66 mm</span>
               </div>
               <div class="pv-specimen-cell">
@@ -433,18 +456,18 @@
                 <span class="val">1,90 mm</span>
               </div>
               <div class="pv-specimen-cell">
-                <span class="lbl">Ép. réelle / nominale</span>
+                <span class="lbl">Ép. réelle/nom.</span>
                 <span class="val">9,56 / 9,50 mm</span>
               </div>
               <div class="pv-specimen-cell">
-                <span class="lbl">Ép. sur photo (×2,10)</span>
+                <span class="lbl">Ép. sur photo</span>
                 <span class="val">17,21 mm</span>
               </div>
             </div>
 
             <div class="pv-preview-actions">
               <a href="assets/Model_pv_macro_official.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary">
-                Consulter le modèle PDF
+                Modèle PDF
               </a>
               <a href="app/index.html" target="_blank" class="btn-secondary">
                 Accès Web Direct
@@ -455,13 +478,12 @@
       </div>
     </section>
 
-
     <!-- Distributions et Téléchargements -->
     <section class="downloads-section" id="telecharger">
       <div class="container">
         <div class="section-head-simple">
-          <h2>Distributions officielles disponibles</h2>
-          <p>Exécutables autonomes sans dépendances.</p>
+          <h2>Distributions officielles</h2>
+          <p>Exécutables sans dépendances.</p>
         </div>
 
         <div class="platforms-grid">
@@ -469,7 +491,7 @@
           <div class="platform-card">
             <div>
               <h3>Accès Web Direct</h3>
-              <p>Utilisable en plein écran sur Chrome, Edge ou Firefox.</p>
+              <p>Chrome, Edge ou Firefox.</p>
             </div>
             <div>
               <a href="app/index.html" target="_blank" class="btn-primary" style="width: 100%; justify-content: center;">
@@ -483,7 +505,7 @@
           <div class="platform-card">
             <div>
               <h3>Windows 64 bits</h3>
-              <p>Installeur autonome pour Windows 10 et 11.</p>
+              <p>Installeur pour Windows 10 et 11.</p>
             </div>
             <div>
               <a href="downloads/Macrographique-Setup.exe" download class="btn-secondary" style="width: 100%; justify-content: center;">
@@ -497,7 +519,7 @@
           <div class="platform-card">
             <div>
               <h3>Android</h3>
-              <p>Paquet APK pour tablettes et smartphones d’inspection.</p>
+              <p>Paquet APK pour tablettes de contrôle qualité.</p>
             </div>
             <div>
               <a href="downloads/Macrographique.apk" download class="btn-secondary" style="width: 100%; justify-content: center;">
@@ -514,20 +536,20 @@
     <section class="feedback-section" id="feedback">
       <div class="container">
         <div class="section-head-simple">
-          <h2>Retours d’expérience & contact</h2>
+          <h2>Retours d’expérience</h2>
           <p>Vos retours enrichissent le logiciel.</p>
         </div>
 
         <div class="feedback-card">
-          <div class="feedback-body">
-            <h3>Partager un retour technique</h3>
+          <div>
+            <h3>Retour technique</h3>
             <p>
-              Transmettez vos remarques de terrain par messagerie électronique.
+              Remarques et retours par messagerie électronique.
             </p>
             <div class="feedback-actions">
               <a href="mailto:ayati.tahar@gmail.com?subject=Macrographique%20:%20Retour%20technique" class="btn-primary btn-icon">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                <span>Écrire à ayati.tahar@gmail.com</span>
+                <span>Écrire un courriel</span>
               </a>
               <button type="button" class="btn-secondary btn-icon" id="btnCopyEmail" aria-label="Copier l’adresse email">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
@@ -543,7 +565,6 @@
       </div>
     </section>
 
-
     <!-- SECTION AUTEUR & RECHERCHE : AYATI TAHAR -->
     <section class="author-section" id="auteur">
       <div class="container author-grid">
@@ -551,7 +572,7 @@
           <h2 class="author-name">Ayati Tahar</h2>
           <div class="author-discipline">Ingénieur Chercheur en Génie des Matériaux</div>
           <p class="author-text">
-            Essais mécaniques destructifs, traitement de surface, simulation numérique et intégrité des soudures industrielles.
+            Essais mécaniques destructifs, traitement de surface, simulation numérique et soudures.
           </p>
           <div class="author-links">
             <a href="mailto:ayati.tahar@gmail.com">ayati.tahar@gmail.com</a>
@@ -564,32 +585,36 @@
           <div class="section-label">Expertise</div>
           <ul>
             <li>Essais mécaniques destructifs (dureté, traction, pliage, résilience)</li>
-            <li>Traitement de surface & revêtements</li>
-            <li>Simulation numérique & modélisation</li>
-            <li>Génie des matériaux & métallurgie physique</li>
+            <li>Traitement de surface</li>
+            <li>Simulation numérique</li>
+            <li>Génie des matériaux</li>
             <li>Macrographie et CND (API 5L, ISO 15614)</li>
           </ul>
         </div>
       </div>
     </section>
-  
-  
   </main>
+
+  <!-- Bouton Flottant Retour en Haut -->
+  <button type="button" class="back-to-top" id="btnBackToTop" aria-label="Retour en haut de page">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
 
   <!-- Pied de page officiel -->
   <footer class="mast-footer">
     <div class="container mast-footer-inner">
       <div>
-        Macrographique : Recherche et industrie métallurgique.
+        Macrographique : Essais métallurgiques.
       </div>
       <div>
-        Ayati Tahar, 2026. Logiciel libre d’ingénierie.
+        Ayati Tahar, 2026. Ingénierie.
       </div>
     </div>
   </footer>
 
-  
-  <!-- Scripts: Theme, Mobile Drawer, Macro Switcher, Workflow, Counters, Back to Top, Copy Email -->
+  <!-- Scripts: Theme, Mobile Drawer, Macro Switcher, Stepper Zéro-Saut, Counters, Back to Top, Copy Email -->
   <script>
     (function () {
       // 1. Theme Toggle
@@ -665,16 +690,16 @@
       // 4. 5-Step Catalogue Stepper (Zero DOM reflow, zero jump)
       var stepsData = [
         {
-          pill: 'Étape 01 · Traçabilité',
+          pill: '01 Traçabilité',
           title: 'Identification et Nuances',
-          desc: 'Numéro unique, dates, client et nuances certifiées (API 5L, ISO 15614).',
+          desc: 'Numéro unique, client et nuances certifiées.',
           chips: '<span>API 5L</span><span>ISO 15614</span><span>SQLite</span>',
           img: 'assets/steps/step1_identification.png'
         },
         {
           pill: 'Étape 02 · Procédé',
           title: 'Paramètres Opératoires',
-          desc: 'Grandeurs opératoires : ampérage, tensions, vitesses et cahiers WPS.',
+          desc: 'Ampérage, tensions, vitesses et WPS.',
           chips: '<span>Contrôle U/I</span><span>Fils et flux</span><span>WPS</span>',
           img: 'assets/steps/step2_soudage.png'
         },
@@ -736,7 +761,7 @@
           thumb.setAttribute('aria-selected', active ? 'true' : 'false');
         });
 
-        // Update content with rock-solid stability (no DOM removal)
+        // Update content without DOM recreation (prevents any scroll bounce)
         if (catalogImg) {
           catalogImg.src = data.img;
         }
@@ -810,7 +835,22 @@
         observer.observe(statBar);
       }
 
+      // 6. Floating Back to Top Button
+      var backToTopBtn = document.getElementById("btnBackToTop");
+      if (backToTopBtn) {
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 350) {
+            backToTopBtn.classList.add("visible");
+          } else {
+            backToTopBtn.classList.remove("visible");
+          }
+        }, { passive: true });
 
+        backToTopBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
 
       // 7. Copy Email Clipboard Action
       var copyBtn = document.getElementById("btnCopyEmail");
