@@ -1689,8 +1689,14 @@ html {
   }
 
   .catalog-thumb {
-    min-width: 120px;
+    min-width: 140px;
     flex-shrink: 0;
+  }
+
+  .catalog-thumb img {
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: var(--color-paper-3);
   }
 
   .step-image-wrap {
