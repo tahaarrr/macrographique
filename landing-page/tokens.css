@@ -1695,11 +1695,19 @@ html {
 
   .step-image-wrap {
     aspect-ratio: auto;
+    max-height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .step-image-wrap img {
     object-fit: contain;
     height: auto;
+    max-height: 260px;
+    width: auto;
+    max-width: 100%;
+    margin-inline: auto;
   }
 
   .workflow-footer-nav {
