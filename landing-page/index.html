@@ -99,7 +99,7 @@
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="stylesheet" href="tokens.css?v=4.2">
+  <link rel="stylesheet" href="tokens.css?v=5.0">
 </head>
 <body>
 
@@ -123,6 +123,10 @@
 
       <div class="nav-actions">
         <button type="button" class="theme-toggle" id="modeBtn" aria-label="Basculer entre le mode clair et sombre">
+          <span class="theme-toggle-icon" id="modeIconSvg">
+            <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </span>
           <span id="modeIcon">Mode</span>
         </button>
         <a href="app/index.html" target="_blank" class="btn-primary desktop-cta">Accès Web Direct</a>
@@ -490,49 +494,63 @@
       <div class="container">
         <div class="section-head-simple">
           <h2>Distributions officielles</h2>
-          <p>Exécutables sans dépendances.</p>
+          <p>Exécutables autonomes sans dépendances requises.</p>
         </div>
 
         <div class="platforms-grid">
           <!-- Web Standalone -->
           <div class="platform-card">
             <div>
+              <div class="platform-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              </div>
+              <div class="platform-badge">Web Application</div>
               <h3>Accès Web Direct</h3>
-              <p>Chrome, Edge ou Firefox.</p>
+              <p>PWA autonome utilisable en plein écran sur Chrome, Edge, Safari ou Firefox.</p>
             </div>
             <div>
               <a href="app/index.html" target="_blank" class="btn-primary" style="width: 100%; justify-content: center;">
                 Ouvrir plein écran
               </a>
-              <div class="foot-meta">Sans installation</div>
+              <div class="foot-meta">Sans installation · Immédiat</div>
             </div>
           </div>
 
           <!-- Windows -->
           <div class="platform-card">
             <div>
-              <h3>Windows 64 bits</h3>
-              <p>Installeur pour Windows 10 et 11.</p>
+              <div class="platform-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8"></rect><rect x="13" y="3" width="8" height="8"></rect><rect x="3" y="13" width="8" height="8"></rect><rect x="13" y="13" width="8" height="8"></rect></svg>
+              </div>
+              <div class="platform-badge">Windows 64 bits</div>
+              <h3>Windows Desktop</h3>
+              <p>Installeur natif autonome pour Windows 10 et 11 avec SQLite local intégré.</p>
             </div>
             <div>
               <a href="downloads/Macrographique-Setup.exe" download class="btn-secondary" style="width: 100%; justify-content: center;">
-                Télécharger Setup
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Télécharger Setup</span>
               </a>
-              <div class="foot-meta">Setup.exe (14 Mo)</div>
+              <div class="foot-meta">Setup.exe (14 Mo) · Windows 10/11</div>
             </div>
           </div>
 
           <!-- Android -->
           <div class="platform-card">
             <div>
-              <h3>Android</h3>
-              <p>Paquet APK pour tablettes de contrôle qualité.</p>
+              <div class="platform-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+              </div>
+              <div class="platform-badge">Tablette & Mobile</div>
+              <h3>Android APK</h3>
+              <p>Paquet APK optimisé pour les tablettes d’inspection sur site et en atelier de soudage.</p>
             </div>
             <div>
               <a href="downloads/Macrographique.apk" download class="btn-secondary" style="width: 100%; justify-content: center;">
-                Télécharger APK
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Télécharger APK</span>
               </a>
-              <div class="foot-meta">Macrographique.apk (29 Mo)</div>
+              <div class="foot-meta">Macrographique.apk (29 Mo) · Android 8+</div>
             </div>
           </div>
         </div>
@@ -575,28 +593,90 @@
     <!-- SECTION AUTEUR & RECHERCHE : AYATI TAHAR -->
     <section class="author-section" id="auteur">
       <div class="container author-grid">
-        <div>
-          <h2 class="author-name">Ayati Tahar</h2>
-          <div class="author-discipline">Ingénieur Chercheur en Génie des Matériaux</div>
+        <div class="author-profile-card">
+          <div class="author-header">
+            <div class="author-avatar" aria-label="Ayati Tahar Initiales">
+              <span>AT</span>
+              <span class="author-verified-dot" title="Auteur certifié"></span>
+            </div>
+            <div>
+              <div class="author-badge-header">Concepteur & Chercheur</div>
+              <h2 class="author-name">Ayati Tahar</h2>
+              <div class="author-discipline">Ingénieur Chercheur en Génie des Matériaux</div>
+            </div>
+          </div>
+
           <p class="author-text">
-            Essais mécaniques destructifs, traitement de surface, simulation numérique et soudures.
+            Spécialiste de la métallurgie du soudage, des essais mécaniques destructifs, du traitement de surface et de la simulation numérique. Concepteur de la suite logicielle Macrographique pour la fiabilisation des procès-verbaux de contrôle.
           </p>
+
           <div class="author-links">
-            <a href="mailto:ayati.tahar@gmail.com">ayati.tahar@gmail.com</a>
-            <a href="https://github.com/tahaarrr" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.researchgate.net/profile/Tahar-Ayati" target="_blank" rel="noopener noreferrer">ResearchGate</a>
+            <a href="mailto:ayati.tahar@gmail.com" class="author-link-pill" aria-label="Envoyer un courriel à Ayati Tahar">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>ayati.tahar@gmail.com</span>
+            </a>
+            <a href="https://github.com/tahaarrr" target="_blank" rel="noopener noreferrer" class="author-link-pill" aria-label="Profil GitHub de Tahar Ayati">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              <span>GitHub</span>
+            </a>
+            <a href="https://www.researchgate.net/profile/Tahar-Ayati" target="_blank" rel="noopener noreferrer" class="author-link-pill" aria-label="Profil ResearchGate de Tahar Ayati">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h4"></path><path d="M12 8v8"></path></svg>
+              <span>ResearchGate</span>
+            </a>
           </div>
         </div>
 
         <div class="author-details-box">
-          <div class="section-label">Expertise</div>
-          <ul>
-            <li>Normes de qualification : API (API 5L), ASME Section IX, ISO 17025</li>
-            <li>Essais mécaniques destructifs & macrographie (dureté, traction, pliage, résilience)</li>
-            <li>Contrôle Non Destructif (CND)</li>
-            <li>Traitement de surface & revêtements</li>
-            <li>Simulation numérique & modélisation</li>
-            <li>Génie des matériaux & métallurgie physique</li>
+          <div class="section-label">Domaines d’Expertise & R&D</div>
+          <ul class="author-skills-list">
+            <li>
+              <div class="skill-check-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div>
+                <strong>Normes de qualification :</strong> API (API 5L, API 1104), ASME Section IX, ISO 17025
+              </div>
+            </li>
+            <li>
+              <div class="skill-check-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div>
+                <strong>Essais mécaniques destructifs & macrographie :</strong> traction, dureté, pliage, résilience Charpy
+              </div>
+            </li>
+            <li>
+              <div class="skill-check-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div>
+                <strong>Contrôle Non Destructif (CND) :</strong> ressuage, magnétoscopie, ultrasons et radiographie
+              </div>
+            </li>
+            <li>
+              <div class="skill-check-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div>
+                <strong>Traitement de surface & revêtements :</strong> corrosion, adhérence et microstructures
+              </div>
+            </li>
+            <li>
+              <div class="skill-check-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div>
+                <strong>Simulation numérique & modélisation :</strong> transferts thermiques et contraintes résiduelles
+              </div>
+            </li>
+            <li>
+              <div class="skill-check-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div>
+                <strong>Génie des matériaux & métallurgie physique :</strong> caractérisation des alliages et ZAT
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -628,11 +708,13 @@
       // 1. Theme Toggle
       var modeBtn = document.getElementById('modeBtn');
       var modeIcon = document.getElementById('modeIcon');
+      var modeIconSvg = document.getElementById('modeIconSvg');
 
       function updateLabel() {
         var isDark = document.documentElement.dataset.mode === 'dark' ||
           (!document.documentElement.dataset.mode && window.matchMedia('(prefers-color-scheme: dark)').matches);
         modeIcon.textContent = isDark ? 'Clair' : 'Sombre';
+        // Update SVG visibility via data-mode (handled by CSS)
       }
 
       updateLabel();
