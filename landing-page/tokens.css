@@ -1693,6 +1693,15 @@ html {
     flex-shrink: 0;
   }
 
+  .step-image-wrap {
+    aspect-ratio: auto;
+  }
+
+  .step-image-wrap img {
+    object-fit: contain;
+    height: auto;
+  }
+
   .workflow-footer-nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
